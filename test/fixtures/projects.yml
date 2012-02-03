@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  url: MyString
+  enable_autoupdate: false
+  autoupdate_login: MyString
+  autoupdate_password: MyString
+
+two:
+  name: MyString
+  url: MyString
+  enable_autoupdate: false
+  autoupdate_login: MyString
+  autoupdate_password: MyString

@@ -27,3 +27,8 @@ capybara-*.html
 **.orig
 rerun.txt
 pickle-email-*.html
+
+# Crane ignored files
+projects/*
+!projects/readme.txt
+
