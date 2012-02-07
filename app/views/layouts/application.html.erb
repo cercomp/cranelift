@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html>
+<%= render 'shared/html_tag' %>
 <head>
   <title>Cranelift</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
@@ -7,8 +6,6 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
-
+	<%= yield %>
 </body>
 </html>
