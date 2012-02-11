@@ -16,24 +16,33 @@ class Project < ActiveRecord::Base
             :if => "!enable_autoupdate.nil?"
 
   # TODO usar uma classe abstrata para decidir qual scm usar
-  def checkout
-    svn.checkout(self.url, project_path)
+  class Scm
+    def initialize(proj)
+      @project = proj
+    end
+
+    def checkout
+      svn.checkout(proj.url, @project.project_path)
+    end
+
+    def update (rev)
+      svn.update(@project.project_path, rev)
+    end
+
+    def log (start = 0, limit = 0)
+      svn.log(@project.project_path, start, 'HEAD', limit)
+    end
+
+    def svn
+      @svn ||= CraneLift::SvnScm.new
+    end
   end
 
-  def update (rev)
-    svn.update(project_path, rev)
+  def scm
+    return Scm.new(self)
   end
 
-  def log (start = 0, limit = 0)
-    svn.log(project_path, start, 'HEAD', limit)
-  end
-
-  private
   def project_path
     File.join(Rails.root, 'projects', self.name)
-  end
-
-  def svn
-    @svn ||= CraneLift::SvnScm.new
   end
 end
