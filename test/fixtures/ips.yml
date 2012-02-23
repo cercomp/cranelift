@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  ip: 1.1.1.1
+  description: Ip Simples
+  cidr:
+
+two:
+  ip: 1.1.1.256
+  description: Ip inválido (1)
+  cidr:
+  
+three:
+  ip: 1.1.432.256
+  description: Ip inválido (2)
+  cidr:
+
+four:
+  ip: 192.168.0.0
+  description: To check cidr
+  cidr: 24

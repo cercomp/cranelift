@@ -14,6 +14,8 @@ class User < ActiveRecord::Base
             :uniqueness => true,
             :format => { :with => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i }
 
+  # TODO fazer login com LDAP http://rubygems.org/gems/net-ldap
+  # http://redmine.rubyforge.org/svn/trunk/app/models/auth_source_ldap.rb
   def self.authenticate(email, password)
     user = find_by_email(email)
     if user and user.password_hash == BCrypt::Engine.hash_secret(password, user.password_salt)
