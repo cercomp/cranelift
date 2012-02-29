@@ -11,6 +11,10 @@ class UserTest < ActiveSupport::TestCase
 
     user.name = ''
     assert(!user.save, 'should not save user without name')
+
+    user = users(:one)
+    user.login = ''
+    assert(!user.save, 'should not save user without login')
     
     user1, user2 = users(:one), users(:two)
     user1.login = user2.login
