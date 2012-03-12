@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  url: https://svn.cercomp.ufg.br/pub/teste/
+  enable_autoupdate: false
+  autoupdate_login: ''
+  autoupdate_password: ''
+
+auto_update:
+  url: https://svn.cercomp.ufg.br/pub/teste/
+  enable_autoupdate: true
+  autoupdate_login: 'login'
+  autoupdate_password: 'password'

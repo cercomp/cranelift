@@ -4,7 +4,8 @@ Cranelift::Application.routes.draw do
 
   resources :home, :only => 'index'
   resources :session, :only => ['new', 'create', 'destroy']
-  resources :user, :except => []
+  resources :users, :except => []
+  resources :projects
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
