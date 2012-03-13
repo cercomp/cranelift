@@ -4,15 +4,16 @@ class Repository < ActiveRecord::Base
   validates_presence_of :project
 
   validates :url,
-            :presence => :true
+            :presence => :true,
+            :format => { :with => /^http[s]{,1}:\/\/[\w\.\-\%\#\=\?\&]+\.([\w\.\-\%\#\=\?\&]+\/{,1})*/i }
 
   validates :autoupdate_login,
             :presence => true,
-            :if => "!enable_autoupdate.nil?"
+            :if => "enable_autoupdate == true"
 
   validates :autoupdate_password,
             :presence => true,
-            :if => "!enable_autoupdate.nil?"
+            :if => "enable_autoupdate == true"
 
   # TODO usar uma classe abstrata para decidir qual scm usar
   class Scm
@@ -42,6 +43,6 @@ class Repository < ActiveRecord::Base
   end
 
   def project_path
-    File.join(Rails.root, 'projects', self.name)
+    File.join(Rails.root, 'repositories', self.name)
   end
 end

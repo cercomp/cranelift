@@ -3,4 +3,6 @@ class Project < ActiveRecord::Base
             :presence => :true,
             :uniqueness => true,
             :length => {:in => 3..32}
+
+  has_many :repositories
 end

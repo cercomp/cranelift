@@ -1,12 +1,28 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-one:
+valid:
+  project_id: 1
   url: https://svn.cercomp.ufg.br/pub/teste/
   enable_autoupdate: false
   autoupdate_login: ''
   autoupdate_password: ''
 
-auto_update:
+invalid_autoupdate:
+  project_id: 1
+  url: https://svn.cercomp.ufg.br/pub/teste/
+  enable_autoupdate: true
+  autoupdate_login:
+  autoupdate_password:
+
+invalid_url:
+  project_id: 1
+  url: url_invalida
+  enable_autoupdate: false
+  autoupdate_login:
+  autoupdate_password:
+
+valid_autoupdate:
+  project_id: 1
   url: https://svn.cercomp.ufg.br/pub/teste/
   enable_autoupdate: true
   autoupdate_login: 'login'

@@ -3,12 +3,12 @@ require 'test_helper'
 class ProjectTest < ActiveSupport::TestCase
   fixtures :projects
 
-  test "project validation" do
-    p = Project.new
-    assert !p.save, "Project should have a name"
+  test "project without name validation" do
+    assert !projects(:invalid).valid?
+  end
 
-    p.name = Project.first.name
-    assert !p.save, "Name of project should be unique"
+  test "project with name validation" do
+    assert projects(:one).valid?
   end
 
 end
