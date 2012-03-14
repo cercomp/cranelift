@@ -2,6 +2,7 @@ require 'test_helper'
 
 class ProjectsControllerTest < ActionController::TestCase
   setup do
+    session[:user_id] = users(:one).id # usuario logado
     @project = projects(:one)
   end
 

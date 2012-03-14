@@ -10,4 +10,13 @@ class ActiveSupport::TestCase
   fixtures :all
 
   # Add more helper methods to be used by all tests here...
+  def login(user)
+  	open_session do |sess|
+      u = users(user)
+      sess.https!
+      sess.post "/login", :username => u.login, :password => u.password
+      assert_equal root_url, path
+      sess.https!(false)
+    end
+  end
 end

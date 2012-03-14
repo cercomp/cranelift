@@ -1,9 +1,12 @@
 Cranelift::Application.routes.draw do
 
+  get '/login' => 'session#new'
+  post '/login' => 'session#create'
+  delete '/logout' => 'session#destroy'
+
   root :to => 'home#index'
 
   resources :home, :only => 'index'
-  resources :session, :only => ['new', 'create', 'destroy']
   resources :users, :except => []
   resources :projects
 

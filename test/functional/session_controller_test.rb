@@ -2,7 +2,6 @@
 require 'test_helper'
 
 class SessionControllerTest < ActionController::TestCase
-  fixtures :all
 
   test "should get new" do
     get :new
