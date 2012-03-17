@@ -11,3 +11,5 @@ pt-BR:
       active: Ativo
       login_type: Tipo de login
   users:
+    create:
+      successfully_create: Usuário criado com sucesso

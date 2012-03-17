@@ -1,4 +1,3 @@
-# encoding: utf-8
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
@@ -9,6 +8,10 @@ class ApplicationController < ActionController::Base
   end
 
   def authenticate!
-  	redirect_to(root_url, :alert => 'Você deve estar logado') if !current_user
+  	redirect_to(root_url, :alert => t('application.should_logged')) if !current_user
+  end
+
+  def noauthenticate!
+  	redirect_to(root_url, :alert => t('application.shouldnot_logged')) if current_user
   end
 end

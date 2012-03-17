@@ -46,19 +46,26 @@ ActiveRecord::Schema.define(:version => 20120208154052) do
     t.datetime "updated_at",          :null => false
   end
 
+  create_table "roles", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
   create_table "users", :force => true do |t|
     t.string   "login"
     t.string   "password_hash"
     t.string   "password_salt"
-    t.boolean  "admin"
-    t.boolean  "ip_block"
+    t.boolean  "admin",         :default => false
+    t.boolean  "ip_block",      :default => true
     t.datetime "last_action"
     t.string   "name"
     t.string   "email"
-    t.boolean  "active"
+    t.boolean  "active",        :default => false
     t.string   "login_type"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "created_at",                       :null => false
+    t.datetime "updated_at",                       :null => false
   end
 
 end

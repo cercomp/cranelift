@@ -1,14 +1,12 @@
 class CreateRoles < ActiveRecord::Migration
   def change
     create_table :roles do |t|
-      t.string :name
-      t.text :description
+      t.string  :name
+      t.text    :description
 
       t.timestamps
     end
-  end
-
-  def change
+    
     create_table :project_users do |t|
       t.references :user
       t.references :role

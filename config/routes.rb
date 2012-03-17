@@ -1,14 +1,19 @@
 Cranelift::Application.routes.draw do
 
-  get '/login' => 'session#new'
-  post '/login' => 'session#create'
-  delete '/logout' => 'session#destroy'
-
-  root :to => 'home#index'
+  get     '/login'  => 'session#new'
+  post    '/login'  => 'session#create'
+  delete  '/logout' => 'session#destroy'
 
   resources :home, :only => 'index'
-  resources :users, :except => []
+
+  get   '/sigup'        => 'users#new'
+  get   '/account'      => 'users#show'
+  get   '/editaccount'  => 'users#edit'
+  resources :users, :only => [:create, :update]
+
   resources :projects
+
+  root :to => 'home#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

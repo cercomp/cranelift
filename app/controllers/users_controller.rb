@@ -1,8 +1,9 @@
 class UsersController < ApplicationController
-  def index
-  end
+  before_filter :authenticate!, :except => [:new, :create]
+  before_filter :noauthenticate!, :only => [:new, :create]
 
   def show
+    @user = current_user
   end
 
   def new
@@ -12,13 +13,14 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
     if @user.save
-      redirect :show
+      redirect_to login_url, :notice => t('users.create.successfully_create')
     else
       render :new
     end
   end
 
   def edit
+    @user = current_user
   end
 
   def update
