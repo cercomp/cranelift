@@ -1,6 +1,9 @@
 require 'bcrypt'
 
 class User < ActiveRecord::Base
+  has_many :project_users
+  has_many :projects, :through => :project_users
+
   attr_accessor :password
   before_save :encrypt_password
   
@@ -18,7 +21,7 @@ class User < ActiveRecord::Base
   validates :email,
             :presence => true,
             :uniqueness => true,
-            :format => { :with => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i }
+            :format => { :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i }
 
   # TODO fazer login com LDAP http://rubygems.org/gems/net-ldap
   # http://redmine.rubyforge.org/svn/trunk/app/models/auth_source_ldap.rb

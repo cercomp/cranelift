@@ -1,15 +1,10 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  name: Teste
-  url: https://svn.cercomp.ufg.br/pub/teste/
-  enable_autoupdate: false
-  autoupdate_login: MyString
-  autoupdate_password: MyString
+  id: 1
+  name: Project One
+  description: Descricao do Projeto
 
-two:
-  name: MyString
-  url: MyString
-  enable_autoupdate: false
-  autoupdate_login: MyString
-  autoupdate_password: MyString
+invalid:
+  name:
+  description:
