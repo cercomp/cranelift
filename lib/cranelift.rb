@@ -1,6 +1,8 @@
 require 'svn/client'
 
-module CraneLift
+require 'cranelift/permission'
+
+module Cranelift
 
   class SvnScm
     def initialize

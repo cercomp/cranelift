@@ -23,7 +23,6 @@ ActiveRecord::Schema.define(:version => 20120208154052) do
 
   create_table "project_users", :force => true do |t|
     t.integer  "user_id"
-    t.integer  "role_id"
     t.integer  "project_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
@@ -58,6 +57,7 @@ ActiveRecord::Schema.define(:version => 20120208154052) do
     t.string   "password_hash"
     t.string   "password_salt"
     t.boolean  "admin",         :default => false
+    t.integer  "role_id"
     t.boolean  "ip_block",      :default => true
     t.datetime "last_action"
     t.string   "name"

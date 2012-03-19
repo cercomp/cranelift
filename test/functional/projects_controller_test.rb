@@ -13,6 +13,7 @@ class ProjectsControllerTest < ActionController::TestCase
   end
 
   test "should get new" do
+    users(:one).role = Role.defaults[:gerente]
     get :new
     assert_response :success
   end
@@ -26,8 +27,16 @@ class ProjectsControllerTest < ActionController::TestCase
   end
 
   test "should show project" do
+    users(:one).projects << @project # adiciona o usuário ao projeto
     get :show, id: @project
     assert_response :success
+  end
+
+  test "should not show project" do
+    users(:one).projects = []
+    get :show, id: @project
+    assert_response :redirect
+    assert_redirected_to root_path
   end
 
   test "should get edit" do

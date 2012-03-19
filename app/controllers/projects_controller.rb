@@ -2,40 +2,23 @@
 class ProjectsController < ApplicationController
   before_filter :authenticate!
 
-  # GET /projects
-  # GET /projects.json
   def index
-    @projects = Project.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @projects }
-    end
+    @projects = current_user.admin? ? Project.all : current_user.projects
   end
 
-  # GET /projects/1
-  # GET /projects/1.json
   def show
     @project = Project.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @project }
+    unless current_user.projects.include?(@project)
+      redirect_to root_url, :alert => t('project.show.not_allowed') unless current_user.admin?
     end
   end
 
-  # GET /projects/new
-  # GET /projects/new.json
+  # FIXME trabalhar permissões primeiro, pare verificar se um usuário poderá editar um projeto
   def new
+    redirect_to root_url unless can? 'project', 'new'
     @project = Project.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @project }
-    end
   end
 
-  # GET /projects/1/edit
   def edit
     @project = Project.find(params[:id])
   end
