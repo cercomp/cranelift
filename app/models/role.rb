@@ -1,9 +1,7 @@
 # encoding: utf-8
-# FIXME mover defaults para um outro arquivo
 class Role < ActiveRecord::Base
   has_many :users
-
-  attr_accessor :permissions
+  has_and_belongs_to_many :permissions
 
   validates :name,
             :presence => :true,
@@ -11,11 +9,11 @@ class Role < ActiveRecord::Base
             :length => {:in => 3..32}
 
   def self.defaults
-    gerente = Role.new :name => 'Gerente', :description => 'Gerencia o sistema'
-    gerente.permissions = Cranelift::Permission.defaults[:gerente]
+    gerente = Role.find_or_create_by_name('Gerente', :description => 'Gerencia o sistema')
+    gerente.permissions = Permission.defaults[:gerente]
 
-    comum = Role.new :name => 'Usuário Comum', :description => 'Usuário comum do sistema'
-    comum.permissions = Cranelift::Permission.defaults[:comum]
+    comum = Role.find_or_create_by_name('Usuário Comum', :description => 'Usuário comum do sistema')
+    comum.permissions = Permission.defaults[:comum]
     
     {gerente: gerente, comum: comum}
   end

@@ -21,12 +21,20 @@ ActiveRecord::Schema.define(:version => 20120208154052) do
     t.datetime "updated_at",  :null => false
   end
 
-  create_table "project_users", :force => true do |t|
-    t.integer  "user_id"
-    t.integer  "project_id"
+  create_table "permissions", :force => true do |t|
+    t.string   "name"
+    t.string   "controller"
+    t.string   "actions"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  create_table "permissions_roles", :force => true do |t|
+    t.integer "permission_id"
+    t.integer "role_id"
+  end
+
+  add_index "permissions_roles", ["permission_id", "role_id"], :name => "index_permissions_roles_on_permission_id_and_role_id", :unique => true
 
   create_table "projects", :force => true do |t|
     t.string   "name"
@@ -34,6 +42,13 @@ ActiveRecord::Schema.define(:version => 20120208154052) do
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
+
+  create_table "projects_users", :id => false, :force => true do |t|
+    t.integer "project_id"
+    t.integer "user_id"
+  end
+
+  add_index "projects_users", ["project_id", "user_id"], :name => "index_projects_users_on_project_id_and_user_id", :unique => true
 
   create_table "repositories", :force => true do |t|
     t.integer  "project_id"

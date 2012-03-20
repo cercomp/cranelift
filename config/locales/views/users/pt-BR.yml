@@ -1,0 +1,4 @@
+pt-BR:
+  users:
+    create:
+      successfully_create: Usuário criado com sucesso

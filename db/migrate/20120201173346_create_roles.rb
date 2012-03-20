@@ -6,13 +6,6 @@ class CreateRoles < ActiveRecord::Migration
 
       t.timestamps
     end
-    
-    create_table :project_users do |t|
-      t.references :user
-      t.references :project
-
-      t.timestamps
-    end
   end
 end
 
