@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Url:</b>
+  <%= @repository.url %>
+</p>
+
+<p>
+  <b>Enable autoupdate:</b>
+  <%= @repository.enable_autoupdate %>
+</p>
+
+<p>
+  <b>Autoupdate login:</b>
+  <%= @repository.autoupdate_login %>
+</p>
+
+<p>
+  <b>Autoupdate password:</b>
+  <%= @repository.autoupdate_password %>
+</p>
+
+
+<%= link_to 'Edit', edit_project_repository_path(@current_project, @repository) %> |
+<%= link_to 'Back', project_repositories_path(@current_project) %>

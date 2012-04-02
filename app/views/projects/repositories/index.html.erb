@@ -1,0 +1,29 @@
+<h1>Listing repositories</h1>
+
+<table>
+  <tr>
+    <th>Url</th>
+    <th>Enable autoupdate</th>
+    <th>Autoupdate login</th>
+    <th>Autoupdate password</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @repositories.each do |repository| %>
+  <tr>
+    <td><%= repository.url %></td>
+    <td><%= repository.enable_autoupdate %></td>
+    <td><%= repository.autoupdate_login %></td>
+    <td><%= repository.autoupdate_password %></td>
+    <td><%= link_to 'Show', [@current_project, repository] %></td>
+    <td><%= link_to 'Edit', edit_project_repository_path(@current_project, repository) %></td>
+    <td><%= link_to 'Destroy', [@current_project, repository], confirm: 'Você tem certeza que deseja deletar este repositorio?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Novo repositorio', new_project_repository_path %>

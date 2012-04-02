@@ -1,7 +1,5 @@
 require 'svn/client'
 
-require 'cranelift/permission'
-
 module Cranelift
 
   class SvnScm

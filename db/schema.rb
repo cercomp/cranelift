@@ -53,11 +53,12 @@ ActiveRecord::Schema.define(:version => 20120208154052) do
   create_table "repositories", :force => true do |t|
     t.integer  "project_id"
     t.string   "url"
-    t.boolean  "enable_autoupdate"
+    t.string   "name"
+    t.boolean  "enable_autoupdate",   :default => false
     t.string   "autoupdate_login"
     t.string   "autoupdate_password"
-    t.datetime "created_at",          :null => false
-    t.datetime "updated_at",          :null => false
+    t.datetime "created_at",                             :null => false
+    t.datetime "updated_at",                             :null => false
   end
 
   create_table "roles", :force => true do |t|

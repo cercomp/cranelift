@@ -1,17 +1,20 @@
 Cranelift::Application.routes.draw do
 
-  get     '/login'  => 'session#new'
+  get     '/login'  => 'session#new',     :as => :login
   post    '/login'  => 'session#create'
-  delete  '/logout' => 'session#destroy'
+  delete  '/logout' => 'session#destroy', :as => :logout
 
   resources :home, :only => 'index'
 
-  get   '/sigup'        => 'users#new'
-  get   '/account'      => 'users#show'
-  get   '/editaccount'  => 'users#edit'
+  get   '/sigup'        => 'users#new',   :as => :sigup
+  get   '/account'      => 'users#show',  :as => :account
+  get   '/editaccount'  => 'users#edit',  :as => :editaccount
+
   resources :users, :only => [:create, :update]
 
-  resources :projects
+  resources :projects do
+    resources :repositories, :controller => 'projects/repositories'
+  end
 
   root :to => 'home#index'
 

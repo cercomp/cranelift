@@ -26,7 +26,7 @@ class ProjectsController < ApplicationController
 
     if @project.save
       current_user.projects << @project
-      redirect_to @project, notice: 'Project was successfully created.'
+      redirect_to @project, notice: t('application.obj_seccessfully_created', :obj => 'Projeto')
     else
       render action: "new"
     end
@@ -36,7 +36,7 @@ class ProjectsController < ApplicationController
     redirect_if_cannot 'update', 'project'
 
     if @project.update_attributes(params[:project])
-      redirect_to @project, notice: 'Project was successfully updated.'
+      redirect_to @project, notice: t('application.obj_seccessfully_updated', :obj => 'Projeto')
     else
       render action: "edit"
     end
