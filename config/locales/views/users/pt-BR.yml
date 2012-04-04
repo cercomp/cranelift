@@ -1,4 +1,6 @@
 pt-BR:
   users:
     create:
-      successfully_create: Usuário criado com sucesso
+      successfully_create: 'Sua conta foi criada com sucesso!'
+    update:
+      successfully_updated: 'Sua conta foi editada com sucesso!'

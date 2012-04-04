@@ -2,11 +2,29 @@
 require 'cranelift'
 
 class Repository < ActiveRecord::Base
+  # Callbacks
+  before_update do |repo|
+    # TODO quando um repositorio ter seu nome alterado, o nome da pasta
+    # dos arquivos do repositorio também deve ser alterado
+    # 
+    # old_repo = Repository.find(repo.id)
+    # if old_repository.name =! repo.name entao mude o nome da pasta para repo.name
+  end
+
+  before_create do
+    scm.checkout
+  end
+
+  before_destroy do
+    scm.delete_files
+  end
+
+
+  # Relatioships
   belongs_to :project
 
-  before_create :checkout_repository
-  before_destroy :delete_repository
 
+  # Validations
   validates_presence_of :project
 
   validates :name,
@@ -29,7 +47,7 @@ class Repository < ActiveRecord::Base
 
   validate :check_valid_repository, :on => :create
 
-  # TODO usar uma classe abstrata para decidir qual scm usar
+  # TODO usar/mover uma classe abstrata para decidir qual scm usar
   class Scm
     def initialize(proj)
       @project = proj
@@ -78,13 +96,6 @@ class Repository < ActiveRecord::Base
 
 
   private
-  def checkout_repository
-    scm.checkout
-  end
-
-  def delete_repository
-    scm.delete_files
-  end
 
   def check_valid_repository
     errors.add(:url, 'URL especificada não é um repositório svn válido') if scm.info.nil?

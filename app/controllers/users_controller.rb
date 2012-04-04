@@ -24,5 +24,14 @@ class UsersController < ApplicationController
   end
 
   def update
+    @user = current_user
+    params[:user].slice!(:name, :password, :password_confirmation)
+    params[:user].except!(:password, :password_confirmation) if params[:user][:password].blank?
+
+    if @user.update_attributes params[:user]
+      redirect_to @user, :notice => t('users.update.successfully_updated')
+    else
+      render :edit
+    end
   end
 end

@@ -13,7 +13,7 @@ class ProjectsControllerTest < ActionController::TestCase
 
 
   # Todos os usuários poderão acessar a index de projetos, que listara os projetos
-  # pertencentes a ele, execeto o administrador do poderá visualizar todos projetos
+  # pertencentes a ele, exceto o administrador do poderá visualizar todos projetos
   # cadastrados no sistema
   test "should get index" do
     get :index
