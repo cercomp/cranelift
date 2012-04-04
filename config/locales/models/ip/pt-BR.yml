@@ -10,7 +10,6 @@ pt-BR:
       email: Email
       active: Ativo
       login_type: Tipo de login
-  ip:
   errors:
     messages:
       invalid_ip: O número de IP informado é inválido

@@ -1,8 +1,8 @@
 require 'bcrypt'
 
 class User < ActiveRecord::Base
-  has_many :project_users
-  has_many :projects, :through => :project_users
+  has_and_belongs_to_many :projects
+  belongs_to :role
 
   attr_accessor :password
   before_save :encrypt_password
