@@ -52,8 +52,8 @@ ActiveRecord::Schema.define(:version => 20120208154052) do
 
   create_table "repositories", :force => true do |t|
     t.integer  "project_id"
-    t.string   "url"
     t.string   "name"
+    t.string   "url"
     t.boolean  "enable_autoupdate",   :default => false
     t.string   "autoupdate_login"
     t.string   "autoupdate_password"

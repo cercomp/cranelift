@@ -6,5 +6,6 @@ pt-BR:
     should_logged: Você deve estar logado
     shouldnot_logged: Você não pode estar logado
     unauthorized_access: Acesso restrito.
-    obj_seccessfully_created: "%{obj} criado com sucesso!"
-    obj_seccessfully_updated: "%{obj} atualizado com sucesso!"
+    obj_successfully_created: "%{obj} criado com sucesso!"
+    obj_successfully_updated: "%{obj} atualizado com sucesso!"
+    obj_successfully_destroyed: "%{obj} removido com sucesso!"

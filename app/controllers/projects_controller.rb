@@ -12,38 +12,38 @@ class ProjectsController < ApplicationController
   end
 
   def new
-    redirect_if_cannot 'new', 'project'
+    redirect_if_cannot 'new', 'projects'
     @project = Project.new
   end
 
   def edit
-    redirect_if_cannot 'edit', 'project'
+    redirect_if_cannot 'edit', 'projects'
   end
 
   def create
-    redirect_if_cannot 'create', 'project'
+    redirect_if_cannot 'create', 'projects'
     @project = Project.new(params[:project])
 
     if @project.save
       current_user.projects << @project
-      redirect_to @project, notice: t('application.obj_seccessfully_created', :obj => 'Projeto')
+      redirect_to @project, notice: t('application.obj_successfully_created', :obj => 'Projeto')
     else
       render action: "new"
     end
   end
 
   def update
-    redirect_if_cannot 'update', 'project'
+    redirect_if_cannot 'update', 'projects'
 
     if @project.update_attributes(params[:project])
-      redirect_to @project, notice: t('application.obj_seccessfully_updated', :obj => 'Projeto')
+      redirect_to @project, notice: t('application.obj_successfully_updated', :obj => 'Projeto')
     else
       render action: "edit"
     end
   end
 
   def destroy
-    redirect_if_cannot 'destroy', 'project'
+    redirect_if_cannot 'destroy', 'projects'
     @project.destroy
 
     redirect_to projects_url

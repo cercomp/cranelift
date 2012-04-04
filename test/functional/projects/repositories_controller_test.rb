@@ -23,7 +23,10 @@ class Projects::RepositoriesControllerTest < ActionController::TestCase
 
   test "should create repository" do
     assert_difference('Repository.count') do
-      post :create, { repository: @repository.attributes, :project_id => @project.id }
+      post :create, {
+        repository: @repository.attributes.slice('project_id', 'name', 'url'),
+        :project_id => @project.id
+      }
     end
 
     assert_redirected_to project_repository_path(@project, assigns(:repository))

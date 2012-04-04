@@ -1,3 +1,4 @@
+# TODO colocar permissões
 class Projects::RepositoriesController < ApplicationController
   before_filter :authenticate!
   before_filter :assign_project
@@ -22,7 +23,6 @@ class Projects::RepositoriesController < ApplicationController
     @repository = Repository.new(params[:repository])
 
     if @repository.save
-      @repository.svm.checkout
       redirect_to [@current_project, @repository], notice: 'Repository was successfully created.'
     else
       render action: "new"
