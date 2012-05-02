@@ -1,0 +1,7 @@
+pt-BR:
+  activerecord:
+    log:
+      user: Usuário
+      message: Mensagem
+      messages:
+        a: Se cadastrou no sistema

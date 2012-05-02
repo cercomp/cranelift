@@ -13,6 +13,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
     if @user.save
+      log @user, 'Se cadastrou no sistema'
       redirect_to login_url, :notice => t('users.create.successfully_create')
     else
       render :new
@@ -29,6 +30,7 @@ class UsersController < ApplicationController
     params[:user].except!(:password, :password_confirmation) if params[:user][:password].blank?
 
     if @user.update_attributes params[:user]
+      log @user, 'Atualizou seus dados'
       redirect_to @user, :notice => t('users.update.successfully_updated')
     else
       render :edit

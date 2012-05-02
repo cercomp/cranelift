@@ -10,7 +10,7 @@ class SessionController < ApplicationController
       redirect_to root_url, :notice => 'Acesso confirmado'
     else
       flash[:warning] = 'Email ou senha inválidos'
-      redirect_to :action => :new
+      render :new
     end
   end
   

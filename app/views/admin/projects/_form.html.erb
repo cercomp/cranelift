@@ -1,4 +1,4 @@
-<%= form_for(@project) do |f| %>
+<%= form_for([:admin, @project]) do |f| %>
   <% if @project.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@project.errors.count, "error") %> prohibited this project from being saved:</h2>
@@ -18,6 +18,13 @@
   <div class="field">
     <%= f.label :description %><br />
     <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label :users %><br />
+    <% User.all.each do |user| %>
+      <%= check_box_tag 'project[users][]', user.id, (@project.users.include?(user) && { :checked => true }) %>
+      <%= user.name %><br/>
+    <% end %>
   </div>
   <div class="actions">
     <%= f.submit %>

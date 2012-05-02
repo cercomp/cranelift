@@ -1,0 +1,18 @@
+<h1>Listing ips</h1>
+
+<table>
+  <tr>
+  </tr>
+
+<% @ips.each do |ip| %>
+  <tr>
+    <td><%= link_to 'Show', [:admin, ip] %></td>
+    <td><%= link_to 'Edit', edit_admin_ip_path(ip) %></td>
+    <td><%= link_to 'Destroy', [:admin, ip], confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Project', new_admin_ip_path %>

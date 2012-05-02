@@ -16,9 +16,7 @@ class SessionControllerTest < ActionController::TestCase
 
   test "should not login" do
     post(:create, {:login => 'unknowuser', :password => '?'})
-    assert_redirected_to login_path
     assert_nil assigns['user']
-    assert_equal 'Email ou senha inválidos', flash[:warning]
   end
 
   test "should logout" do

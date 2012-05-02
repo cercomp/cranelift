@@ -2,7 +2,7 @@ Cranelift::Application.routes.draw do
 
   # Session routes
   get     '/login'  => 'session#new',     :as => :login
-  post    '/login'  => 'session#create'
+  post    '/login'  => 'session#create',  :as => :login
   delete  '/logout' => 'session#destroy', :as => :logout
 
 
@@ -11,20 +11,34 @@ Cranelift::Application.routes.draw do
 
 
   # Users routes
-  get '/editaccount' => 'users#edit', :as => :edit_user
   resources :users, :except => [:edit, :destroy], :path_names => {
-    :new => :signup
+    :new => :signup,
+    :edit => :editaccount
   }
 
 
   # Projects routes
-  resources :projects do
-    resources :repositories, :controller => 'projects/repositories'
+  resources :projects, :only => [:index, :show] do
+    resources :repositories, :controller => 'projects/repositories', :only => [:index, :show]
   end
 
 
-  # Ips routes
-  resources :ips
+  # Admin namespace for administration
+  namespace :admin do
+    # Ips routes
+    resources :ips
+
+    # Logs routes
+    resources :logs, :only => :index
+
+    # User routes
+    resources :users
+
+    # Projects routes
+    resources :projects do
+      resources :repositories, :controller => 'projects/repositories'
+    end
+  end
 
 
   # Logs routes

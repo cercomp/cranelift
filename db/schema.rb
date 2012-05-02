@@ -23,6 +23,8 @@ ActiveRecord::Schema.define(:version => 20120208154053) do
 
   create_table "logs", :force => true do |t|
     t.integer  "user_id"
+    t.string   "controller"
+    t.string   "action"
     t.string   "message"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false

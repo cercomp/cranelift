@@ -1,4 +1,4 @@
-<%= form_for(@ip) do |f| %>
+<%= form_for [:admin, @ip] do |f| %>
   <% if @ip.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@ip.errors.count, "error") %> prohibited this ip from being saved:</h2>

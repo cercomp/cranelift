@@ -17,13 +17,8 @@
     <td><%= repository.enable_autoupdate %></td>
     <td><%= repository.autoupdate_login %></td>
     <td><%= repository.autoupdate_password %></td>
-    <td><%= link_to 'Show', [@current_project, repository] %></td>
-    <td><%= link_to 'Edit', edit_project_repository_path(@current_project, repository) %></td>
-    <td><%= link_to 'Destroy', [@current_project, repository], confirm: 'Você tem certeza que deseja deletar este repositorio?', method: :delete %></td>
+    <td><%= link_to 'Show', [current_project, repository] %></td>
   </tr>
 <% end %>
 </table>
 
-<br />
-
-<%= link_to 'Novo repositorio', new_project_repository_path %>

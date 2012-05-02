@@ -1,5 +1,5 @@
 # encoding: utf-8
-class IpsController < ApplicationController
+class Admin::IpsController < ApplicationController
   before_filter :authenticate!
 
   def index
@@ -27,7 +27,8 @@ class IpsController < ApplicationController
     redirect_if_cannot 'create', 'ips'
     @ip = Ip.new(params[:ip])
     if @ip.save
-      redirect_to @ip, notice: t('application.obj_successfully_created', :obj => 'Ip')
+      log current_user, "Criou o IP : #{@ip.to_json}"
+      redirect_to [:admin, @ip], notice: t('application.obj_successfully_created', :obj => 'Ip')
     else
       render action: "new"
     end
@@ -37,7 +38,8 @@ class IpsController < ApplicationController
     redirect_if_cannot 'update', 'ips'
     @ip = Ip.find(params[:id])
     if @ip.update_attributes(params[:ip])
-      redirect_to @ip, notice: t('application.obj_successfully_updated', :obj => 'Ip')
+      log current_user, "Atualizou o IP : #{@ip.to_json}"
+      redirect_to [:admin, @ip], notice: t('application.obj_successfully_updated', :obj => 'Ip')
     else
       render action: "edit"
     end
@@ -48,6 +50,8 @@ class IpsController < ApplicationController
     @ip = Ip.find(params[:id])
     @ip.destroy
 
-    redirect_to ips_path, :notice => t('application.obj_successfully_destroyed', :obj => 'Ip')
+    log current_user, "Removeu o IP : #{@ip.to_json}"
+
+    redirect_to admin_ips_path, :notice => t('application.obj_successfully_destroyed', :obj => 'Ip')
   end
 end

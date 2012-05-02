@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user
   def current_user
-  	return @current_user || User.find(session[:user_id]) if session[:user_id]
+  	return (@current_user ||= User.find(session[:user_id])) if session[:user_id]
   	false
   end
 
@@ -19,6 +19,8 @@ class ApplicationController < ActionController::Base
     return true if current_user.admin?
     return false if current_user.role.nil?
 
+    logger.debug "\n\n----\n#{controller}"
+
     current_user.role.permissions.each do |permission|
       if permission.controller == controller and permission.actions.split.include?(action)
         return true
@@ -27,7 +29,11 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def redirect_if_cannot(actions, controller)
-    redirect_to root_url, :alert => t('application.unauthorized_access') unless can? controller, actions
+  def redirect_if_cannot(action, controller)
+    redirect_to root_url, :alert => t('application.unauthorized_access') unless can? action, controller
   end
+
+  # Adiciona método de log
+  include Log::CrLogger
+  helper_method :log
 end

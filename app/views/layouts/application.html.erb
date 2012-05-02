@@ -7,6 +7,15 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <div class="messages">
+    <% [:notice, :info, :warning, :error, :alert].each do |type| %>
+      <% if flash[type] %>
+        <%= content_tag(:div, flash.now[type], :class => "flash #{type}") %>
+        <% flash[type] = nil %>
+      <% end %>
+    <% end %>
+  </div>
+
 	<%= yield %>
 </body>
 </html>

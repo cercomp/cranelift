@@ -30,7 +30,7 @@ class Repository < ActiveRecord::Base
   validates :name,
     :presence => true,
     :uniqueness => { :scope => :project_id },
-    :format => { :with => /\A\w+\z/, :message => 'É permitido apenas letras e números no nome' },
+    :format => { :with => /\A[\w\s]+\z/, :message => 'É permitido apenas letras e números no nome' },
     :length => {:in => 3..32}
 
   validates :url,
@@ -54,10 +54,8 @@ class Repository < ActiveRecord::Base
     end
 
     def checkout
-      if File.directory?(@project.project_path)
-        # TODO dar um raise em um erro aki?
-        puts 'Erro, diretório já existe'
-      else
+      # Só faz o checkout caso o diretório não exista
+      unless File.directory?(@project.project_path)
         svn.checkout(@project.url, @project.project_path)
       end
     end

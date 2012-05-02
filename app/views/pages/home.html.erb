@@ -1,1 +1,12 @@
 <h1>Home</h1>
+
+<% if @projects.empty? %>
+  <h2>Nenhum projeto em que participa</h2>
+<% end %>
+
+
+<% @projects.each do |project| %>
+  <div class="project">
+    <%= project.name %>
+  </div>
+<% end %>
