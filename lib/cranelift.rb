@@ -25,14 +25,11 @@ module Cranelift
       logs
     end
 
-    def info(url)
-      # testei na minha maquina e tive um problema com urls terminadas com barra /
-      url = url[0...-1] if url[-1] == '/'
-      # TODO construir bloco e pegar as informações
+    def info(repo_path)
       begin
-        @ctx.info(url) do |path, info|
+        @ctx.info(repo_path) do |path, info|
+          return info
         end
-        return true
       rescue Svn::Error::SvnError
         return nil
       end

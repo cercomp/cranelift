@@ -75,7 +75,7 @@ class Repository < ActiveRecord::Base
     end
 
     def info
-      svn.info(@project.url)
+      svn.info(@project.project_path)
     end
 
     def svn
@@ -96,6 +96,6 @@ class Repository < ActiveRecord::Base
   private
 
   def check_valid_repository
-    errors.add(:url, 'URL especificada não é um repositório svn válido') if scm.info.nil?
+    errors.add(:url, 'URL especificada não é um repositório svn válido') if scm.svn.info(url).nil?
   end
 end
