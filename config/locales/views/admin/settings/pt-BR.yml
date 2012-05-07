@@ -1,0 +1,12 @@
+'pt-BR':
+  admin:
+    settings:
+      index:
+        allow_register: Habilitar Cadastro
+        default_role: Papel padrão
+        login_method: Método de login
+        block_ip: Bloquear IP
+        allow_cidr: Habilitar faixa de IP
+        ldap: LDAP
+        system: Sistema
+

@@ -38,6 +38,9 @@ Cranelift::Application.routes.draw do
     resources :projects do
       resources :repositories, :controller => 'projects/repositories'
     end
+
+    get 'settings' => 'settings#index'
+    post 'settings' => 'settings#update_all'
   end
 
   get 'admin' => 'admin/projects#index', :as => :admin
