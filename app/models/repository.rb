@@ -87,9 +87,17 @@ class Repository < ActiveRecord::Base
     @scm ||= Scm.new(self)
   end
 
+  def revision
+    scm.info().rev
+  end
+
   def project_path
     # Assumimos que o nome é sempre validado (sanitizado)
-    File.join(Rails.root, 'repositories', self.project.name, self.name)
+    @project_name ||= sanitize_string_to_folder_name(self.project.name)
+    @repository_name ||= sanitize_string_to_folder_name(self.name)
+
+    # TODO caminho pode ser configurável
+    File.join(Rails.root, 'repositories', @project_name, @repository_name)
   end
 
 
@@ -97,5 +105,9 @@ class Repository < ActiveRecord::Base
 
   def check_valid_repository
     errors.add(:url, 'URL especificada não é um repositório svn válido') if scm.svn.info(url).nil?
+  end
+
+  def sanitize_string_to_folder_name(s)
+    s.downcase.gsub(/[\x00\/\\:\*\?\"<>\| ]/, '_')
   end
 end

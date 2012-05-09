@@ -10,6 +10,7 @@ module Cranelift
     end
 
     def checkout(url, destination)
+      url = remove_last_slash(url)
       @ctx.checkout(url, destination)
     end
 
@@ -26,13 +27,21 @@ module Cranelift
     end
 
     def info(repo_path)
+      repo_path = remove_last_slash(repo_path) if repo_path.is_a? String
       begin
+        @info
         @ctx.info(repo_path) do |path, info|
-          return info
+          @info = info
         end
+        @info
       rescue Svn::Error::SvnError
         return nil
       end
+    end
+
+    def remove_last_slash(s)
+      s = s[0...-1] if (s[-1] == '/')
+      s
     end
 
   end
