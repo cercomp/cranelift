@@ -34,8 +34,8 @@ class Repository < ActiveRecord::Base
     :length => {:in => 3..32}
 
   validates :url,
-    :presence => :true,
-    :format => { :with => /^http[s]{,1}:\/\/[\w\.\-\%\#\=\?\&]+\.([\w\.\-\%\#\=\?\&]+\/{,1})*/i }
+    :presence => :true
+    #:format => { :with => /^http[s]{,1}:\/\/[\w\.\-\%\#\=\?\&]+\.([\w\.\-\%\#\=\?\&]+\/{,1})*/i }
 
   validates :autoupdate_login,
     :presence => true,
@@ -104,7 +104,7 @@ class Repository < ActiveRecord::Base
   private
 
   def check_valid_repository
-    errors.add(:url, 'URL especificada não é um repositório svn válido') if scm.svn.info(url).nil?
+    errors.add(:url, 'especificada não é um repositório svn válido') if scm.svn.info(url).nil?
   end
 
   def sanitize_string_to_folder_name(s)

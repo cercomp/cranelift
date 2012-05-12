@@ -9,3 +9,4 @@ pt-BR:
     obj_successfully_created: "%{obj} criado com sucesso!"
     obj_successfully_updated: "%{obj} atualizado com sucesso!"
     obj_successfully_destroyed: "%{obj} removido com sucesso!"
+    ip_not_allowed: Seu IP não é liberado para acessar a aplicação

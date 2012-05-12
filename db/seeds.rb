@@ -20,3 +20,5 @@ flag = User.create(
   login_type: 'normal'
 )
 puts flag ? 'Administrador criado com sucesso' : 'Não foi possível cadastrar o administrador'
+
+Role::defaults # Cria os papeis padrão

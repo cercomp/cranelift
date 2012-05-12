@@ -7,37 +7,42 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <div class="messages">
-    <% [:notice, :info, :warning, :error, :alert].each do |type| %>
-      <% if flash[type] %>
-        <%= content_tag(:div, flash.now[type], :class => "flash #{type}") %>
-        <% flash[type] = nil %>
-      <% end %>
-    <% end %>
-  </div>
+  <div id="wrapper">
 
-  <div id="menu">
-    <ul>
-      <% if current_user %>
-        <%= content_tag :li, link_to('logout', logout_path, :method => :delete) %>
-      <% else %>
-        <%= content_tag :li, link_to('registrar', new_user_path) %>
-        <%= content_tag :li, link_to('login', login_path) %>
-      <% end %>
-      
-      <%= content_tag :li, link_to('home', home_path) %>
-      <%= content_tag :li, link_to('projects', projects_path) %>
-
-      <%= content_tag :li, link_to('admin', admin_path) %>
+    <div id="menu">
       <ul>
-        <%= content_tag :li, link_to('projects', admin_projects_path) %>
-        <%= content_tag :li, link_to('settings', admin_settings_path) %>
-      </ul>
-    </ul>
-  </div>
+        <% if current_user %>
+          <%= content_tag :li, link_to('logout', logout_path, :method => :delete) %>
+        <% else %>
+          <%= content_tag :li, link_to('registrar', new_user_path) %>
+          <%= content_tag :li, link_to('login', login_path) %>
+        <% end %>
+        
+        <%= content_tag :li, link_to('home', home_path) %>
+        <%= content_tag :li, link_to('projects', projects_path) %>
 
-  <div id="content">
-	  <%= yield %>
+        <%= content_tag :li, link_to('admin', admin_path) %>
+        <ul>
+          <%= content_tag :li, link_to('projects', admin_projects_path) %>
+          <%= content_tag :li, link_to('users', admin_users_path) %>
+          <%= content_tag :li, link_to('ips', admin_ips_path) %>
+          <%= content_tag :li, link_to('settings', admin_settings_path) %>
+        </ul>
+      </ul>
+    </div>
+
+    <div id="content">
+      <div class="messages">
+        <% [:notice, :info, :warning, :error, :alert].each do |type| %>
+          <% if flash[type] %>
+            <%= content_tag(:div, flash.now[type], :class => "flash #{type}") %>
+            <% flash[type] = nil %>
+          <% end %>
+        <% end %>
+      </div>
+      
+  	  <%= yield %>
+    </div>
   </div>
 </body>
 </html>

@@ -45,6 +45,11 @@ class Admin::UsersController < ApplicationController
   end
 
   def destroy
+    @user = User.find(params[:id])
+
+    @user.destroy
+    # TODO tradução aki
+    redirect_to admin_users_url, :notice => 'Removido com sucesso'
     # TODO usuário poderão ser removidos??
   end
 end

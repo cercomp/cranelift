@@ -2,10 +2,19 @@
 
 <table>
   <tr>
+    <th>Ip</th>
+    <th>Cidr</th>
+    <th>Description</th>
+    <th></th>
+    <th></th>
+    <th></th>
   </tr>
 
 <% @ips.each do |ip| %>
   <tr>
+    <td><%= ip.ip %></td>
+    <td><%= ip.cidr %></td>
+    <td><%= ip.description %></td>
     <td><%= link_to 'Show', [:admin, ip] %></td>
     <td><%= link_to 'Edit', edit_admin_ip_path(ip) %></td>
     <td><%= link_to 'Destroy', [:admin, ip], confirm: 'Are you sure?', method: :delete %></td>
@@ -15,4 +24,4 @@
 
 <br />
 
-<%= link_to 'New Project', new_admin_ip_path %>
+<%= link_to 'New Ip', new_admin_ip_path %>
