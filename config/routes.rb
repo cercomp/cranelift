@@ -11,7 +11,7 @@ Cranelift::Application.routes.draw do
 
 
   # Users routes
-  resources :users, :except => [:index, :edit, :destroy], :path_names => {
+  resources :users, :except => [:index, :destroy], :path_names => {
     :new => :signup,
     :edit => :editaccount
   }

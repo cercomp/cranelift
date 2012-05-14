@@ -4,3 +4,5 @@ pt-BR:
       successfully_create: 'Sua conta foi criada com sucesso!'
     update:
       successfully_updated: 'Sua conta foi editada com sucesso!'
+    alert:
+      not_allow_register: O sistema não está aceitando registro de novos usuários

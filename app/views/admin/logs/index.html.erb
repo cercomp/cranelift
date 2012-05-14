@@ -1,0 +1,25 @@
+<h1>Lista de Logs</h1>
+
+<div id="log-index">
+  <table>
+    <thead>
+      <tr>
+        <th>Usuário</th>
+        <th>Controller</th>
+        <th>Action</th>
+        <th>Mensagem</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @logs.each do |log| %>
+        <tr>
+          <td><%= log.user.name %></td>
+          <td><%= log.controller %></td>
+          <td><%= log.action %></td>
+          <td><%= log.message %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

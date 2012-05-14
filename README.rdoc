@@ -1,3 +1,9 @@
 == Crane Lift
 
 Um Projeto do Cercomp...
+
+=== Referências
+
+Twitter Bootstrap SCSS : http://railsapps.github.com/twitter-bootstrap-rails.html
+
+http://www.cs.toronto.edu/~james/svn/ruby_docs.html

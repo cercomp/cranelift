@@ -2,6 +2,8 @@ class UsersController < ApplicationController
   before_filter :authenticate!, :except => [:new, :create]
   before_filter :noauthenticate!, :only => [:new, :create]
 
+  before_filter :allow_register?, :only => [:new, :create]
+
   def show
     @user = current_user
   end
@@ -34,6 +36,13 @@ class UsersController < ApplicationController
       redirect_to @user, :notice => t('users.update.successfully_updated')
     else
       render :edit
+    end
+  end
+
+private
+  def allow_register?
+    if setting(:allow_register) == 'false'
+      redirect_to root_url, :alert => t('users.alert.not_allow_register')
     end
   end
 end

@@ -1,5 +1,5 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lag="pt-BR">
 <head>
   <title>Cranelift</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
@@ -7,42 +7,48 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <div id="wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="span3">
+        <div class="well sidebar-nav">
 
-    <div id="menu">
-      <ul>
-        <% if current_user %>
-          <%= content_tag :li, link_to('logout', logout_path, :method => :delete) %>
-        <% else %>
-          <%= content_tag :li, link_to('registrar', new_user_path) %>
-          <%= content_tag :li, link_to('login', login_path) %>
-        <% end %>
-        
-        <%= content_tag :li, link_to('home', home_path) %>
-        <%= content_tag :li, link_to('projects', projects_path) %>
+          <ul nav nav-list>
+            <% if current_user %>
+              <%= content_tag :li, link_to('logout', logout_path, :method => :delete) %>
+            <% else %>
+              <%= content_tag :li, link_to('registrar', new_user_path) if setting(:allow_register) == 'true' %>
+              <%= content_tag :li, link_to('login', login_path) %>
+            <% end %>
+            
+            <%= content_tag :li, link_to('home', home_path) %>
+            <%= content_tag :li, link_to('projects', projects_path) %>
 
-        <%= content_tag :li, link_to('admin', admin_path) %>
-        <ul>
-          <%= content_tag :li, link_to('projects', admin_projects_path) %>
-          <%= content_tag :li, link_to('users', admin_users_path) %>
-          <%= content_tag :li, link_to('ips', admin_ips_path) %>
-          <%= content_tag :li, link_to('settings', admin_settings_path) %>
-        </ul>
-      </ul>
-    </div>
+            <%= content_tag :li, link_to('admin', admin_path) %>
+            <ul>
+              <%= content_tag :li, link_to('projects', admin_projects_path) %>
+              <%= content_tag :li, link_to('users', admin_users_path) %>
+              <%= content_tag :li, link_to('ips', admin_ips_path) %>
+              <%= content_tag :li, link_to('logs', admin_logs_path) %>
+              <%= content_tag :li, link_to('settings', admin_settings_path) %>
+            </ul>
+          </ul>
+        </div><!--/.well -->
+      </div><!--/span-->
 
-    <div id="content">
-      <div class="messages">
-        <% [:notice, :info, :warning, :error, :alert].each do |type| %>
-          <% if flash[type] %>
-            <%= content_tag(:div, flash.now[type], :class => "flash #{type}") %>
-            <% flash[type] = nil %>
+      <div class="span9">
+        <div class="messages">
+          <% [:notice, :info, :warning, :error, :alert].each do |type| %>
+            <% if flash[type] %>
+              <%= content_tag(:div, flash.now[type], :class => "flash #{type}") %>
+              <% flash[type] = nil %>
+            <% end %>
           <% end %>
-        <% end %>
-      </div>
-      
-  	  <%= yield %>
-    </div>
+        </div>
+        
+        <%= yield %>
+      </div><!--/span-->
+
+    </div><!--/row-->
   </div>
 </body>
 </html>

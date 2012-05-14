@@ -39,6 +39,10 @@ module Cranelift
       end
     end
 
+    def export(from, to, revision)
+      @ctx.export(from, to, revision)
+    end
+
     def remove_last_slash(s)
       s = s[0...-1] if (s[-1] == '/')
       s
