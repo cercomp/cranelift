@@ -1,0 +1,21 @@
+<h1><%= t('.title') %></h1>
+
+<table>
+  <tr>
+    <% scope = 'activerecord.attributes.role' %>
+    <th><%= t('name', :scope => scope) %></th>
+    <th><%= t('description', :scope => scope) %></th>
+    <th>Ação</th>
+  </tr>
+
+  <% @roles.each do |role| %>
+    <tr>
+      <td><%= role.name %></td>
+      <td><%= role.description %></td>
+      <td class="secondary-options">
+        <% #TODO decidir como ficará as permissões/papeis %>
+        <%= link_to t('.manage_permissions'), '#' %>
+      </td>
+    </tr>
+  <% end %>
+</table>

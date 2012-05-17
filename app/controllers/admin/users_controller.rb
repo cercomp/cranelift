@@ -1,6 +1,6 @@
 # encoding: utf-8
 class Admin::UsersController < ApplicationController
-  before_filter :authenticate!
+  before_filter :authenticate!, :only_admin!
 
   def index
     @users = User.paginate(:page => params[:page])
@@ -19,7 +19,7 @@ class Admin::UsersController < ApplicationController
   end
 
   def create
-    params[:user].slice!(:login, :password, :password_confirmation, :admin, :ip_block, :name, :email)
+    params[:user].slice!(:login, :password, :password_confirmation, :admin, :ip_block, :name, :email, :role_id)
     @user = User.new(params[:user])
 
     if @user.save
@@ -33,7 +33,7 @@ class Admin::UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
 
-    params[:user].slice!(:login, :password, :password_confirmation, :admin, :ip_block, :name, :email)
+    params[:user].slice!(:login, :password, :password_confirmation, :admin, :ip_block, :name, :email, :role_id)
     params[:user].except!(:password, :password_confirmation) if params[:user][:password].blank?
 
     if @user.update_attributes(params[:user])

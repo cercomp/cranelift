@@ -4,6 +4,11 @@ Um Projeto do Cercomp...
 
 === Referências
 
-Twitter Bootstrap SCSS : http://railsapps.github.com/twitter-bootstrap-rails.html
+Twitter Bootstrap SCSS
+  http://railsapps.github.com/twitter-bootstrap-rails.html
 
-http://www.cs.toronto.edu/~james/svn/ruby_docs.html
+Alguma documentação dos bindings SVN
+  http://www.cs.toronto.edu/~james/svn/ruby_docs.html
+
+Datepicker p/ bootstrap
+  http://www.eyecon.ro/bootstrap-datepicker/

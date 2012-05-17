@@ -1,0 +1,6 @@
+pt-BR:
+  admin:
+    roles:
+      index:
+        title: Papeis
+        manage_permissions: Gerenciar Permissões

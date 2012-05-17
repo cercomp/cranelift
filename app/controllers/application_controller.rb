@@ -8,10 +8,9 @@ class ApplicationController < ActionController::Base
 
     allowed_pages = [root_url, login_url]
     if allowed_pages.include?(request.original_url) or
-      setting(:block_ip) == 'false' or
-      current_user.admin? or
-      !current_user.ip_block?
-
+        setting(:block_ip) == 'false' or
+        current_user.admin? or
+        !current_user.ip_block?
       return true
     end
 
@@ -35,11 +34,15 @@ class ApplicationController < ActionController::Base
   	redirect_to(root_url, :alert => t('application.shouldnot_logged')) if current_user
   end
 
-  def can?(action, controller)
-    return true if current_user.admin?
-    return false if current_user.role.nil?
+  def only_admin!
+    redirect_if_cannot('view', 'admin')
+  end
 
-    logger.debug "\n\n----\n#{controller}"
+  # TODO implementar
+  def can?(action, controller)
+    return false  if current_user == false
+    return true   if current_user.admin?
+    return false  if current_user.role.nil?
 
     current_user.role.permissions.each do |permission|
       if permission.controller == controller and permission.actions.split.include?(action)
@@ -48,6 +51,7 @@ class ApplicationController < ActionController::Base
       end
     end
   end
+  helper_method :can?
 
   def redirect_if_cannot(action, controller)
     redirect_to root_url, :alert => t('application.unauthorized_access') unless can? action, controller

@@ -1,6 +1,6 @@
 # encoding: utf-8
 class Admin::ProjectsController < ApplicationController
-  before_filter :authenticate!
+  before_filter :authenticate!, :only_admin!
   before_filter :find_users_by_param, :only => [:create, :update]
 
   def index

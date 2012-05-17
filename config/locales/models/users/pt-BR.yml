@@ -1,12 +1,17 @@
 pt-BR:
   activerecord:
-    user:
-      login: Login
-      password: Password
-      admin: É administrador?
-      ip_block: Bloquear IP?
-      last_action: Última ação
-      name: Nome
-      email: Email
-      active: Ativo
-      login_type: Tipo de login
+    models:
+      user: Usuário
+    attributes:
+      user:
+        login: Login
+        password: Senha
+        password_confirmation: Confirmar Senha
+        role_id: Papel
+        admin: É administrador?
+        ip_block: Bloquear IP?
+        last_action: Última ação
+        name: Nome
+        email: Email
+        active: Ativo
+        login_type: Tipo de login

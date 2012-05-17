@@ -1,6 +1,6 @@
 # TODO colocar permissões
 class Admin::Projects::RepositoriesController < ApplicationController
-  before_filter :authenticate!
+  before_filter :authenticate!, :only_admin!
 
   helper_method :current_project
 

@@ -11,7 +11,7 @@ Cranelift::Application.routes.draw do
 
 
   # Users routes
-  resources :users, :except => [:index, :destroy], :path_names => {
+  resources :users, :except => [:destroy], :path_names => {
     :new => :signup,
     :edit => :editaccount
   }
@@ -31,8 +31,11 @@ Cranelift::Application.routes.draw do
     # Logs routes
     resources :logs, :only => :index
 
-    # User routes
+    # Users routes
     resources :users
+
+    # Roles routes
+    resources :roles
 
     # Projects routes
     resources :projects do

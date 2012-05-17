@@ -1,7 +1,8 @@
 # encoding: utf-8
 class Role < ActiveRecord::Base
   has_many :users
-  has_and_belongs_to_many :permissions
+
+  attr_accessible :permissions
 
   validates :name,
             :presence => :true,
@@ -15,6 +16,6 @@ class Role < ActiveRecord::Base
     comum = Role.find_or_create_by_name('Usuário Comum', :description => 'Usuário comum do sistema')
     comum.permissions = Permission.defaults[:comum]
     
-    {gerente: gerente, comum: comum}
+    { gerente: gerente, comum: comum }
   end
 end

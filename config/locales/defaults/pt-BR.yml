@@ -23,6 +23,8 @@
       default: "%A, %d de %B de %Y, %H:%M h"
       short: "%d/%m, %H:%M h"
       long: "%A, %d de %B de %Y, %H:%M h"
+      log: "%d/%m/%y %H:%M:%S"
+      datepicker: "%d-%m-%Y"
     am: ''
     pm: ''
 

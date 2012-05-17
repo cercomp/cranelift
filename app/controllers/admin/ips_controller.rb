@@ -1,6 +1,6 @@
 # encoding: utf-8
 class Admin::IpsController < ApplicationController
-  before_filter :authenticate!
+  before_filter :authenticate!, :only_admin!
 
   def index
     redirect_if_cannot 'view', 'ips'

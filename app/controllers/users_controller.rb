@@ -4,6 +4,10 @@ class UsersController < ApplicationController
 
   before_filter :allow_register?, :only => [:new, :create]
 
+  def index
+    @users = User.all
+  end
+
   def show
     @user = current_user
   end

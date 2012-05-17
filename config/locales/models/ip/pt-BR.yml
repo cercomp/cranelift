@@ -1,15 +1,12 @@
 pt-BR:
   activerecord:
-    ip:
-      login: Login
-      password: Password
-      admin: É administrador?
-      ip_block: Bloquear IP?
-      last_action: Última ação
-      name: Nome
-      email: Email
-      active: Ativo
-      login_type: Tipo de login
-  errors:
-    messages:
-      invalid_ip: O número de IP informado é inválido
+    models:
+      ip: IP
+    attributes:
+      ip:
+        ip: IP
+        cidr: CIDR
+        description: Descrição
+    errors:
+      messages:
+        invalid_ip: O número de IP informado é inválido

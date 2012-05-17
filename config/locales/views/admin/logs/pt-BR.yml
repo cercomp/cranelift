@@ -1,0 +1,6 @@
+pt-BR:
+  admin:
+    logs:
+      index:
+        title: Log de Atividade no Sistema
+        datetime: Data/Hora

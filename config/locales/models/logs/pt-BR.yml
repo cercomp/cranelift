@@ -1,7 +1,12 @@
 pt-BR:
   activerecord:
-    log:
-      user: Usuário
-      message: Mensagem
-      messages:
-        a: Se cadastrou no sistema
+    model:
+      log: Log
+    attributes:
+      log:
+        user: Usuário
+        controller: Controller
+        action: Action
+        message: Mensagem
+        messages:
+          a: Se cadastrou no sistema
