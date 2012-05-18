@@ -1,5 +1,9 @@
 pt-BR:
   users:
+    new:
+      title: Cadastro de Usuário
+    edit:
+      title: Editar dados pessoais
     create:
       successfully_create: 'Sua conta foi criada com sucesso!'
     update:

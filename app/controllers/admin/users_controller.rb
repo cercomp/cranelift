@@ -3,7 +3,7 @@ class Admin::UsersController < ApplicationController
   before_filter :authenticate!, :only_admin!
 
   def index
-    @users = User.paginate(:page => params[:page])
+    @users = User.page(params[:page]).per(10)
   end
 
   def show

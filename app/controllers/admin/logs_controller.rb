@@ -8,7 +8,7 @@ class Admin::LogsController < ApplicationController
       day, month, year = params[:date].split('-')
       date = DateTime.new(year.to_i, month.to_i, day.to_i)
       condition = ['created_at > ? AND created_at < ?', date.beginning_of_day, date.end_of_day]
-      @logs = Log.where(condition).page(params[:page]).per(4)
+      @logs = Log.where(condition).page(params[:page]).per(10)
     end
   end
 end

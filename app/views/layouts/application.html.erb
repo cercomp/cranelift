@@ -14,7 +14,8 @@
 
           <ul nav nav-list>
             <% if current_user %>
-              <%= content_tag :li, link_to(t('logout'), logout_path, :method => :delete) %>
+              <%= content_tag :li, link_to(t('.logout'), logout_path, :method => :delete) %>
+              <%= content_tag :li, link_to(t('.editaccount'), editaccount_path) %>
             <% else %>
               <%= content_tag :li, link_to(t('.register'), new_user_path) if setting(:allow_register) == 'true' %>
               <%= content_tag :li, link_to(t('.login'), login_path) %>

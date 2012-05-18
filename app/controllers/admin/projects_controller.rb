@@ -4,7 +4,7 @@ class Admin::ProjectsController < ApplicationController
   before_filter :find_users_by_param, :only => [:create, :update]
 
   def index
-    @projects = ::Project.paginate(:page => params[:page])
+    @projects = ::Project.page(params[:page]).per(10)
   end
 
   def show

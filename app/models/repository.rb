@@ -96,7 +96,7 @@ class Repository < ActiveRecord::Base
     @project_name ||= sanitize_string_to_folder_name(self.project.name)
     @repository_name ||= sanitize_string_to_folder_name(self.name)
 
-    REPOS_PATH.join(@project_name, @repository_name)
+    REPOS_PATH.join(@project_name, @repository_name).to_s
   end
 
 

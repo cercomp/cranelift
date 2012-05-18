@@ -21,6 +21,7 @@ pt-BR:
       ips: IPs
       logs: Logs
       settings: Configurações
+      editaccount: Editar seus Dados
   views:
     pagination:
       first: "&laquo;"
