@@ -1,0 +1,37 @@
+<%= stylesheet_link_tag 'admin/logs' %>
+<%= javascript_include_tag 'admin/logs' %>
+
+<h1><%= t('.title') %></h1>
+
+<div id="log-index">
+
+  <form method="get">
+    <form method="get" action="">
+      <div class="input-prepend input-append date" id="datepicker" data-date="<%= params[:date] || l(Time.now, :format => :datepicker) %>" data-date-format="dd-mm-yyyy">
+        <span class="add-on"><i class="icon-th"></i></span><input class="span2" size="16" type="text" name="date" value="<%= params[:date] || l(Time.now, :format => :datepicker) %>" readonly><button class="btn" type="submit"><i class="icon-search"></i> Filtrar pela data</button><a class="btn" href="?">Ou ver todos</a>
+      </div>
+    </form>
+  </form>
+
+  <table class="table table-condensed table-bordered">
+    <thead>
+      <tr>
+        <% scope = 'activerecord.attributes.log' %>
+        <th width="35%"><%= t('.datetime') %></th>
+        <th width="30%"><%= t('user',       :scope => scope) %></th>
+        <th><%= t('message',    :scope => scope) %></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @logs.each do |log| %>
+        <tr>
+          <td><%= l log.created_at, :format => :log %></td>
+          <td><%= log.user.name %></td>
+          <td><%= log.message %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%= paginate @logs %>
+</div>

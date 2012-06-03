@@ -1,0 +1,6 @@
+allow_register: false
+default_role: Gerente
+login_method: system
+block_ip: true
+allow_cidr: true
+

@@ -1,0 +1,12 @@
+pt-BR:
+  activerecord:
+    model:
+      log: Log
+    attributes:
+      log:
+        user: Usuário
+        controller: Controller
+        action: Action
+        message: Mensagem
+        messages:
+          a: Se cadastrou no sistema

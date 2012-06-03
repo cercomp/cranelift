@@ -1,0 +1,29 @@
+<%= form_for([:admin, @ip]) do |f| %>
+  <% if @ip.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@ip.errors.count, "error") %> prohibited this ip from being saved:</h2>
+
+      <ul>
+      <% @ip.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :ip %><br />
+    <%= f.text_field :ip %>
+  </div>
+  <div class="field">
+    <%= f.label :cidr %><br />
+    <%= f.text_field :cidr %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_area :description %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

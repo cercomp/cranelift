@@ -10,6 +10,7 @@ module Cranelift
     end
 
     def checkout(url, destination)
+      url = remove_last_slash(url)
       @ctx.checkout(url, destination)
     end
 
@@ -25,17 +26,26 @@ module Cranelift
       logs
     end
 
-    def info(url)
-      # testei na minha maquina e tive um problema com urls terminadas com barra /
-      url = url[0...-1] if url[-1] == '/'
-      # TODO construir bloco e pegar as informações
+    def info(repo_path)
+      repo_path = remove_last_slash(repo_path) if repo_path.is_a? String
       begin
-        @ctx.info(url) do |path, info|
+        @info
+        @ctx.info(repo_path) do |path, info|
+          @info = info
         end
-        return true
+        @info
       rescue Svn::Error::SvnError
         return nil
       end
+    end
+
+    def export(from, to, revision)
+      @ctx.export(from, to, revision)
+    end
+
+    def remove_last_slash(s)
+      s = s[0...-1] if (s[-1] == '/')
+      s
     end
 
   end

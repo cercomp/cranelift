@@ -1,0 +1,8 @@
+pt-BR:
+  activerecord:
+    models:
+      role: Papel
+    attributes:
+      role:
+        name: Nome
+        description: Descrição

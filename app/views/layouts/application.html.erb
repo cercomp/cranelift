@@ -1,5 +1,5 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lag="pt-BR">
 <head>
   <title>Cranelift</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
@@ -7,6 +7,51 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-	<%= yield %>
+  <div class="container">
+    <div class="row">
+      <div class="span3">
+        <div class="well sidebar-nav">
+
+          <ul nav nav-list>
+            <% if current_user %>
+              <%= content_tag :li, link_to(t('.logout'), logout_path, :method => :delete) %>
+              <%= content_tag :li, link_to(t('.editaccount'), editaccount_path) %>
+            <% else %>
+              <%= content_tag :li, link_to(t('.register'), new_user_path) if setting(:allow_register) == 'true' %>
+              <%= content_tag :li, link_to(t('.login'), login_path) %>
+            <% end %>
+            
+            <%= content_tag :li, link_to(t('.home'), home_path) %>
+            <%= content_tag :li, link_to(t('.projects'), projects_path) if can?('view', 'projects') %>
+            <%= content_tag :li, link_to(t('.users'), users_path) if can?('view', 'users') %>
+
+            <%= admin_menu('admin', admin_path) %>
+            <ul>
+              <%= admin_menu('projects',  admin_projects_path) %>
+              <%= admin_menu('users',     admin_users_path) %>
+              <%= admin_menu('ips',       admin_ips_path) %>
+              <%= admin_menu('logs',      admin_logs_path) %>
+              <%= admin_menu('roles',     admin_roles_path) %>
+              <%= admin_menu('settings',  admin_settings_path) %>
+            </ul>
+          </ul>
+        </div><!--/.well -->
+      </div><!--/span-->
+
+      <div class="span9">
+        <div class="messages">
+          <% flash.each do |name, msg| %>
+            <div class="alert alert-<%= name == :notice ? "success" : "error" %>">
+              <a class="close" data-dismiss="alert">×</a>
+              <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
+            </div>
+          <% end %>
+        </div>
+        
+        <%= yield %>
+      </div><!--/span-->
+
+    </div><!--/row-->
+  </div>
 </body>
 </html>

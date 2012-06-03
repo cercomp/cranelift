@@ -1,0 +1,19 @@
+<p>
+  <b>Name:</b>
+  <%= @project.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @project.description %>
+</p>
+
+<p>
+  <b>Integrantes</b>
+  <%= @project.users.map(&:name).join(', ') %>
+</p>
+
+
+<%= link_to 'Repositories', admin_project_repositories_path(@project) %> |
+<%= link_to 'Edit', edit_admin_project_path(@project) %> |
+<%= link_to 'Back', admin_projects_path %>

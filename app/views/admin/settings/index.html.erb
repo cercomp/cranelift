@@ -1,0 +1,48 @@
+<h1>Configurações</h1>
+
+<%= form_tag admin_settings_path do %>
+
+  <div class="setting">
+    <% s = Setting.find_or_default('login_method') %>
+    <%= label_tag "setting[#{s.id}][name]", t(".#{s.name}") %>
+    <%= hidden_field_tag "setting[#{s.id}][name]", s.name %>
+    <%= select_tag "setting[#{s.id}][value]", options_for_select([[t('.ldap'), 'ldap'], [t('.system'), 'system']], s.value) %>
+  </div>
+
+  <div class="setting">
+    <% s = Setting.find_or_default('default_role') %>
+    <%= label_tag "setting[#{s.id}][name]", t(".#{s.name}") %>
+    <%= hidden_field_tag "setting[#{s.id}][name]", s.name %>
+    <%= select_tag "setting[#{s.id}][value]", options_for_select(
+      Role.all.map{|r| [r.name, r.id]}, s.value) %>
+  </div>
+
+  <div class="setting">
+    <% s = Setting.find_or_default('allow_register') %>
+    <%= label_tag "setting[#{s.id}][name]", t(".#{s.name}") %>
+    <%= hidden_field_tag "setting[#{s.id}][name]", s.name %>
+    <%= hidden_field_tag "setting[#{s.id}][value]", 'false' %>
+    <%= check_box_tag "setting[#{s.id}][value]", 'true', s.value == 'true' %>
+  </div>
+
+  <div class="setting">
+    <% s = Setting.find_or_default('block_ip') %>
+    <%= label_tag "setting[#{s.id}][name]", t(".#{s.name}") %>
+    <%= hidden_field_tag "setting[#{s.id}][name]", s.name %>
+    <%= hidden_field_tag "setting[#{s.id}][value]", 'false' %>
+    <%= check_box_tag "setting[#{s.id}][value]", 'true', s.value == 'true' %>
+  </div>
+
+  <div class="setting">
+    <% s = Setting.find_or_default('allow_cidr') %>
+    <%= label_tag "setting[#{s.id}][name]", t(".#{s.name}") %>
+    <%= hidden_field_tag "setting[#{s.id}][name]", s.name %>
+    <%= hidden_field_tag "setting[#{s.id}][value]", 'false' %>
+    <%= check_box_tag "setting[#{s.id}][value]", 'true', s.value == 'true' %>
+  </div>
+
+  <div class="submit">
+    <%= submit_tag 'Salvar' %>
+  </div>
+
+<% end %>

@@ -1,4 +1,12 @@
 pt-BR:
   users:
+    new:
+      title: Cadastro de Usuário
+    edit:
+      title: Editar dados pessoais
     create:
-      successfully_create: Usuário criado com sucesso
+      successfully_create: 'Sua conta foi criada com sucesso!'
+    update:
+      successfully_updated: 'Sua conta foi editada com sucesso!'
+    alert:
+      not_allow_register: O sistema não está aceitando registro de novos usuários

@@ -1,0 +1,9 @@
+@import "bootstrap";
+
+td.secondary-options a {
+  color: whitesmoke;
+
+  &:hover {
+    color: $linkColorHover;
+  }
+}
