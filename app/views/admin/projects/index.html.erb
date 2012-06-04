@@ -1,25 +1,29 @@
 <h1>Listing projects</h1>
 
-<table>
+<table class="table table-striped">
   <tr>
-    <th>Name</th>
-    <th>Description</th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th><%= t('name', :scope => 'activerecord.attributes.project') %></th>
+    <th><%= t('description', :scope => 'activerecord.attributes.project') %></th>
+    <th colspan="2"><%= t('actions', :scope => 'application') %></th>
   </tr>
 
 <% @projects.each do |project| %>
-  <tr>
+  <tr data-url="<%= url_for([:admin, project]) %>" style="cursor: pointer">
     <td><%= project.name %></td>
     <td><%= project.description %></td>
-    <td><%= link_to 'Show', [:admin, project] %></td>
-    <td><%= link_to 'Edit', edit_admin_project_path(project) %></td>
-    <td><%= link_to 'Destroy', [:admin, project], confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= link_to t('edit', :scope => 'application'), edit_admin_project_path(project) %></td>
+    <td><%= link_to t('destroy', :scope => 'application'),
+                    [:admin, project], confirm: 'Are you sure?', method: :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Project', new_admin_project_path %>
+<script type="text/javascript">
+  $('tr').dblclick(function() {
+    window.location.href = $(this).data('url');
+  });
+</script>
+
+<%= link_to t('new_obj', :scope => 'application', :obj => t('activerecord.models.project')), new_admin_project_path %>

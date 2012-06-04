@@ -10,6 +10,11 @@ pt-BR:
     obj_successfully_updated: "%{obj} atualizado com sucesso!"
     obj_successfully_destroyed: "%{obj} removido com sucesso!"
     ip_not_allowed: Seu IP não é liberado para acessar a aplicação
+    actions: Ações
+    show: Mostrar
+    edit: Editar
+    destroy: Remover
+    new_obj: "Novo %{obj}"
   layouts:
     application:
       login: Login

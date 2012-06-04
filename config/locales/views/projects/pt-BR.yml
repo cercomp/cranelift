@@ -1,2 +1,4 @@
 pt-BR:
   projects:
+    index:
+      title: 'Lista de projetos'

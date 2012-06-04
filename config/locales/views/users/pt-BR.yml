@@ -1,5 +1,7 @@
 pt-BR:
   users:
+    index:
+      title: Lista de Usuários Cadastrados no Sistema
     new:
       title: Cadastro de Usuário
     edit:

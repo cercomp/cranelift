@@ -12,7 +12,7 @@ Cranelift::Application.routes.draw do
 
   # Users routes
   get 'editaccount' => 'users#edit'
-  resources :users, :except => [:destroy, :edit], :path_names => {
+  resources :users, :except => [:show, :destroy, :edit], :path_names => {
     :new => :signup } do
   end
 

@@ -45,7 +45,7 @@ class ApplicationController < ActionController::Base
     return false  if current_user.role.nil?
 
     current_user.role.permissions.each do |permission|
-      if permission.controller == controller and permission.actions.split.include?(action)
+      if permission[:controller] == controller and permission[:actions].split.include?(action)
         return true
         break
       end

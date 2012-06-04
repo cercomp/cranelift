@@ -1,3 +1,4 @@
+require 'net/https'
 require 'svn/client'
 
 module Cranelift

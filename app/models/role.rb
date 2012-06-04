@@ -10,13 +10,13 @@ class Role < ActiveRecord::Base
             :uniqueness => true,
             :length => {:in => 3..32}
 
+  def permissions
+    return Permission::defaults[name]
+  end
+
   def self.defaults
     gerente = Role.find_or_create_by_name('Gerente', :description => 'Gerencia o sistema')
-    gerente.permissions = Permission::defaults[:gerente]
-
     comum = Role.find_or_create_by_name('Usuário Comum', :description => 'Usuário comum do sistema')
-    comum.permissions = Permission.defaults[:comum]
-    
     { gerente: gerente, comum: comum }
   end
 end

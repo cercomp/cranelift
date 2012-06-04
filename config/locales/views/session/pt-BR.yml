@@ -1,0 +1,5 @@
+pt-BR:
+  session:
+    new:
+      login: Login
+      password: Senha
