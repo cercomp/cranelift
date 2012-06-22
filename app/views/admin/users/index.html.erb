@@ -3,27 +3,26 @@
 <table class="table table-striped dblclick">
   <tr>
     <% scope = 'activerecord.attributes.user' %>
-    <th><%= t('name', :scope => scope) %></th>
-    <th><%= t('login', :scope => scope) %></th>
-    <th><%= t('role_id', :scope => scope) %></th>
-    <th><%= t('ip_block', :scope => scope) %></th>
-    <th><%= t('email', :scope => scope) %></th>
+    <th><%= t('name',     :scope => scope) %></th>
+    <th><%= t('login',    :scope => scope) %></th>
+    <th><%= t('role_id',  :scope => scope) %></th>
+    <th><%= t('email',    :scope => scope) %></th>
     <th></th>
     <th></th>
   </tr>
 
 <% @users.each do |user| %>
   <tr data-url="<%= url_for([:admin, user]) %>" style="cursor: pointer">
-    <td><%= user.email %></td>
+    <td><%= user.name.capitalize %></td>
     <td><%= user_login_with_status(user) %></td>
     <td><%= user.role.name %></td>
-    <td><%= user.ip_block %></td>
-    <td><%= user.name.capitalize %></td>
+    <td><%= user.email %></td>
     <td><%= link_to 'Editar', edit_admin_user_path(user) %></td>
     <td><%= link_to 'Desabilitar', [:admin, user], confirm: 'Você tem certeza?', method: :delete %></td>
   </tr>
 <% end %>
 </table>
+<%= paginate @users %>
 
 <br />
 

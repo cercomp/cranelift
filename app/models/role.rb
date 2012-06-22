@@ -16,7 +16,7 @@ class Role < ActiveRecord::Base
 
   def self.defaults
     gerente = Role.find_or_create_by_name('Gerente', :description => 'Gerencia o sistema')
-    comum = Role.find_or_create_by_name('Usuário Comum', :description => 'Usuário comum do sistema')
+    comum = Role.find_or_create_by_name('Comum', :description => 'Usuário comum do sistema')
     { gerente: gerente, comum: comum }
   end
 end

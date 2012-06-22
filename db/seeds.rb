@@ -17,7 +17,8 @@ flag = User.create(
   name: 'Administrador',
   email: 'admin@admin.com',
   active: 'true',
-  login_type: 'normal'
+  login_type: 'normal',
+  role_id: 1
 )
 puts flag ? 'Administrador criado com sucesso' : 'Não foi possível cadastrar o administrador'
 

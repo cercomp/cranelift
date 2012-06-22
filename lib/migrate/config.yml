@@ -1,0 +1,4 @@
+user: root
+pass: admin
+host: localhost
+name: phpsvn_cercomp
