@@ -88,7 +88,11 @@ class Repository < ActiveRecord::Base
   end
 
   def revision
-    scm.info().rev
+    begin
+      scm.info().rev
+    rescue
+      '--'
+    end
   end
 
   def project_path

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lag="pt-BR">
+<html lang="pt-BR">
 <head>
   <title>Cranelift</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
@@ -7,12 +7,13 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <div class="container">
+  <div class="container" style="margin-top: 1em">
     <div class="row">
       <div class="span3">
-        <div class="well sidebar-nav">
+        <div class="well sidebar-nav" style="padding: 8px 0;">
 
-          <ul nav nav-list>
+          <ul class="nav nav-list">
+            <li class="nav-header">Menu</li>
             <% if current_user %>
               <%= content_tag :li, link_to(t('.logout'), logout_path, :method => :delete) %>
               <%= content_tag :li, link_to(t('.editaccount'), editaccount_path) %>
@@ -25,20 +26,19 @@
             <%= content_tag :li, link_to(t('.projects'), projects_path) if can?('view', 'projects') %>
             <%= content_tag :li, link_to(t('.users'), users_path) if can?('view', 'users') %>
 
+            <li class="nav-header">Administração</li>
             <%= admin_menu('admin', admin_path) %>
-            <ul>
-              <%= admin_menu('projects',  admin_projects_path) %>
-              <%= admin_menu('users',     admin_users_path) %>
-              <%= admin_menu('ips',       admin_ips_path) %>
-              <%= admin_menu('logs',      admin_logs_path) %>
-              <%= admin_menu('roles',     admin_roles_path) %>
-              <%= admin_menu('settings',  admin_settings_path) %>
-            </ul>
+            <%= admin_menu('projects',  admin_projects_path) %>
+            <%= admin_menu('users',     admin_users_path) %>
+            <%= admin_menu('ips',       admin_ips_path) %>
+            <%= admin_menu('logs',      admin_logs_path) %>
+            <%= admin_menu('roles',     admin_roles_path) %>
+            <%= admin_menu('settings',  admin_settings_path) %>
           </ul>
         </div><!--/.well -->
       </div><!--/span-->
 
-      <div class="span9">
+      <div class="span9 content">
         <div class="messages">
           <% flash.each do |name, msg| %>
             <div class="alert alert-<%= name == :notice ? "success" : "error" %>">

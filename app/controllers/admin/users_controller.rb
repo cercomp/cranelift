@@ -46,10 +46,8 @@ class Admin::UsersController < ApplicationController
 
   def destroy
     @user = User.find(params[:id])
+    @user.update_attribute :active, false
 
-    @user.destroy
-    # TODO tradução aki
-    redirect_to admin_users_url, :notice => 'Removido com sucesso'
-    # TODO usuário poderão ser removidos??
+    redirect_to admin_users_url, :notice => 'Desabilitado com sucesso'
   end
 end

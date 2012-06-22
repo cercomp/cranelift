@@ -1,13 +1,11 @@
-<h1>Listing admin_projects_repositories</h1>
+<%= content_tag :h1, "Lista de Repositórios do projeto '#{current_project.name}'" %>
 
-<table>
+<table class="table">
   <tr>
-    <th>Name</th>
+    <th>Nome</th>
     <th>Url</th>
     <th>Versão</th>
-    <th>Enable autoupdate</th>
-    <th>Autoupdate login</th>
-    <th>Autoupdate password</th>
+    <th>Auto-update</th>
     <th></th>
     <th></th>
     <th></th>
@@ -17,17 +15,15 @@
   <tr>
     <td><%= repository.name %></td>
     <td><%= repository.url %></td>
-    <td><%= repository.url %></td>
     <td><%= repository.revision %></td>
-    <td><%= repository.autoupdate_login %></td>
-    <td><%= repository.autoupdate_password %></td>
-    <td><%= link_to 'Show', [:admin, current_project, repository] %></td>
-    <td><%= link_to 'Edit', edit_admin_project_repository_path(current_project, repository) %></td>
-    <td><%= link_to 'Destroy', [:admin, current_project, repository], confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= repository.enable_autoupdate? ? 'OFF' : 'ON' %></td>
+    <td><%= link_to 'Mostrar', [:admin, current_project, repository] %></td>
+    <td><%= link_to 'Editar', edit_admin_project_repository_path(current_project, repository) %></td>
+    <td><%= link_to 'Remover', [:admin, current_project, repository], confirm: 'Você tem certeza?', method: :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Repository', new_admin_project_repository_path %>
+<%= link_to 'Novo Repositorio', new_admin_project_repository_path %>

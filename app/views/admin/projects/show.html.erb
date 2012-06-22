@@ -1,19 +1,23 @@
-<p>
-  <b>Name:</b>
-  <%= @project.name %>
-</p>
+<%= content_tag :h1, @project.name %>
 
-<p>
-  <b>Description:</b>
-  <%= @project.description %>
-</p>
+<table class="table">
+  <tr>
+    <th>Nome</th>
+    <td><%= @project.name %></td>
+  </tr>
 
-<p>
-  <b>Integrantes</b>
-  <%= @project.users.map(&:name).join(', ') %>
-</p>
+  <tr>
+    <th>Descrição
+    <td><%= @project.description %>
+  </tr>
+
+  <tr>
+    <th>Integrantes</th>
+    <td><%= @project.users.map{ |p| p.name.capitalize }.join(', ') %></td>
+  </tr>
+</table>
 
 
-<%= link_to 'Repositories', admin_project_repositories_path(@project) %> |
-<%= link_to 'Edit', edit_admin_project_path(@project) %> |
-<%= link_to 'Back', admin_projects_path %>
+<%= link_to 'Repositorios', admin_project_repositories_path(@project) %> |
+<%= link_to 'Editar', edit_admin_project_path(@project) %> |
+<%= link_to 'Voltar', admin_projects_path %>

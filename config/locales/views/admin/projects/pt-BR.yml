@@ -1,0 +1,6 @@
+pt-BR:
+  admin:
+    projects:
+      new:
+        title: Novo Projeto
+        back: Voltar

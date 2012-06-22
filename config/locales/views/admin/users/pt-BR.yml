@@ -1,0 +1,5 @@
+pt-BR:
+  admin:
+    users:
+      index:
+        user_inative: Usuário inativo
