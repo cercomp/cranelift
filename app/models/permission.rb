@@ -3,12 +3,14 @@ class Permission
   @@defaults = {
     'Gerente' => [
       { name: 'Gerenciar Projetos', controller: 'projects', actions: 'all' },
-      { name: 'Gerenciar Usuários', controller: 'users', actions: 'all' },
-      { name: 'Gerenciar Ips',      controller: 'ips', actions: 'all' }
+      { name: 'Gerenciar Usuários', controller: 'users',    actions: 'all' },
+      { name: 'Gerenciar Ips',      controller: 'ips',      actions: 'all' }
     ],
-    'Usuário Comum' => [
-      { name: 'Visualizer Projeto', controller: 'projects', actions: 'show' },
-      { name: 'Visualizar Usuário', controller: 'users', actions: 'show' }
+    'mantenedor' => [
+      { name: 'Visualizar Ips',     controller: 'ips',      actions: 'show' },
+      { name: 'Visualizar Projeto', controller: 'projects', actions: 'show' },
+      { name: 'Configurar Autoupdate', controller: 'projects', actions: 'show' },
+      { name: 'Visualizar Usuário', controller: 'users',    actions: 'show' }
     ]
   }
   def self.defaults

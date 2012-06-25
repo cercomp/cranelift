@@ -26,7 +26,8 @@
             <%= content_tag :li, link_to(t('.projects'), projects_path) if can?('view', 'projects') %>
             <%= content_tag :li, link_to(t('.users'), users_path) if can?('view', 'users') %>
 
-            <li class="nav-header">Administração</li>
+            <%= content_tag :li, t('.admin'),
+              :class => 'nav-header' if can?('view', 'admin') %>
             <%= admin_menu('admin', admin_path) %>
             <%= admin_menu('projects',  admin_projects_path) %>
             <%= admin_menu('users',     admin_users_path) %>

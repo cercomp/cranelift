@@ -1,6 +1,6 @@
 <h1>Lista de Usuários</h1>
 
-<table class="table table-striped dblclick">
+<table class="table table-striped dblclick nowrap">
   <tr>
     <% scope = 'activerecord.attributes.user' %>
     <th><%= t('name',     :scope => scope) %></th>
@@ -12,11 +12,28 @@
   </tr>
 
 <% @users.each do |user| %>
-  <tr data-url="<%= url_for([:admin, user]) %>" style="cursor: pointer">
-    <td><%= user.name.capitalize %></td>
-    <td><%= user_login_with_status(user) %></td>
-    <td><%= user.role.name %></td>
-    <td><%= user.email %></td>
+  <tr data-url="<%= url_for([:admin, user]) %>">
+    <td>
+      <div style="width:150px;">
+        <%= user.name.capitalize %>
+      </div>
+    </td>
+
+    <td>
+      <div style="width:120px;">
+      <%= user_login_with_status(user) %>
+    </td>
+
+    <td>
+      <div style="width:100px;">
+      <%= user.role.name %>
+    </td>
+
+    <td>
+      <div style="width:190px;">
+      <%= user.email %>
+    </td>
+
     <td><%= link_to 'Editar', edit_admin_user_path(user) %></td>
     <td><%= link_to 'Desabilitar', [:admin, user], confirm: 'Você tem certeza?', method: :delete %></td>
   </tr>
