@@ -1,0 +1,9 @@
+pt-BR:
+  admin:
+    ips:
+      index:
+        title: Lista de IPs
+      edit:
+        title: Editar IP
+      new:
+        title: Cadastrar IP

@@ -10,9 +10,20 @@
 
   <%= f.input :description, :input_html => { :rows => 3 } %>
 
-  <%= f.association :users, :collection => users_collection, :as => :check_boxes %>
+  <%= f.association :users, :collection => user_collection, :input_html => {
+      :'data-placeholder' => t('.select_users'),
+      :style => 'width:100%' } %>
+
+  <% content_for :javascripts do %>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $('#project_user_ids').chosen();
+      });
+    </script>
+  <% end %>
 
   <div class="form-actions">
     <%= f.button :submit, :class => 'btn-primary' %>
+    <%= link_to t('back'), admin_projects_path, :class => 'btn pull-right' %>
   </div>
 <% end %>

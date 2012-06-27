@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   before_filter :allow_register?, :only => [:new, :create]
 
   def index
-    @users = User.all
+    @users = User.order('LOWER(name)').page(params[:page]).per(20)
   end
 
   def show

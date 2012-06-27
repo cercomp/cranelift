@@ -3,3 +3,7 @@ pt-BR:
     users:
       index:
         user_inative: Usuário inativo
+      edit:
+        title: Editar usuário
+      form:
+        back: Voltar

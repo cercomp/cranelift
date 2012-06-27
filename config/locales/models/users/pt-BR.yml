@@ -7,7 +7,7 @@ pt-BR:
         login: Login
         password: Senha
         password_confirmation: Confirmar Senha
-        role_id: Papel
+        role: Papel
         admin: É administrador?
         ip_block: Bloquear IP?
         last_action: Última ação

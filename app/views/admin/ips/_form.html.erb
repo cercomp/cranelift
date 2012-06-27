@@ -1,29 +1,12 @@
-<%= form_for([:admin, @ip]) do |f| %>
-  <% if @ip.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@ip.errors.count, "error") %> prohibited this ip from being saved:</h2>
+<%= simple_form_for([:admin, @ip], :html => { :class => 'form-horizontal' }) do |f| %>
+  <%= render 'shared/form_errors', :f => f %>
 
-      <ul>
-      <% @ip.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <%= f.input :ip %>
+  <%= f.input :cidr %>
+  <%= f.input :description, :input_html => { :rows => 3 } %>
 
-  <div class="field">
-    <%= f.label :ip %><br />
-    <%= f.text_field :ip %>
-  </div>
-  <div class="field">
-    <%= f.label :cidr %><br />
-    <%= f.text_field :cidr %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br />
-    <%= f.text_area :description %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="form-actions">
+    <%= f.submit :class => 'btn-primary' %>
+    <%= link_to t('back'), admin_ips_path, :class => 'btn pull-right' %>
   </div>
 <% end %>

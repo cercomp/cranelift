@@ -1,7 +1,7 @@
 module Admin::ProjectsHelper
-  def users_collection
-    User.all.map do |user|
-      [user.name.capitalize, user.id]
+  def user_collection
+    User.order('LOWER(name)').map do |user|
+      ["#{user.name.titleize} (#{user.email})", user.id]
     end
   end
   

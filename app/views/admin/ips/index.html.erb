@@ -1,27 +1,18 @@
-<h1>Listing ips</h1>
+<h1><%= t('.title') %></h1>
 
-<table>
+<table class="table table-striped dblclick">
   <tr>
-    <th>Ip</th>
-    <th>Cidr</th>
-    <th>Description</th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th><%= t('ip', :scope => 'activerecord.attributes.ip') %></th>
+    <th><%= t('description', :scope => 'activerecord.attributes.ip') %></th>
+    <th colspan="2"><%= t('actions', :scope => 'application') %></th>
   </tr>
 
 <% @ips.each do |ip| %>
-  <tr>
-    <td><%= ip.ip %></td>
-    <td><%= ip.cidr %></td>
+  <tr data-url="<%= edit_admin_ip_path(ip) %>" style="cursor: pointer">
+    <td><%= "#{ip.ip}/#{ip.cidr}" %></td>
     <td><%= ip.description %></td>
-    <td><%= link_to 'Show', [:admin, ip] %></td>
-    <td><%= link_to 'Edit', edit_admin_ip_path(ip) %></td>
-    <td><%= link_to 'Destroy', [:admin, ip], confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= link_to t('destroy', :scope => 'application'),
+                    [:admin, ip], confirm: 'Are you sure?', method: :delete %></td>
   </tr>
 <% end %>
 </table>
-
-<br />
-
-<%= link_to 'New Ip', new_admin_ip_path %>

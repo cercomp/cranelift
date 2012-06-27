@@ -3,4 +3,7 @@ pt-BR:
     projects:
       new:
         title: Novo Projeto
-        back: Voltar
+      edit:
+        title: Editar Projeto
+      form:
+        select_users: Selecione os membros deste projeto

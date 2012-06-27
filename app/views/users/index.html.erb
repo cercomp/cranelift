@@ -10,16 +10,18 @@
 <% @users.each do |user| %>
   <% attrs = "data-url='#{url_for(edit_admin_user_path(user))}' style='cursor: pointer'" if current_user.admin? %>
   <tr <%= attrs %>>
-    <td><%= user.name %></td>
+    <td><%= user.name.titleize %></td>
     <td><%= user.role.try(:name) %></td>
     <td><%= user.email %></td>
   </tr>
 <% end %>
 </table>
 
+<%= paginate @users %>
+
 <% if current_user.admin? %>
   <script type="text/javascript">
-    $('tr').click(function() {
+    $('tr').dblclick(function() {
       window.location.href = $(this).data('url');
     });
   </script>
