@@ -1,9 +1,13 @@
 require 'net/https'
 require 'svn/client'
 
+require 'cranelift/scm'
+
 module Cranelift
 
   class SvnScm
+    attr_accessor :ctx
+
     def initialize
       @ctx = Svn::Client::Context.new
       @ctx.add_simple_provider
@@ -45,8 +49,7 @@ module Cranelift
     end
 
     def remove_last_slash(s)
-      s = s[0...-1] if (s[-1] == '/')
-      s
+      return (s[-1] == '/') ? s[0...-1] : s
     end
 
   end

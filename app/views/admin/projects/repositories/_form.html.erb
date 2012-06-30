@@ -1,37 +1,19 @@
-<%= form_for([:admin, current_project, @repository]) do |f| %>
-  <% if @repository.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@repository.errors.count, "error") %> prohibited this repository from being saved:</h2>
-
-      <ul>
-      <% @repository.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+<%= simple_form_for([:admin, current_project, @repository], :html => { :class => 'form-horizontal'}) do |f| %>
+  <% if notification = f.error_notification %>
+    <div class="alert alert-error fade in">
+      <a class="close" data-dismiss="alert" href="#">&times;</a>
+      <%= notification %>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :url %><br />
-    <%= f.text_field :url %>
-  </div>
-  <div class="field">
-    <%= f.label :enable_autoupdate %><br />
-    <%= f.check_box :enable_autoupdate %>
-  </div>
-  <div class="field">
-    <%= f.label :autoupdate_login %><br />
-    <%= f.text_field :autoupdate_login %>
-  </div>
-  <div class="field">
-    <%= f.label :autoupdate_password %><br />
-    <%= f.text_field :autoupdate_password %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+  <%= f.input :name %>
+  <%= f.input :url %>
+  <%= f.input :login %>
+  <%= f.input :password %>
+  <%= f.input :enable_autoupdate %>
+
+  <div class="form-actions">
+    <%= f.button :submit, :class => 'btn-primary' %>
+    <%= link_to t('back'), admin_project_repositories_path(current_project), :class => 'btn pull-right' %>
   </div>
 <% end %>

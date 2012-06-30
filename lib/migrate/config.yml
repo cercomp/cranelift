@@ -2,3 +2,5 @@ user: root
 pass: admin
 host: localhost
 name: phpsvn_cercomp
+
+php_projects_path: /home/danilo/public_html/phpsvn-deploy/trunk/projetos
