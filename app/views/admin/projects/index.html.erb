@@ -18,6 +18,7 @@
 <% end %>
 </table>
 
+<%= paginate @projects %>
 <br />
 
 <%= link_to t('application.new_obj', :obj => t('activerecord.models.project')), new_admin_project_path %>

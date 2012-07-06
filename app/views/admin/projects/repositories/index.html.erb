@@ -4,7 +4,6 @@
   <tr>
     <th>Nome</th>
     <th>Url</th>
-    <th>Versão</th>
     <th>Auto-update</th>
     <th></th>
     <th></th>
@@ -15,7 +14,6 @@
   <tr>
     <td><%= repository.name %></td>
     <td><%= repository.url %></td>
-    <td><%= repository.revision %></td>
     <td><%= repository.enable_autoupdate? ? 'OFF' : 'ON' %></td>
     <td><%= link_to 'Mostrar', [:admin, current_project, repository] %></td>
     <td><%= link_to 'Editar', edit_admin_project_repository_path(current_project, repository) %></td>
