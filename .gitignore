@@ -33,3 +33,4 @@ repositories/*
 
 Gemfile.lock
 lib/migrate/config.yml
+config/database.yml

@@ -13,7 +13,7 @@ group :mysql do
   gem 'mysql2'
 end
 
-gem 'bootstrap-sass', '~> 2.0.3'
+gem 'bootstrap-sass', '~> 2.1.0.0'
 gem 'kaminari'
 gem 'simple_form'
 
