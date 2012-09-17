@@ -38,23 +38,19 @@ class ApplicationController < ActionController::Base
     redirect_if_cannot('view', 'admin')
   end
 
-  # TODO implementar
   def can?(action, controller)
     return false  if current_user == false
     return true   if current_user.admin?
     return false  if current_user.role.nil?
 
     current_user.role.permissions.each do |permission|
-      if permission[:controller] == controller and permission[:actions].split.include?(action)
-        return true
-        break
-      end
+      return true if permission[:controller] == controller and permission[:actions].split.include?(action)
     end
   end
   helper_method :can?
 
   def redirect_if_cannot(action, controller)
-    redirect_to root_url, :alert => t('application.unauthorized_access') unless can? action, controller
+    redirect_to root_url, :alert => t('application.unauthorized_access') unless can?(action, controller)
   end
 
   def setting(st)

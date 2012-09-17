@@ -13,6 +13,7 @@ class Permission
       { name: 'Visualizar Usuário', controller: 'users',    actions: 'show' }
     ]
   }
+
   def self.defaults
     @@defaults
   end
