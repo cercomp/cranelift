@@ -1,11 +1,10 @@
 require 'rake/dsl_definition'
 require 'phpmigrate'
 
-namespace :migrate do
+namespace :cranelift do
   include Rake::DSL
 
-  migrate_models = [
-    :roles, :users, :ips, :projects]
+  migrate_models = [:roles, :users, :ips, :projects]
 
   migrate_models.each do |model|
     class_eval <<-BLOCK

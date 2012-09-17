@@ -22,4 +22,5 @@ flag = User.create(
 )
 puts flag ? 'Administrador criado com sucesso' : 'Não foi possível cadastrar o administrador'
 
-Role::defaults # Cria os papeis padrão
+puts 'Populando sistema com papeis e permissões'
+require Rails.root.join('db', 'seeds', 'permissions_roles.rb')

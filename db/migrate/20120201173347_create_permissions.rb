@@ -8,7 +8,7 @@ class CreatePermissions < ActiveRecord::Migration
       t.timestamps
     end
     
-    create_table :permissions_roles do |t|
+    create_table :permissions_roles, :id => false do |t|
       t.references :permission, :role
     end
     add_index :permissions_roles, [:permission_id, :role_id], :unique => true
