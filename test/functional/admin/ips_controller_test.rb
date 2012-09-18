@@ -5,7 +5,7 @@ class Admin::IpsControllerTest < ActionController::TestCase
     @ip = ips(:one)
     @user = users(:one)
     session[:user_id] = @user.id # usuario logado
-    @user.update_attribute :role, Role.defaults[:gerente]
+    @user.update_attribute :role, Role.find_by_name('Gerente')
   end
 
   test "index ip" do
@@ -25,7 +25,7 @@ class Admin::IpsControllerTest < ActionController::TestCase
       post :create, ip: @ip.attributes.slice('ip', 'description', 'cidr')
     end
     assert assigns['ip']
-    assert_redirected_to admin_ip_path(assigns['ip'])
+    assert_redirected_to admin_ips_path
   end
 
   test "should delete ip" do

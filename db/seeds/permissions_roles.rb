@@ -5,7 +5,8 @@ def permissions
     :gerente => [
       { name: 'Gerenciar Projetos', controller: 'projects', actions: 'all' },
       { name: 'Gerenciar Usuários', controller: 'users',    actions: 'all' },
-      { name: 'Gerenciar Ips',      controller: 'ips',      actions: 'all' }
+      { name: 'Gerenciar Ips',      controller: 'ips',      actions: 'all' },
+      { name: 'Ver Área Administrativa', controller: 'admin', actions: 'view' }
     ],
     :mantenedor => [
       { name: 'Visualizar Ips',     controller: 'ips',      actions: 'show' },

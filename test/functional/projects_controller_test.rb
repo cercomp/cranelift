@@ -5,7 +5,7 @@ class ProjectsControllerTest < ActionController::TestCase
     # Apenas usuários logados poderão acessar as funções de projetos
     @user = users(:one)
     session[:user_id] = @user.id # usuario logado
-    @user.update_attribute :role, Role.defaults[:gerente]
+    @user.update_attribute :role, Role.find_by_name('Gerente')
 
     @project = projects(:one)
     @user.projects << @project

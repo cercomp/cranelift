@@ -35,7 +35,7 @@ class UsersControllerTest < ActionController::TestCase
 
   test "should update user" do
     session[:user_id] = users(:one).id
-    post :update, user: {
+    post :update, id: users(:one).id, user: {
       name: 'newName'
     }
     assert assigns['user']

@@ -9,6 +9,10 @@ class ActiveSupport::TestCase
   # -- they do not yet inherit this setting
   fixtures :all
 
+  # Reset roles
+  Role.destroy_all
+  require Rails.root.join('db', 'seeds', 'permissions_roles.rb')
+
   # Add more helper methods to be used by all tests here...
   def login(user)
   	open_session do |sess|
