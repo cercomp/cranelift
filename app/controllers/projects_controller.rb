@@ -1,7 +1,7 @@
 # encoding: utf-8
 class ProjectsController < ApplicationController
   before_filter :authenticate!
-  before_filter :user_has_project, :only => [:show, :edit, :update, :destroy]
+  before_filter :user_has_project, :only => :show
 
   def index
     @projects = current_user.projects

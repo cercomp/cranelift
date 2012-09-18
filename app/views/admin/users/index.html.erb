@@ -26,7 +26,7 @@
 
     <td>
       <div style="width:100px;">
-      <%= user.role.name %>
+      <%= user.role.name rescue user.admin? ? t('.admin') : '' %>
     </td>
 
     <td>
@@ -43,4 +43,4 @@
 
 <br />
 
-<%= link_to 'New User', new_admin_user_path %>
+<%= link_to t('.new'), new_admin_user_path %>

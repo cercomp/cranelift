@@ -7,5 +7,17 @@ FactoryGirl.define do
     name 'User Batuta'
     active false
     login_type 'system'
+    admin false
+  end
+
+  factory :admin do
+    sequence(:login) { |count| "user_#{count}" }
+    sequence(:email) { |count| "email_#{count}@domain.com" }
+    password 'hadouken'
+    ip_block false
+    name 'User Batuta'
+    active false
+    login_type 'system'
+    admin true
   end
 end

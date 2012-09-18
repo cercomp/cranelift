@@ -7,12 +7,6 @@ class Admin::IpsController < ApplicationController
     @ips = Ip.all
   end
 
-
-  def show
-    redirect_if_cannot 'view', 'ips'
-    @ip = Ip.find(params[:id])
-  end
-
   def new
     redirect_if_cannot 'create', 'ips'
     @ip = Ip.new
@@ -28,7 +22,7 @@ class Admin::IpsController < ApplicationController
     @ip = Ip.new(params[:ip])
     if @ip.save
       log current_user, "Criou o IP : #{@ip.to_json}"
-      redirect_to [:admin, @ip], :notice => t('application.obj_successfully_created', :obj => 'Ip')
+      redirect_to admin_ips_url, :notice => t('application.obj_successfully_created', :obj => 'Ip')
     else
       render :action => "new"
     end

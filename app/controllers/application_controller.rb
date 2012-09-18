@@ -44,7 +44,8 @@ class ApplicationController < ActionController::Base
     return false  if current_user.role.nil?
 
     current_user.role.permissions.each do |permission|
-      return true if permission[:controller] == controller and permission[:actions].split.include?(action)
+      return true if permission.controller == controller and
+                     (permission.actions.split.include?(action) or permission.actions == 'all')
     end
   end
   helper_method :can?

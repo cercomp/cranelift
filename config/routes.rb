@@ -26,7 +26,7 @@ Cranelift::Application.routes.draw do
   # Admin namespace for administration
   namespace :admin do
     # Ips routes
-    resources :ips
+    resources :ips, :except => :show
 
     # Logs routes
     resources :logs, :only => :index

@@ -3,6 +3,8 @@ pt-BR:
     users:
       index:
         user_inative: Usuário inativo
+        admin: Administrador
+        new: Novo usuário
       edit:
         title: Editar usuário
       form:

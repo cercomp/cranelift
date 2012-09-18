@@ -3,6 +3,7 @@ pt-BR:
     ips:
       index:
         title: Lista de IPs
+        new: Novo Ip
       edit:
         title: Editar IP
       new:
