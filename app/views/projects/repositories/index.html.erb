@@ -3,11 +3,9 @@
 <table>
   <tr>
     <th>Url</th>
-    <th>Enable autoupdate</th>
+    <th>Autoupdate Habilitado?</th>
     <th>Autoupdate login</th>
     <th>Autoupdate password</th>
-    <th></th>
-    <th></th>
     <th></th>
   </tr>
 
@@ -15,8 +13,8 @@
   <tr>
     <td><%= repository.url %></td>
     <td><%= repository.enable_autoupdate %></td>
-    <td><%= repository.autoupdate_login %></td>
-    <td><%= repository.autoupdate_password %></td>
+    <td><%= repository.login %></td>
+    <td><%= repository.password %></td>
     <td><%= link_to 'Show', [current_project, repository] %></td>
   </tr>
 <% end %>

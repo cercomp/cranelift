@@ -14,7 +14,7 @@ module Cranelift::Scm
     end 
   end
 
-  def update (rev)
+  def update_repo (rev)
     svn.update(project_path, rev)
   end
 
