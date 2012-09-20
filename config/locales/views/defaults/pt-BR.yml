@@ -25,6 +25,7 @@ pt-BR:
       users: Usuários
       ips: IPs
       logs: Logs
+      roles: Papeis/Permissões
       settings: Configurações
       editaccount: Editar seus Dados
   views:

@@ -35,7 +35,13 @@ Cranelift::Application.routes.draw do
     resources :users
 
     # Roles routes
-    resources :roles
+    resources :roles do
+      member do
+        get :add_permission
+        post :save_permission
+        post :include_permission
+      end
+    end
 
     # Projects routes
     resources :projects do

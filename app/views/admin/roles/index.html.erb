@@ -1,21 +1,27 @@
 <h1><%= t('.title') %></h1>
 
-<table>
-  <tr>
-    <% scope = 'activerecord.attributes.role' %>
-    <th><%= t('name', :scope => scope) %></th>
-    <th><%= t('description', :scope => scope) %></th>
-    <th>Ação</th>
-  </tr>
-
+<table class="table" id="roles">
   <% @roles.each do |role| %>
-    <tr>
-      <td><%= role.name %></td>
-      <td><%= role.description %></td>
-      <td class="secondary-options">
-        <% #TODO decidir como ficará as permissões/papeis %>
-        <%= link_to t('.manage_permissions'), '#' %>
-      </td>
+    <tr class="role-name">
+      <th colspan="3">
+        <b><%= role.name %></b>
+        <%= role.description %>
+        <div class="pull-right">
+          <%= link_to(content_tag(:i, '', :class => 'icon-plus') +
+                      ' Cadastrar nova permissão',
+                      add_permission_admin_role_path(role),
+                      :class => 'btn btn-mini') %>
+        </div>
+      </th>
     </tr>
+
+    <% role.permissions.each do |permission| %>
+      <tr>
+        <td><%= permission.name %></td>
+        <td><%= permission.controller %></td>
+        <td><%= permission.actions %></td>
+      </tr>
+    <% end %>
   <% end %>
+
 </table>

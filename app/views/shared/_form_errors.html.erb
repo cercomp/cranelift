@@ -1,3 +1,6 @@
 <% if notification = f.error_notification %>
-  <%= notification %>
+  <div class="alert alert-error fade in">
+    <a class="close" data-dismiss="alert" href="#">&times;</a>
+    <%= notification %>
+  </div>
 <% end %>

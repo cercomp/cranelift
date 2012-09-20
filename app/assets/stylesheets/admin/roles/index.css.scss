@@ -1,0 +1,20 @@
+/* Role */
+
+table#roles {
+  th {
+    background: #777;
+    color: #eee;
+    font-size: .9em;
+    font-weight: normal;
+
+    &:hover {
+      background: #777;
+      color: #eee;
+    }
+
+    b {
+      font-size: 1.4em;
+      margin-right: 20px;
+    }
+  }
+}

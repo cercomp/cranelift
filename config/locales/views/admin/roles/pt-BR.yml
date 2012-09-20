@@ -4,3 +4,7 @@ pt-BR:
       index:
         title: Papeis
         manage_permissions: Gerenciar Permissões
+      add_permission:
+        select_permission: Selecione uma permissão
+        add_permission_to_role: "Adicionar uma permissão ao papel - %{role}"
+        or_create_new_permission: Ou Cadastrar uma nova permissão

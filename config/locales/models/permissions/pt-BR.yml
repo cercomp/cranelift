@@ -1,0 +1,9 @@
+pt-BR:
+  activerecord:
+    models:
+      permission: Permissão
+    attributes:
+      permission:
+        name: Nome
+        controller: Controlador
+        actions: Ações

@@ -1,0 +1,61 @@
+<h1><%= t('.add_permission_to_role', :role => @role.name) %></h1>
+
+
+<%= form_tag include_permission_admin_role_path(@role),
+             :class => 'form-horizontal' do %>
+
+  <div class="row">
+    <div class="span3">
+      <label><%= t('.select_permission') %></label>
+      <%= select_tag :permission_id,
+        options_for_select(
+          @permissions.map{|p| [p.name, p.id, :'data-controller' => p.controller,
+                                :'data-actions' => p.actions ]}
+        ),
+        :class => 'inline'
+      %>
+      <% content_for :javascripts do %>
+        <script type="text/javascript">
+          $(document).ready(function() {
+            $('#permission_id').change(function() {
+              $("#controller").val($(this).find('option:selected').data("controller"));
+              $("#actions").val($(this).find('option:selected').data("actions"));
+            });
+          });
+        </script>
+      <% end %>
+    </div>
+    
+    <div class="span3">
+      <label><%= Permission.human_attribute_name(:controller) %></label>
+      <%= text_field_tag :controller, '', :disabled => 'disabled' %>
+    </div>
+
+    <div class="span3">
+      <label><%= Permission.human_attribute_name(:action) %></label>
+      <%= text_field_tag :actions, '', :disabled => 'disabled' %>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= button_tag 'Adicionar', :class => 'btn btn-primary' %>
+    <%= link_to t('back'), admin_roles_path, :class => 'btn pull-right' %>
+  </div>
+<% end %>
+
+<h1>Ou - Cadastrar uma nova permissão</h1>
+<%= simple_form_for [:admin, @permission],
+                    :url => save_permission_admin_role_path(@role),
+                    :html => { :class => 'form-horizontal' } do |f| %>
+
+  <%= render '/shared/form_errors', :f => f %>
+
+  <%= f.input :name %>
+  <%= f.input :controller %>
+  <%= f.input :actions %>
+
+  <div class="form-actions">
+    <%= f.button :submit, :class => 'btn-primary' %>
+    <%= link_to t('back'), admin_roles_path, :class => 'btn pull-right' %>
+  </div>
+<% end %>

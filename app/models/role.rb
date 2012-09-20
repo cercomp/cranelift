@@ -9,4 +9,6 @@ class Role < ActiveRecord::Base
             :presence => :true,
             :uniqueness => true,
             :length => {:in => 3..32}
+
+  accepts_nested_attributes_for :permissions
 end
