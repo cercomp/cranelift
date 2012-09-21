@@ -16,3 +16,4 @@
 //= require libs/chosen/chosen.jquery.min
 //= require libs/maskedinput/jquery.maskedinput-1.3.js
 //= require general
+//= require_tree ./admin/

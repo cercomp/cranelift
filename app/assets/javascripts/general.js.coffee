@@ -1,5 +1,5 @@
 # Double Click on trs
-$(window).ready ->
+$(document).ready ->
   $('table.dblclick tr').dblclick ->
     window.location.href = $(this).data 'url'
 

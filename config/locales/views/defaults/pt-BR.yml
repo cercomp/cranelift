@@ -8,6 +8,7 @@ pt-BR:
     unauthorized_access: Acesso restrito.
     obj_successfully_created: "%{obj} criado com sucesso!"
     obj_successfully_updated: "%{obj} atualizado com sucesso!"
+    obj_successfully_added: "%{obj} adicionado com sucesso!"
     obj_successfully_destroyed: "%{obj} removido com sucesso!"
     ip_not_allowed: Seu IP não é liberado para acessar a aplicação
     actions: Ações

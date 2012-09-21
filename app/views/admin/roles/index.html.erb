@@ -3,7 +3,7 @@
 <table class="table" id="roles">
   <% @roles.each do |role| %>
     <tr class="role-name">
-      <th colspan="3">
+      <th colspan="4">
         <b><%= role.name %></b>
         <%= role.description %>
         <div class="pull-right">
@@ -20,6 +20,15 @@
         <td><%= permission.name %></td>
         <td><%= permission.controller %></td>
         <td><%= permission.actions %></td>
+        <td>
+          <%= form_tag remove_permission_admin_role_path(role, :permission_id => permission),
+                       :style => 'display:inline; margin: 0;', :class => 'pull-right' do %>
+            <%= button_tag content_tag(:i, '', :class => 'icon-minus'),
+                           :class => 'btn btn-mini btn-danger hide',
+                           :alt => t('.remove_permission'),
+                           :confirm => t('.remove_permission_confirm') %>
+          <% end %>
+        </td>
       </tr>
     <% end %>
   <% end %>

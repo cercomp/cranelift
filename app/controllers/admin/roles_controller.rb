@@ -1,7 +1,8 @@
 # TODO refatorar código, verificando o uso de rotas aninhadas:
 # Exemplo de rota: role/:id/permissions
+# TODO usar i18n
 class Admin::RolesController < ApplicationController
-  before_filter :authenticate!, :only_admin!
+  before_filter :authenticate!, :only_admin!, :verify_permission
 
   def index
     @roles = Role.all
@@ -23,7 +24,7 @@ class Admin::RolesController < ApplicationController
 
     if @permission.save
       @role.permissions << @permission
-      redirect_to admin_roles_url, :notice => 'Permissao criada com sucesso'
+      redirect_to admin_roles_url, :notice => t('application.obj_successfully_created', :obj => Permission.model_name.human) 
     else
       render :add_permission
     end
@@ -34,6 +35,14 @@ class Admin::RolesController < ApplicationController
     @permission = Permission.find(params[:permission_id])
 
     @role.permissions << @permission
-    redirect_to admin_roles_url, :notice => 'Permissao adicionado com sucesso'
+    redirect_to admin_roles_url, :notice => t('application.obj_successfully_added', :obj => Permission.model_name.human)
+  end
+
+  def remove_permission
+    @role = Role.find(params[:id])
+    @permission = Permission.find(params[:permission_id])
+    @role.permissions.delete(@permission)
+    
+    redirect_to admin_roles_url, :notice => t('application.obj_successfully_destroyed', :obj => Permission.model_name.human)
   end
 end

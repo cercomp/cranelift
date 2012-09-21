@@ -38,8 +38,7 @@ Cranelift::Application.routes.draw do
     resources :roles do
       member do
         get :add_permission
-        post :save_permission
-        post :include_permission
+        post :save_permission, :include_permission, :remove_permission
       end
     end
 

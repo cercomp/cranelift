@@ -4,6 +4,8 @@ pt-BR:
       index:
         title: Papeis
         manage_permissions: Gerenciar Permissões
+        remove_permission: Remover esta permissão deste papel
+        remove_permission_confirm: Você deseja mesmo remover está permissão?
       add_permission:
         select_permission: Selecione uma permissão
         add_permission_to_role: "Adicionar uma permissão ao papel - %{role}"

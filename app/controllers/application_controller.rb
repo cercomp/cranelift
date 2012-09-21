@@ -20,6 +20,10 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def verify_permission
+    redirect_if_cannot params[:action], params[:controller]
+  end
+
   helper_method :current_user
   def current_user
   	return (@current_user ||= User.find(session[:user_id])) if session[:user_id]
