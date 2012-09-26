@@ -13,7 +13,7 @@ class User < ActiveRecord::Base
 
   validates :login,
             :presence => true,
-            :length => { :in => 3..32 }
+            :length => { :in => 2..32 }
 
   validates :name,
             :presence => true,

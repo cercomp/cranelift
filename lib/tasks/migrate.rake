@@ -4,7 +4,7 @@ require 'phpmigrate'
 namespace :cranelift do
   include Rake::DSL
 
-  migrate_models = [:roles, :users, :ips, :projects]
+  migrate_models = [:users, :ips, :projects]
 
   migrate_models.each do |model|
     class_eval <<-BLOCK
@@ -14,13 +14,14 @@ namespace :cranelift do
     BLOCK
   end
 
+  desc "Migrate all database from old php version"
   task :all => :environment do
     migrate_models.each do |model|
       eval "Migrate::#{(model.to_s + '_migrate').classify}.new.migrate"
     end
   end
 
-  desc "Create fake php projects folders"
+  desc "Create fake php projects folders - to dev"
   task :create_fake_projects_folders => :environment do
     Migrate::ProjectsMigrate.new.create_fake_folders
   end

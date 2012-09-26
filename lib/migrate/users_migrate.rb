@@ -9,7 +9,8 @@ module Migrate
           u.login      = user['login']
           u.password   = u.password_confirmation = (0...8).map{65.+(rand(25)).chr}.join
           u.admin      = user['admin']
-          u.role_id    = ::Role.find_by_name(role_name(user['id_role'])).id
+          # NOTE todos os novos usuários serão cadastrados como mantenedor
+          u.role_id    = ::Role.find_by_name('Mantenedor').id
           u.ip_block   = user['noipblock'] == 1
           u.name       = user['name']
           u.email      = user['email']
@@ -17,6 +18,8 @@ module Migrate
           u.login_type = user['tipo']
         end
         debug_obj(obj)
+
+        ::Migrate::UserMap.store(obj.id, user['id'])
       end
     end
 

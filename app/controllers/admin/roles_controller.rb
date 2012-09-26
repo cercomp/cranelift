@@ -1,6 +1,5 @@
 # TODO refatorar código, verificando o uso de rotas aninhadas:
 # Exemplo de rota: role/:id/permissions
-# TODO usar i18n
 class Admin::RolesController < ApplicationController
   before_filter :authenticate!, :only_admin!, :verify_permission
 

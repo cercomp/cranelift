@@ -21,7 +21,19 @@ class Migrate::ProjectsMigrate < Migrate::Base
         :password => reg['co_password'],
         :project_id => pj.id
 
+      add_users_to_project(pj, reg['id'])
+
     end
+  end
+
+  def add_users_to_project(cr_project, old_project_id)
+    regs = mysql.query("select * from user_projetos where id_projetos = #{old_project_id}")
+    users_ids = []
+    regs.each do |reg|
+      users_ids << ::Migrate::UserMap.new_id(reg['id_user'])
+    end
+    
+    cr_project.users = ::User.find(users_ids) if users_ids.any?
   end
 
   def copy_repository_from_php(repository)
