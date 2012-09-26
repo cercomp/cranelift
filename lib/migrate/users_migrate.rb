@@ -9,7 +9,7 @@ module Migrate
           u.login      = user['login']
           u.password   = u.password_confirmation = (0...8).map{65.+(rand(25)).chr}.join
           u.admin      = user['admin']
-          # NOTE todos os novos usuários serão cadastrados como mantenedor
+          # NOTE todos os novos usuários serão cadastrados como mantenedores
           u.role_id    = ::Role.find_by_name('Mantenedor').id
           u.ip_block   = user['noipblock'] == 1
           u.name       = user['name']

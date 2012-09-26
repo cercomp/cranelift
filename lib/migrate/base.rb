@@ -2,6 +2,7 @@ module Migrate
   class Base
     @@mysql = nil
     @@config = nil
+    @@log = nil
 
     def config
       if @@config.nil?
@@ -25,8 +26,20 @@ module Migrate
       @@mysql
     end
 
+    def log
+      if @@log.nil?
+        @@log = File.open(Rails.root.join('log', 'phpmigration.log'), 'a+')
+        @@log.puts "\n#{Time.new.to_s} ---------\n"
+      end
+      @@log
+    end
+
     def debug_obj(obj)
-      puts %{#{obj.inspect}\n#{obj.errors.full_messages}\n---\n} unless obj.valid?
+      unless obj.valid?
+        message = %{#{obj.class} : #{obj.inspect}\n#{obj.errors.full_messages}\n---\n}
+        log.puts message
+        puts message
+      end
     end
   end
 end
