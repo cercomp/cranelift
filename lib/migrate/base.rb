@@ -6,7 +6,7 @@ module Migrate
 
     def config
       if @@config.nil?
-        conf_yml = YAML::load_file(File.join(File.dirname(__FILE__), 'config.yml'))
+        conf_yml = YAML::load_file(Rails.root.join('config', 'phpmigration.yml'))
         @@config = OpenStruct.new(conf_yml)
       end
       @@config
