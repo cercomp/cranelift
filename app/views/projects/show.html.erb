@@ -1,14 +1,43 @@
-<p id="notice"><%= notice %></p>
+<%= content_tag :h1, @project.name %>
 
-<p>
-  <b>Name:</b>
-  <%= @project.name %>
-</p>
+<table class="table">
+  <tr>
+    <th>Nome</th>
+    <td><%= @project.name %></td>
+  </tr>
 
-<p>
-  <b>Description:</b>
-  <%= @project.description %>
-</p>
+  <tr>
+    <th>Descrição
+    <td><%= @project.description %>
+  </tr>
 
+  <tr>
+    <th>Integrantes</th>
+    <td><%= @project.users.map{ |p| p.name.capitalize }.join(', ') %></td>
+  </tr>
+</table>
 
-<%= link_to 'Back', projects_path %>
+<table class="table">
+  <tr>
+    <th colspan="6">Repositorios</th>
+  </tr>
+
+  <tr>
+    <th>Nome</th>
+    <th>Url</th>
+    <th>Auto-update</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @project.repositories.each do |repository| %>
+  <tr>
+    <td><%= repository.name %></td>
+    <td><%= repository.url %></td>
+    <td><%= repository.enable_autoupdate? ? 'OFF' : 'ON' %></td>
+    <td><%= update_version_tag(repository) %></td>
+  </tr>
+<% end %>
+</table>
+
+<%= link_to 'Voltar', projects_path %>

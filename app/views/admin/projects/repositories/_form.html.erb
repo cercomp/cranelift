@@ -6,7 +6,7 @@
     </div>
   <% end %>
 
-  <%= f.input :name %>
+  <%= f.input :name, :input_html => { :disabled => 'disabled' } %>
   <%= f.input :url %>
   <%= f.input :login %>
   <%= f.input :password %>

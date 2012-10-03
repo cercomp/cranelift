@@ -43,8 +43,6 @@ RSpec.configure do |config|
     seed_permissions_and_roles
   end
 
-  config.extend SessionMacros
-
   def seed_permissions_and_roles
     require Rails.root.join('db', 'seeds', 'permissions_roles.rb')
   end

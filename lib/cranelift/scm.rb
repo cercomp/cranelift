@@ -5,6 +5,9 @@ module Cranelift::Scm
     raise 
   end
 
+  def update
+  end
+
   def checkout
     # Só faz o checkout caso o diretório não exista
     unless File.directory?(project_path)

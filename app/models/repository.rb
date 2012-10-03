@@ -4,15 +4,6 @@ require 'cranelift'
 class Repository < ActiveRecord::Base
   include Cranelift::Scm
 
-  # Callbacks
-  before_update do |repo|
-    # TODO quando um repositorio ter seu nome alterado, o nome da pasta
-    # dos arquivos do repositorio também deve ser alterado
-    # 
-    # old_repo = Repository.find(repo.id)
-    # if old_repository.name =! repo.name entao mude o nome da pasta para repo.name
-  end
-
   before_create do
     self.checkout
   end
