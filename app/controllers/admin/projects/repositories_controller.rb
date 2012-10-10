@@ -36,11 +36,16 @@ class Admin::Projects::RepositoriesController < ApplicationController
     @repository = Repository.find(params[:id])
 
     # NOTE não é possível alterar o nome de um repositório
-    params[:repository].delete(:name)
+    begin
+      params[:repository].delete(:name) if params[:repository][:name]
+      params[:repository].delete(:password) if params[:repository][:password].empty?
+    rescue
+    end
 
     if @repository.update_attributes(params[:repository])
       log current_user, "Alterou o reposiotio #{@repository.name} no projeto #{current_project.name}"
-      redirect_to [:admin, current_project, @repository], notice: 'Repository was successfully updated.'
+      back_url = params[:back_url] || [:admin, current_project, @repository]
+      redirect_to back_url, notice: 'Repository was successfully updated.'
     else
       render action: "edit"
     end

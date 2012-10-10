@@ -2,15 +2,24 @@
 require 'cranelift'
 
 class Repository < ActiveRecord::Base
-  include Cranelift::Scm
+  attr_reader :scm
+  attr_accessor :version
 
+  def scm
+    @scm = Cranelift::Scm.new(project_path, login, password) unless @scm
+    @scm
+  end
+
+  # Callbacks
   before_create do
-    self.checkout
+    scm.checkout(url)
   end
 
   before_destroy do
-    self.delete_files
+    scm.delete_files
   end
+
+  before_update :update_revision
 
   # Relatioships
   belongs_to :project
@@ -29,24 +38,23 @@ class Repository < ActiveRecord::Base
   validate :check_valid_repository, :on => :create
 
   def revision
-    begin
-      self.info.rev
-    rescue
-      '--'
-    end
+    scm.info.rev rescue '--'
   end
 
   def project_path
-    # Assumimos que o nome é sempre validado (sanitizado)
     @project_name ||= sanitize_string_to_folder_name(self.project.name)
     @repository_name ||= sanitize_string_to_folder_name(self.name)
 
     REPOS_PATH.join(@project_name, @repository_name).to_s
   end
 
+  def update_revision
+    scm.update_repo(self.version.to_i) if self.version
+  end
+
 private
   def check_valid_repository
-    errors.add(:url, 'especificada não é um repositório svn válido') if self.svn.info(url).nil?
+    errors.add(:url, 'especificada não é um repositório svn válido') if scm.svn.info(url).nil?
   end
 
   def sanitize_string_to_folder_name(s)

@@ -46,8 +46,8 @@ class Admin::Projects::RepositoriesControllerTest < ActionController::TestCase
   test "should update repository" do
     put :update, {
       id: @repository,
-      repository: @repository.attributes.merge({'name' => 'Updated Name'}),
-      :project_id => @project.id
+      repository: @repository.attributes.merge({'name' => "Updated Name #{Time.now}"}),
+      project_id: @project.id
     }
     assert_redirected_to admin_project_repository_path(@project, assigns(:repository))
   end
