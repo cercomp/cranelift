@@ -9,7 +9,7 @@
 
 <% @ips.each do |ip| %>
   <tr>
-    <td><%= link_to "#{ip.ip}/#{ip.cidr}", edit_admin_up_path(ip) %></td>
+    <td><%= link_to "#{ip.ip}/#{ip.cidr}", edit_admin_ip_path(ip) %></td>
     <td><%= ip.description %></td>
     <td><%= link_to t('destroy', :scope => 'application'),
                     [:admin, ip], confirm: 'Are you sure?', method: :delete %></td>

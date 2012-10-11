@@ -19,10 +19,10 @@
   link_to(icon('home') + t('.home'), home_path) %>
 <%= content_tag :li,
   link_to(icon('folder-close') + t('.projects'),
-  projects_path) if can?('view', 'projects') %>
+  projects_path) if can?('index', 'projects') %>
 <%= content_tag :li,
   link_to(icon('user') + t('.users'),
-  users_path) if can?('view', 'users') %>
+  users_path) if can?('index', 'users') %>
 
 <%= content_tag :li, t('.admin'), :class => 'nav-header' if can?('view', 'admin') %>
 <%= admin_menu('projects',  admin_projects_path, icon('folder-close')) %>

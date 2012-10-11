@@ -51,6 +51,8 @@ class ApplicationController < ActionController::Base
       return true if permission.controller == controller and
                      (permission.actions.split.include?(action) or permission.actions == 'all')
     end
+
+    return false
   end
   helper_method :can?
 

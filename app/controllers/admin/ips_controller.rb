@@ -33,7 +33,7 @@ class Admin::IpsController < ApplicationController
     @ip = Ip.find(params[:id])
     if @ip.update_attributes(params[:ip])
       log current_user, "Atualizou o IP : #{@ip.to_json}"
-      redirect_to [:admin, @ip], notice: t('application.obj_successfully_updated', :obj => 'Ip')
+      redirect_to admin_ips_url, notice: t('application.obj_successfully_updated', :obj => 'Ip')
     else
       render action: "edit"
     end

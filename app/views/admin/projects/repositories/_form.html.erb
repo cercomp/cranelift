@@ -6,7 +6,7 @@
     </div>
   <% end %>
 
-  <%= f.input :name, :input_html => { :disabled => 'disabled' } %>
+  <%= f.input :name, :input_html => (@repository.new_record? ? {} : { :disabled => 'disabled' }) %>
   <%= f.input :url %>
   <%= f.input :login %>
   <%= f.input :password %>

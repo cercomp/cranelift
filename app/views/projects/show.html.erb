@@ -39,7 +39,7 @@
       <% # TODO arrumar aqui em baixo %>
       <td><%= (revision = repository.revision) %></td>
       <td>
-        <%= form_tag [:admin, @project, repository], :method => :put do %>
+        <%= form_tag [@project, repository], :method => :put do %>
           <%= hidden_field_tag 'back_url', request.path %>
           <%= select_tag 'repository[version]', options_for_version(repository, revision), :style => 'width: 55px', :onchange => '$(this).parent().children().last().css("opacity", 1);' %>
           <%= submit_tag 'Ok', :style => 'opacity: 0' %>

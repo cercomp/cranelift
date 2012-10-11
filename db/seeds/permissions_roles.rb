@@ -9,10 +9,10 @@ def permissions
       { name: 'Ver Área Administrativa', controller: 'admin', actions: 'view' }
     ],
     :mantenedor => [
-      { name: 'Visualizar Ips',     controller: 'ips',      actions: 'show' },
-      { name: 'Visualizar Projeto', controller: 'projects', actions: 'show' },
-      { name: 'Configurar Autoupdate', controller: 'projects', actions: 'show' },
-      { name: 'Visualizar Usuário', controller: 'users',    actions: 'show' }
+      { name: 'Visualizar Ips',     controller: 'ips',      actions: 'show index' },
+      { name: 'Visualizar Projeto', controller: 'projects', actions: 'show index' },
+      { name: 'Configurar Autoupdate', controller: 'projects', actions: 'show index' },
+      { name: 'Visualizar Usuário', controller: 'users',    actions: 'show index' }
     ]
   }
 end

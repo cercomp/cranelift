@@ -19,7 +19,7 @@ Cranelift::Application.routes.draw do
 
   # Projects routes
   resources :projects, :only => [:index, :show] do
-    resources :repositories, :controller => 'projects/repositories', :only => [:index, :show]
+    resources :repositories, :controller => 'projects/repositories', :only => [:index, :show, :update]
   end
 
 
