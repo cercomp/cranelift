@@ -1,6 +1,6 @@
 <h1><%= t('title') %></h1>
 
-<table class="table table-striped dblclick">
+<table class="table table-striped">
   <tr>
     <th><%= t('name', :scope => 'activerecord.attributes.project') %></th>
     <th><%= t('description', :scope => 'activerecord.attributes.project') %></th>
@@ -8,8 +8,8 @@
   </tr>
 
 <% @projects.each do |project| %>
-  <tr data-url="<%= url_for([:admin, project]) %>" style="cursor: pointer">
-    <td><%= project.name %></td>
+  <tr>
+    <td><%= link_to project.name, [:admin, project] %></td>
     <td><%= project.description %></td>
     <td><%= link_to t('edit', :scope => 'application'), edit_admin_project_path(project) %></td>
     <td><%= link_to t('destroy', :scope => 'application'),

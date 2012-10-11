@@ -24,7 +24,7 @@
           <%= form_tag remove_permission_admin_role_path(role, :permission_id => permission),
                        :style => 'display:inline; margin: 0;', :class => 'pull-right' do %>
             <%= button_tag content_tag(:i, '', :class => 'icon-minus'),
-                           :class => 'btn btn-mini btn-danger hide',
+                           :class => 'btn btn-mini btn-danger transparent',
                            :alt => t('.remove_permission'),
                            :confirm => t('.remove_permission_confirm') %>
           <% end %>

@@ -17,35 +17,37 @@
   </tr>
 </table>
 
-<table class="table">
-  <tr class="inverted">
-    <th colspan="6">Repositorios</th>
-  </tr>
+<% if @project.repositories.any? %>
+  <table class="table">
+    <tr class="inverted">
+      <th colspan="6">Repositorios</th>
+    </tr>
 
-  <tr>
-    <th>Nome</th>
-    <th>Url</th>
-    <th>Auto-update</th>
-    <th>Versão</th>
-    <th>Atualizar versão</th>
-  </tr>
+    <tr>
+      <th>Nome</th>
+      <th>Url</th>
+      <th>Auto-update</th>
+      <th>Versão</th>
+      <th>Atualizar versão</th>
+    </tr>
 
-<% @project.repositories.each do |repository| %>
-  <tr>
-    <td><%= repository.name %></td>
-    <td><%= repository.url %></td>
-    <td><%= repository.enable_autoupdate? ? 'OFF' : 'ON' %></td>
-    <% # TODO arrumar aqui em baixo %>
-    <td><%= (revision = repository.revision) %></td>
-    <td>
-      <%= form_tag [:admin, @project, repository], :method => :put do %>
-        <%= hidden_field_tag 'back_url', request.path %>
-        <%= select_tag 'repository[version]', options_for_select(repository.scm.log.map{|i| i[1]}, revision), :style => 'width: 55px', :onchange => '$(this).parent().children().last().css("opacity", 1);' %>
-        <%= submit_tag 'Ok', :style => 'opacity: 0' %>
-      <% end %>
-    </td>
-  </tr>
+  <% @project.repositories.each do |repository| %>
+    <tr>
+      <td><%= repository.name %></td>
+      <td><%= repository.url %></td>
+      <td><%= repository.enable_autoupdate? ? 'OFF' : 'ON' %></td>
+      <% # TODO arrumar aqui em baixo %>
+      <td><%= (revision = repository.revision) %></td>
+      <td>
+        <%= form_tag [:admin, @project, repository], :method => :put do %>
+          <%= hidden_field_tag 'back_url', request.path %>
+          <%= select_tag 'repository[version]', options_for_version(repository, revision), :style => 'width: 55px', :onchange => '$(this).parent().children().last().css("opacity", 1);' %>
+          <%= submit_tag 'Ok', :style => 'opacity: 0' %>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+  </table>
 <% end %>
-</table>
 
 <%= link_to 'Voltar', projects_path %>

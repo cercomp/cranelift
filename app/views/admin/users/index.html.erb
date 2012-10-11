@@ -1,6 +1,6 @@
 <h1>Lista de Usuários</h1>
 
-<table class="table table-striped dblclick nowrap">
+<table class="table table-striped nowrap">
   <tr>
     <% scope = 'activerecord.attributes.user' %>
     <th><%= t('name',     :scope => scope) %></th>
@@ -12,10 +12,10 @@
   </tr>
 
 <% @users.each do |user| %>
-  <tr data-url="<%= url_for([:admin, user]) %>">
+  <tr>
     <td>
       <div style="width:150px;">
-        <%= user.name.titleize %>
+        <%= link_to user.name.titleize, [:admin, user] %>
       </div>
     </td>
 

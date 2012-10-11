@@ -1,6 +1,6 @@
 <h1><%= t('.title') %></h1>
 
-<table class="table table-striped dblclick">
+<table class="table table-striped">
   <tr>
     <th><%= t('ip', :scope => 'activerecord.attributes.ip') %></th>
     <th><%= t('description', :scope => 'activerecord.attributes.ip') %></th>
@@ -8,8 +8,8 @@
   </tr>
 
 <% @ips.each do |ip| %>
-  <tr data-url="<%= edit_admin_ip_path(ip) %>" style="cursor: pointer">
-    <td><%= "#{ip.ip}/#{ip.cidr}" %></td>
+  <tr>
+    <td><%= link_to "#{ip.ip}/#{ip.cidr}", edit_admin_up_path(ip) %></td>
     <td><%= ip.description %></td>
     <td><%= link_to t('destroy', :scope => 'application'),
                     [:admin, ip], confirm: 'Are you sure?', method: :delete %></td>

@@ -2,16 +2,16 @@
 
 <table class="table table-striped">
   <tr>
-    <th><%= t('name', :scope => 'activerecord.attributes.project') %></th>
-    <th><%= t('description', :scope => 'activerecord.attributes.project') %></th>
-    <th><%= t('actions', :scope => 'application') %></th>
+    <th><%= Project.human_attribute_name :name %></th>
+    <th><%= Project.human_attribute_name :description %></th>
+    <th><%= t('.repositories_count') %></th>
   </tr>
 
 <% @projects.each do |project| %>
   <tr>
-    <td><%= project.name %></td>
+    <td><%= link_to project.name, project %></td>
     <td><%= project.description %></td>
-    <td><%= link_to 'Show', project %></td>
+    <td><%= project.repositories.count %></td>
   </tr>
 <% end %>
 </table>

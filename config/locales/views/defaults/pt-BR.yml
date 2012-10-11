@@ -17,7 +17,7 @@ pt-BR:
     destroy: Remover
     new_obj: "Novo %{obj}"
   layouts:
-    application:
+    menu:
       login: Login
       home: Home Page
       register: Registrar
