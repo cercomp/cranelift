@@ -1,5 +1,5 @@
 <h1>Login</h1>
-<%= form_tag login_path, :class => 'form-horizontal' do %>
+<%= form_tag login_path, :class => 'form-horizontal', :id => 'new-session' do %>
   <div class="control-group">
     <%= label_tag :login, t('.login'), :class => 'control-label' %>
     <div class="controls">
@@ -16,6 +16,7 @@
 
   <div class="form-actions">
     <%= submit_tag t('.sign_in'), :class => 'btn btn-primary' %>
-    <%= link_to t('.sign_up'), new_user_path, :class => 'btn pull-right' %>
+    <%= link_to t('.reset_password'), new_password_reset_path, :class => 'btn pull-right' %>
+    <%= link_to t('.sign_up'), new_user_path, :class => 'btn btn-success pull-right' %>
   </div>
 <% end %>

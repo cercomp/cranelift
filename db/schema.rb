@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120926140623) do
+ActiveRecord::Schema.define(:version => 20121012140623) do
 
   create_table "ips", :force => true do |t|
     t.string   "ip"
@@ -88,16 +88,18 @@ ActiveRecord::Schema.define(:version => 20120926140623) do
     t.string   "login"
     t.string   "password_hash"
     t.string   "password_salt"
-    t.boolean  "admin",         :default => false
+    t.boolean  "admin",                  :default => false
     t.integer  "role_id"
-    t.boolean  "ip_block",      :default => true
+    t.boolean  "ip_block",               :default => true
     t.datetime "last_action"
     t.string   "name"
     t.string   "email"
-    t.boolean  "active",        :default => false
+    t.boolean  "active",                 :default => false
     t.string   "login_type"
-    t.datetime "created_at",                       :null => false
-    t.datetime "updated_at",                       :null => false
+    t.datetime "created_at",                                :null => false
+    t.datetime "updated_at",                                :null => false
+    t.string   "password_reset_token"
+    t.datetime "password_reset_sent_at"
   end
 
 end

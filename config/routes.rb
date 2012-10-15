@@ -5,6 +5,8 @@ Cranelift::Application.routes.draw do
   post    '/login'  => 'session#create',  :as => :login
   delete  '/logout' => 'session#destroy', :as => :logout
 
+  resources :password_resets
+
 
   # Pages routes
   get '/home' => 'pages#home', :as => :home
@@ -12,8 +14,8 @@ Cranelift::Application.routes.draw do
 
   # Users routes
   get 'editaccount' => 'users#edit'
-  resources :users, :except => [:show, :destroy, :edit], :path_names => {
-    :new => :signup } do
+  resources :users, :except => [:show, :destroy, :edit],
+            :path_names => { :new => :signup } do
   end
 
 
