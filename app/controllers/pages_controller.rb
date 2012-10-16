@@ -1,6 +1,5 @@
 class PagesController < ApplicationController
   def home
-    redirect_to projects_path if current_user
-    render 'session/new' unless current_user
+    redirect_to current_user ? projects_url : login_url
   end
 end

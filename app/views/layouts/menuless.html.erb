@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <title>Cranelift</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <div class="container" style="margin-top: 1em">
+    <div class="row">
+
+      <div class="span8 offset2 content">
+        <div class="messages">
+          <% flash.each do |name, msg| %>
+            <div class="alert alert-<%= name == :notice ? "success" : "error" %>">
+              <a class="close" data-dismiss="alert">×</a>
+              <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
+            </div>
+          <% end %>
+        </div>
+        
+        <%= yield %>
+      </div><!--/span-->
+
+    </div><!--/row-->
+  </div>
+
+  <%= javascript_include_tag "application" %>
+  <%= yield :javascripts %>
+</body>
+</html>
