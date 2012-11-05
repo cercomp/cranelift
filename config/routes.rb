@@ -5,6 +5,10 @@ Cranelift::Application.routes.draw do
   post    '/login'  => 'session#create',  :as => :login
   delete  '/logout' => 'session#destroy', :as => :logout
 
+  # autoupdate
+  # exemple: curl -d id=60 -d repository[version]=47 localhost:3000/autoupdate
+  post '/autoupdate' => 'projects/repositories#update', :as => :autoupdate
+
   resources :password_resets
 
 

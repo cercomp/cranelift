@@ -1,6 +1,9 @@
 # TODO colocar permissões
 class Projects::RepositoriesController < ApplicationController
-  before_filter :authenticate!
+  skip_before_filter :verify_authenticity_token, :only => :update
+
+  before_filter :authenticate!, :except => :update
+  before_filter :verify_local_access, :only => :update
 
   helper_method :current_project
 
@@ -21,5 +24,14 @@ class Projects::RepositoriesController < ApplicationController
   private
   def current_project
     @current_project ||= Project.find(params[:project_id])
+  end
+
+  def verify_local_access
+    authenticate! unless local_access? 
+  end
+
+  # TODO
+  def local_access?
+    true
   end
 end
