@@ -41,7 +41,8 @@ class UsersController < ApplicationController
 
 private
   def allow_register?
-    if setting(:allow_register) == 'false'
+    
+    if Setting.find_or_default('allow_register').value == 'false'
       redirect_to root_url, :alert => t('users.alert.not_allow_register')
     end
   end

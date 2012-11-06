@@ -3,9 +3,10 @@ module Cranelift::Auth
   extend ActiveSupport::Concern
 
   included do
+    before_filter :verify_ip
+
     helper_method :current_user
     helper_method :can?
-    helper_method :setting
     helper_method :log
   end
 
@@ -14,7 +15,7 @@ module Cranelift::Auth
 
     allowed_pages = [root_url, login_url]
     if allowed_pages.include?(request.original_url) or
-        setting(:block_ip) == 'false' or
+        Setting.find_or_default('block_ip').value == 'false' or
         current_user.admin? or
         !current_user.ip_block?
       return true
