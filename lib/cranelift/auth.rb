@@ -65,5 +65,3 @@ module Cranelift::Auth
     redirect_to root_url, :alert => t('application.unauthorized_access') unless can?(action, controller)
   end
 end
-
-ApplicationController.send(:include, Cranelift::Auth)

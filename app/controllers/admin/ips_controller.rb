@@ -21,7 +21,7 @@ class Admin::IpsController < ApplicationController
     redirect_if_cannot 'create', 'ips'
     @ip = Ip.new(params[:ip])
     if @ip.save
-      log current_user, "Criou o IP : #{@ip.to_json}"
+      log current_user, "Criou o IP : #{@ip.ip}/#{@ip.cidr}"
       redirect_to admin_ips_url, :notice => t('application.obj_successfully_created', :obj => 'Ip')
     else
       render :action => "new"
@@ -32,7 +32,7 @@ class Admin::IpsController < ApplicationController
     redirect_if_cannot 'update', 'ips'
     @ip = Ip.find(params[:id])
     if @ip.update_attributes(params[:ip])
-      log current_user, "Atualizou o IP : #{@ip.to_json}"
+      log current_user, "Atualizou o IP : #{@ip.ip}/#{@ip.cidr}"
       redirect_to admin_ips_url, notice: t('application.obj_successfully_updated', :obj => 'Ip')
     else
       render action: "edit"
@@ -44,7 +44,7 @@ class Admin::IpsController < ApplicationController
     @ip = Ip.find(params[:id])
     @ip.destroy
 
-    log current_user, "Removeu o IP : #{@ip.to_json}"
+    log current_user, "Removeu o IP : #{@ip.ip}/#{@ip.cidr}"
 
     redirect_to admin_ips_path, :notice => t('application.obj_successfully_destroyed', :obj => 'Ip')
   end

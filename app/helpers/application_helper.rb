@@ -1,6 +1,6 @@
 module ApplicationHelper
   def admin_menu(label, link, icon = '')
-    raw content_tag(:li, link_to(icon + t(".#{label}"), link)) if can?('view', 'admin')
+    raw content_tag(:li, link_to(icon + t(".#{label}"), link), class: current_page?(link) ? 'active' : '') if can?('view', 'admin')
   end
 
   def icon(name, color = '')

@@ -5,19 +5,21 @@
     logout_path,
     :method => :delete) %>
   <%= content_tag :li,
-    link_to(icon('edit') + t('.editaccount'),
-    editaccount_path) %>
+    link_to(icon('edit') + t('.editaccount'), editaccount_path),
+    class: current_page?(new_user_path) ? 'active' : '' %>
 <% else %>
   <%= content_tag :li,
     link_to(icon('pencil')  + t('.register'),
-    new_user_path) if setting(:allow_register) == 'true' %>
+    new_user_path),
+    class: current_page?(new_user_path) ? 'active' : '' if Setting.find_or_default('allow_register').value == 'true' %>
   <%= content_tag :li,
-    link_to(icon('refresh') + t('.login'), login_path) %>
+    link_to(icon('refresh') + t('.login'), login_path),
+    class: current_page?(login_path) ? 'active' : '' %>
 <% end %>
 
 <%= content_tag :li,
-  link_to(icon('folder-close') + t('.projects'),
-  projects_path) if can?('index', 'projects') %>
+  link_to(icon('folder-close') + t('.projects'), projects_path),
+  class: current_page?(projects_path) ? 'active' : '' if can?('index', 'projects') %>
 
 <%= content_tag :li, t('.admin'), :class => 'nav-header' if can?('view', 'admin') %>
 <%= admin_menu('projects',  admin_projects_path, icon('folder-close')) %>
