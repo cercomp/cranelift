@@ -12,6 +12,8 @@ pt-BR:
         ip_block: Bloquear IP?
         last_action: Última ação
         name: Nome
+        first_name: Nome
+        last_name: Sobrenome
         email: Email
         active: Ativo
         login_type: Tipo de login

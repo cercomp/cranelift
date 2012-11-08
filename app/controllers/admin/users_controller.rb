@@ -3,7 +3,7 @@ class Admin::UsersController < ApplicationController
   before_filter :authenticate!, :only_admin!
 
   def index
-    @users = User.order('LOWER(name)').page(params[:page]).per(10)
+    @users = User.order('LOWER(first_name)').page(params[:page]).per(10)
   end
 
   def new

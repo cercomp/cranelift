@@ -15,7 +15,7 @@ class User < ActiveRecord::Base
             :presence => true,
             :length => { :in => 2..32 }
 
-  validates :name,
+  validates :first_name,
             :presence => true,
             :length => {:in => 3..32}
 
@@ -23,6 +23,10 @@ class User < ActiveRecord::Base
             :presence => true,
             :uniqueness => true,
             :format => { :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i }
+
+  def name
+    [self.first_name, self.last_name].join(' ')
+  end
 
   # TODO fazer login com LDAP http://rubygems.org/gems/net-ldap
   # http://redmine.rubyforge.org/svn/trunk/app/models/auth_source_ldap.rb
@@ -50,6 +54,16 @@ class User < ActiveRecord::Base
     self.password_reset_sent_at = Time.zone.now
     save!
     UserMailer.password_reset(self).deliver
+  end
+
+  def name=(name)
+    names = name.split
+    self.first_name = names.shift
+    self.last_name = names.join(' ')
+  end
+
+  def name
+    [self.first_name, self.last_name].join(' ')
   end
 
   private
