@@ -6,7 +6,7 @@
     :method => :delete) %>
   <%= content_tag :li,
     link_to(icon('edit') + t('.editaccount'), editaccount_path),
-    class: current_page?(new_user_path) ? 'active' : '' %>
+    class: current_page?(editaccount_path) ? 'active' : '' %>
 <% else %>
   <%= content_tag :li,
     link_to(icon('pencil')  + t('.register'),

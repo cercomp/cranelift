@@ -1,4 +1,8 @@
-<h1><%= t('.title') %></h1>
+<h1>
+  <%= t('.title') %>
+  <%= link_to content_tag(:i, '', :class => 'icon icon-plus icon-white') + ' ' + Ip.model_name.human,
+              new_admin_ip_path, :class => 'btn btn-success pull-right' %>
+</h1>
 
 <table class="table table-striped">
   <tr>
@@ -17,4 +21,3 @@
 <% end %>
 </table>
 
-<%= link_to t('.new'), new_admin_ip_path, :class => 'btn btn-success pull-right' %>

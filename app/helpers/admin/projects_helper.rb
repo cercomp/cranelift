@@ -1,6 +1,6 @@
 module Admin::ProjectsHelper
   def user_collection
-    User.order('LOWER(name)').map do |user|
+    User.order('LOWER(first_name)').map do |user|
       ["#{user.name.titleize} (#{user.email})", user.id]
     end
   end

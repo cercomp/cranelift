@@ -1,6 +1,8 @@
 pt-BR:
   admin:
     projects:
+      index:
+        title: Lista de Projetos
       new:
         title: Novo Projeto
       edit:
