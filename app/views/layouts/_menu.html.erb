@@ -22,7 +22,7 @@
   class: current_page?(projects_path) ? 'active' : '' if can?('index', 'projects') %>
 
 <%= content_tag :li, t('.admin'), :class => 'nav-header' if can?('view', 'admin') %>
-<%= admin_menu('projects',  admin_projects_path, icon('folder-close')) %>
+<%#= admin_menu('projects',  admin_projects_path, icon('folder-close')) %>
 <%= admin_menu('users',     admin_users_path, icon('user')) %>
 <%= admin_menu('ips',       admin_ips_path, icon('filter')) %>
 <%= admin_menu('logs',      admin_logs_path, icon('book')) %>

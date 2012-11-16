@@ -33,7 +33,7 @@
 
   <% @project.repositories.each do |repository| %>
     <tr>
-      <td><%= repository.name %></td>
+      <td><%= link_to repository.name, edit_admin_project_repository_path(@project, repository), :title => 'Editar este repositório' %></td>
       <td><%= repository.url %></td>
       <td><%= repository.enable_autoupdate? ? 'OFF' : 'ON' %></td>
       <td><%= (revision = repository.revision) %></td>
@@ -49,4 +49,8 @@
   </table>
 <% end %>
 
-<%= link_to 'Voltar', projects_path, :class => 'btn' %>
+<%= link_to 'Voltar', projects_path, :class => 'btn pull-right' %>
+
+<% if can?('edit', 'project') %>
+  <%= link_to 'Novo Repositorio', new_admin_project_repository_path(@project), :class => 'btn btn-success' %>
+<% end %>

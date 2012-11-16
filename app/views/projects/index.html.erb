@@ -1,10 +1,15 @@
 <h1><%= t('.title') %></h1>
 
+<%= paginate @projects %>
+
 <table class="table table-striped">
   <tr>
     <th><%= Project.human_attribute_name :name %></th>
     <th><%= Project.human_attribute_name :description %></th>
     <th><%= t('.repositories_count') %></th>
+    <% if can?('edit', 'project') %>
+      <th colspan="2"><%= t('actions', :scope => 'application') %></th>
+    <% end %>
   </tr>
 
 <% @projects.each do |project| %>
@@ -12,6 +17,13 @@
     <td><%= link_to project.name, project %></td>
     <td><%= project.description %></td>
     <td><%= project.repositories.count %></td>
+    <% if can?('edit', 'project') %>
+      <td><%= link_to t('edit', :scope => 'application'), edit_admin_project_path(project) %></td>
+      <td><%= link_to t('destroy', :scope => 'application'),
+                      [:admin, project], confirm: 'Confirmar exclusão do projeto?', method: :delete %></td>
+    <% end %>
   </tr>
 <% end %>
 </table>
+
+<%= paginate @projects %>

@@ -4,7 +4,7 @@ module Cranelift
 
     @@svn = nil
 
-    def initialize(project_path, login, password)
+    def initialize(project_path, login = nil, password = nil)
       self.project_path = project_path
       self.login = login
       self.password = password

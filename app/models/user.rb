@@ -19,6 +19,10 @@ class User < ActiveRecord::Base
             :presence => true,
             :length => {:in => 3..32}
 
+  validates :last_name,
+            :presence => true,
+            :length => {:in => 3..32}
+
   validates :email,
             :presence => true,
             :uniqueness => true,
