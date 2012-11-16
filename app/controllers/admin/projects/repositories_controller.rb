@@ -45,7 +45,7 @@ class Admin::Projects::RepositoriesController < ApplicationController
 
     if @repository.update_attributes(params[:repository])
       log current_user, "Alterou o reposiotio #{@repository.name} no projeto #{current_project.name}"
-      back_url = params[:back_url] || [:admin, current_project, @repository]
+      back_url = params[:back_url] || current_project
       redirect_to back_url, notice: 'Repository was successfully updated.'
     else
       render action: "edit"

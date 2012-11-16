@@ -1,4 +1,11 @@
-<%= content_tag :h1, @project.name %>
+<h1>
+  <%= @project.name %>
+
+  <% if can?('edit', 'project') %>
+    <%= link_to content_tag(:i, '', :class => 'icon icon-plus icon-white') + ' ' + Repository.model_name.human,
+                new_admin_project_repository_path(@project), :class => 'btn btn-success pull-right' %>
+  <% end %>
+</h1>
 
 <table class="table">
   <tr>
@@ -35,7 +42,7 @@
     <tr>
       <td><%= link_to repository.name, edit_admin_project_repository_path(@project, repository), :title => 'Editar este repositório' %></td>
       <td><%= repository.url %></td>
-      <td><%= repository.enable_autoupdate? ? 'OFF' : 'ON' %></td>
+      <td><%= repository.enable_autoupdate? ? 'ON' : 'OFF' %></td>
       <td><%= (revision = repository.revision) %></td>
       <td>
         <%= form_tag [@project, repository], :method => :put, class: "form-inline" do %>
@@ -50,7 +57,3 @@
 <% end %>
 
 <%= link_to 'Voltar', projects_path, :class => 'btn pull-right' %>
-
-<% if can?('edit', 'project') %>
-  <%= link_to 'Novo Repositorio', new_admin_project_repository_path(@project), :class => 'btn btn-success' %>
-<% end %>
