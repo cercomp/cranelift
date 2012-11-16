@@ -7,8 +7,10 @@ pt-BR:
     edit:
       title: Editar dados pessoais
     create:
-      successfully_create: 'Sua conta foi criada com sucesso!'
+      profile_successfully_create: 'Sua conta foi criada com sucesso!'
+      successfully_create: 'Usuário criado com sucesso!'
     update:
-      successfully_updated: 'Sua conta foi editada com sucesso!'
+      profile_successfully_updated: 'Sua conta foi editada com sucesso!'
+      successfully_updated: 'Usuário editado com sucesso!'
     alert:
       not_allow_register: O sistema não está aceitando registro de novos usuários

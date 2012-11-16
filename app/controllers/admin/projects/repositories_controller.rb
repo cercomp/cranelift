@@ -26,7 +26,7 @@ class Admin::Projects::RepositoriesController < ApplicationController
 
     if @repository.save
       log current_user, "Criou o reposiotio #{@repository.name} no projeto #{current_project.name}"
-      redirect_to [:admin, current_project, @repository], notice: 'Repository was successfully created.'
+      redirect_to current_project, notice: 'Repository was successfully created.'
     else
       render action: "new"
     end
@@ -58,7 +58,7 @@ class Admin::Projects::RepositoriesController < ApplicationController
 
     log current_user, "Removeu o reposiotio #{@repository.name} no projeto #{current_project.name}"
 
-    redirect_to admin_project_repositories_url(current_project)
+    redirect_to current_project
   end
 
   private

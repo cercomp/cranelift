@@ -5,7 +5,7 @@ module Migrate
 
       users = mysql.query('select * from user')
       users.each do |user|
-        obj = ::User.create do |u|
+        obj = TmpUser.create do |u|
           u.login      = user['login']
           u.password   = u.password_confirmation = (0...8).map{65.+(rand(25)).chr}.join
           u.admin      = user['admin']
@@ -26,6 +26,10 @@ module Migrate
     def role_name(id)
       reg = mysql.query("select name from role where id = #{id}")
       return reg.first['name']
+    end
+
+    class TmpUser < ::User
+      validates :last_name, :presence => false
     end
   end
 end

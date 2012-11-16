@@ -29,12 +29,12 @@ class Admin::UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
 
-    params[:user].slice!(:login, :password, :password_confirmation, :admin, :ip_block, :name, :email, :role_id)
+    params[:user].slice!(:login, :password, :password_confirmation, :admin, :ip_block, :first_name, :last_name, :email, :role_id)
     params[:user].except!(:password, :password_confirmation) if params[:user][:password].blank?
 
     if @user.update_attributes(params[:user])
       log current_user, "Atualizou o usuário #{@user.name}"
-      redirect_to [:admin, @user], :notice => t('users.update.successfully_updated')
+      redirect_to admin_users_url, :notice => t('users.update.successfully_updated')
     else
       render :edit
     end

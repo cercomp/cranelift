@@ -28,7 +28,7 @@ class Admin::ProjectsController < ApplicationController
 
     if @project.save
       log current_user, "Criou o projeto : #{@project.name}"
-      redirect_to [:admin, @project], notice: t('application.obj_successfully_created', :obj => 'Projeto')
+      redirect_to @project, notice: t('application.obj_successfully_created', :obj => 'Projeto')
     else
       render action: "new"
     end
@@ -41,7 +41,7 @@ class Admin::ProjectsController < ApplicationController
 
     if @project.update_attributes(params[:project])
       log current_user, "Modificou o projeto : #{@project.name}"
-      redirect_to [:admin, @project], notice: t('application.obj_successfully_updated', :obj => 'Projeto')
+      redirect_to @project, notice: t('application.obj_successfully_updated', :obj => 'Projeto')
     else
       render action: "edit"
     end

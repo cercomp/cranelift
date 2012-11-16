@@ -28,12 +28,12 @@ class UsersController < ApplicationController
 
   def update
     @user = current_user
-    params[:user].slice!(:name, :password, :password_confirmation)
+    params[:user].slice!(:first_name, :last_name, :password, :password_confirmation)
     params[:user].except!(:password, :password_confirmation) if params[:user][:password].blank?
 
     if @user.update_attributes params[:user]
       log @user, 'Atualizou seus dados'
-      redirect_to @user, :notice => t('users.update.successfully_updated')
+      redirect_to root_url, :notice => t('users.update.successfully_updated')
     else
       render :edit
     end
