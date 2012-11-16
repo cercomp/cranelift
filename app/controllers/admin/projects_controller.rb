@@ -8,7 +8,7 @@ class Admin::ProjectsController < ApplicationController
   end
 
   def show
-    @project = ::Project.find(params[:id])
+    @project = ::Project.find_by_name(params[:id])
   end
 
   def new
@@ -18,7 +18,7 @@ class Admin::ProjectsController < ApplicationController
 
   def edit
     redirect_if_cannot 'edit', 'projects'
-    @project = Project.find(params[:id])
+    @project = Project.find_by_name(params[:id])
   end
 
   def create
@@ -37,7 +37,7 @@ class Admin::ProjectsController < ApplicationController
   def update
     redirect_if_cannot 'update', 'projects'
 
-    @project = Project.find(params[:id])
+    @project = Project.find_by_name(params[:id])
 
     if @project.update_attributes(params[:project])
       log current_user, "Modificou o projeto : #{@project.name}"
@@ -49,7 +49,7 @@ class Admin::ProjectsController < ApplicationController
 
   def destroy
     redirect_if_cannot 'destroy', 'projects'
-    @project = Project.find(params[:id])
+    @project = Project.find_by_name(params[:id])
     @project.destroy
 
     log current_user, "Removeu o projeto : #{@project.name}"

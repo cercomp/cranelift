@@ -12,18 +12,18 @@ class Projects::RepositoriesController < ApplicationController
   end
 
   def show
-    @repository = Repository.find(params[:id])
+    @repository = current_project.repositories.find_by_name(params[:id])
   end
 
   def update
-    @repository = Repository.find(params[:id])
-    @repository.update_attribute :version, params[:repository][:version]
+    @repository = current_project.repositories.find_by_name(params[:id])
+    @repository.update_attribute :version, params[:version]
     redirect_to @repository.project, :notice => 'Repositorio atualizado com sucsso'
   end
 
   private
   def current_project
-    @current_project ||= Project.find(params[:project_id])
+    @current_project ||= Project.find_by_name(params[:project_id])
   end
 
   def verify_local_access

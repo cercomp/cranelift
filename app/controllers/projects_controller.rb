@@ -12,7 +12,7 @@ class ProjectsController < ApplicationController
 
   private
   def user_has_project
-    @project = Project.find(params[:id])
+    @project = Project.find_by_name(params[:id])
     if !current_user.admin? && !current_user.projects.include?(@project)
       redirect_to root_url, :alert => t('project.show.not_allowed') unless current_user.admin?
     end

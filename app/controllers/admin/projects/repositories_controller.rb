@@ -9,7 +9,7 @@ class Admin::Projects::RepositoriesController < ApplicationController
   end
 
   def show
-    @repository = Repository.find(params[:id])
+    @repository = current_project.repositories.find_by_name(params[:id])
   end
 
   def new
@@ -17,7 +17,7 @@ class Admin::Projects::RepositoriesController < ApplicationController
   end
 
   def edit
-    @repository = Repository.find(params[:id])
+    @repository = current_project.repositories.find_by_name(params[:id])
   end
 
   def create
@@ -33,7 +33,7 @@ class Admin::Projects::RepositoriesController < ApplicationController
   end
 
   def update
-    @repository = Repository.find(params[:id])
+    @repository = current_project.repositories.find_by_name(params[:id])
 
     # NOTE não é possível alterar o nome e a url de um repositório
     begin
@@ -53,7 +53,7 @@ class Admin::Projects::RepositoriesController < ApplicationController
   end
 
   def destroy
-    @repository = Repository.find(params[:id])
+    @repository = current_project.repositories.find_by_name(params[:id])
     @repository.destroy
 
     log current_user, "Removeu o reposiotio #{@repository.name} no projeto #{current_project.name}"
@@ -63,6 +63,6 @@ class Admin::Projects::RepositoriesController < ApplicationController
 
   private
   def current_project
-    @current_project ||= ::Project.find(params[:project_id])
+    @current_project ||= ::Project.find_by_name(params[:project_id])
   end
 end

@@ -8,4 +8,8 @@ class Project < ActiveRecord::Base
             :presence => :true,
             :uniqueness => true,
             :length => {:in => 3..32}
+
+  def to_param
+    "#{name.parameterize}"
+  end
 end

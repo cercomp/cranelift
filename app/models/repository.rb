@@ -52,6 +52,10 @@ class Repository < ActiveRecord::Base
     scm.update_repo(self.version.to_i) unless self.version.nil?
   end
 
+  def to_param
+    "#{name.parameterize}"
+  end
+
 private
   def check_valid_repository
     errors.add(:url, 'especificada não é um repositório svn válido') if scm.svn.info(url).nil?
