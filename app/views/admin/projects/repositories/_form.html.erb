@@ -15,15 +15,11 @@
   <%= f.input :password %>
   <%= f.input :enable_autoupdate %>
 
-  <% if current_user.admin? %>
+  <% if current_user.admin? && @repository.persisted? %>
     Script para hook de autoupdate
     <pre>
-Post:
-curl -d id=<%= @repository.to_param %> -d project_id=<%= current_project.to_param %> -d version=$2 <%= root_url %>autoupdate
-
----
-Get:
-curl <%= root_url %>autoupdate?id=<%= @repository.to_param %>&project_id=<%= current_project.to_param %>&version=$2
+Post: curl -d id=<%= @repository.to_param %> -d project_id=<%= current_project.to_param %> -d version=$2 <%= root_url %>autoupdate
+Get: curl <%= root_url %>autoupdate?id=<%= @repository.to_param %>&project_id=<%= current_project.to_param %>&version=$2
     </pre>
   <% end %>
 
