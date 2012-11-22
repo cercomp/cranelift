@@ -1,3 +1,10 @@
-<h1>Editando o repositório: <%= @repository.name %></h1>
+<h1>
+  Editando o repositório: <%= @repository.name %>
+  <%= link_to content_tag(:i, '', :class => 'icon icon-minus icon-white') + ' Deletar ' + Repository.model_name.human,
+              [:admin, current_project, @repository],
+              :class => 'btn btn-danger pull-right',
+              :method => :delete,
+              :confirm => 'Confirmar remoção do repositório?' %>
+</h1>
 
 <%= render 'form' %>

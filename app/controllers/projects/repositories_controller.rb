@@ -17,7 +17,8 @@ class Projects::RepositoriesController < ApplicationController
 
   def update
     @repository = current_project.repositories.find_by_name(params[:id])
-    @repository.update_attribute :version, params[:version]
+    @repository.version = params[:repository][:version]
+    @repository.save
     redirect_to @repository.project, :notice => 'Repositorio atualizado com sucsso'
   end
 

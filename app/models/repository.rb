@@ -6,7 +6,7 @@ class Repository < ActiveRecord::Base
   attr_accessor :version
 
   def scm
-    @scm ||= Cranelift::Scm.new(project_path, login, password)
+    @scm ||= Cranelift::Scm.new(project_path, self.login, self.password)
     @scm
   end
 
