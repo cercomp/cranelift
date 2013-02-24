@@ -10,13 +10,13 @@ class Projects::RepositoriesControllerTest < ActionController::TestCase
     @repository = repositories(:valid)
   end
 
-  test "should get index" do
+  test "get index" do
     get :index, :project_id => @project.id
     assert_response :success
     assert_not_nil assigns(:repositories)
   end
 
-  test "should show repository" do
+  test "show repository" do
     get :show, { id: @repository, :project_id => @project.id }
     assert_response :success
   end

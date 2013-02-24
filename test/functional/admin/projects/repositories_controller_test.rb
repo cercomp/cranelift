@@ -10,18 +10,18 @@ class Admin::Projects::RepositoriesControllerTest < ActionController::TestCase
     @repository = repositories(:valid)
   end
 
-  test "should get index" do
+  test "get index" do
     get :index, :project_id => @project.id
     assert_response :success
     assert_not_nil assigns(:repositories)
   end
 
-  test "should get new" do
+  test "get new" do
     get :new, :project_id => @project.id
     assert_response :success
   end
 
-  test "should create repository" do
+  test "create repository" do
     assert_difference('Repository.count') do
       post :create, {
         repository: @repository.attributes.slice('project_id', 'name', 'url').
@@ -33,17 +33,17 @@ class Admin::Projects::RepositoriesControllerTest < ActionController::TestCase
     assert_redirected_to admin_project_path(@project)
   end
 
-  test "should show repository" do
+  test "show repository" do
     get :show, { id: @repository, :project_id => @project.id }
     assert_response :success
   end
 
-  test "should get edit" do
+  test "get edit" do
     get :edit, { id: @repository, :project_id => @project.id }
     assert_response :success
   end
 
-  test "should update repository" do
+  test "update repository" do
     put :update, {
       id: @repository,
       repository: @repository.attributes.merge({'enable_autoupdate' => false}),
@@ -52,7 +52,7 @@ class Admin::Projects::RepositoriesControllerTest < ActionController::TestCase
     assert_redirected_to edit_admin_project_repository_path(@project, assigns(:repository))
   end
 
-  test "should destroy repository" do
+  test "destroy repository" do
     assert_difference('Repository.count', -1) do
       delete :destroy, { id: @repository, :project_id => @project.id }
     end

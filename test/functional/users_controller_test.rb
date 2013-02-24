@@ -13,7 +13,7 @@ class UsersControllerTest < ActionController::TestCase
 
   # Usuário se cadastrando no sistema
   # não deve ter sessao iniciada
-  test "should create user" do
+  test "create user" do
     assert_difference('User.count') do
       post :create, user: user_to_create
     end
@@ -33,7 +33,7 @@ class UsersControllerTest < ActionController::TestCase
     assert_redirected_to root_path
   end
 
-  test "should update user" do
+  test "update user" do
     session[:user_id] = users(:one).id
     post :update, id: users(:one).id, user: {
       first_name: 'newName'

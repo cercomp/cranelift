@@ -15,7 +15,7 @@ class ProjectsControllerTest < ActionController::TestCase
   # Todos os usuários poderão acessar a index de projetos, que listara os projetos
   # pertencentes a ele, exceto o administrador do poderá visualizar todos projetos
   # cadastrados no sistema
-  test "should get index" do
+  test "get index" do
     get :index
     assert_response :success
     assert_not_nil assigns(:projects)
@@ -23,12 +23,12 @@ class ProjectsControllerTest < ActionController::TestCase
 
 
   # Usuário poderam visualizar apenas projetos a qual pertence
-  test "should show project" do
+  test "show project" do
     get :show, id: @project
     assert_response :success
   end
   # Igualmente ao anterior
-  test "should not show project" do
+  test "not show project" do
     users(:one).projects = []
     get :show, id: @project
     assert_response :redirect

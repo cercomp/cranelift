@@ -15,7 +15,7 @@ class Admin::ProjectsControllerTest < ActionController::TestCase
   # Todos os usuários poderão acessar a index de projetos, que listara os projetos
   # pertencentes a ele, exceto o administrador do poderá visualizar todos projetos
   # cadastrados no sistema
-  test "should get index" do
+  test "get index" do
     get :index
     assert_response :success
     assert_not_nil assigns(:projects)
@@ -23,13 +23,13 @@ class Admin::ProjectsControllerTest < ActionController::TestCase
 
 
   # Usuário devem possuir permissão para criar projetos
-  test "should get new" do
+  test "get new" do
     get :new
     assert_response :success
   end
 
   # Igualmente ao anterior
-  test "should create project" do
+  test "create project" do
     assert_difference('Project.count') do
       post :create, project: {:name => 'Teste'}
     end
@@ -38,25 +38,25 @@ class Admin::ProjectsControllerTest < ActionController::TestCase
   end
 
 
-  test "should show project" do
+  test "show project" do
     get :show, id: @project
     assert_response :success
   end
 
 
   # Usuário deve ter permissão para editar o projeto
-  test "should get edit" do
+  test "get edit" do
     get :edit, id: @project
     assert_response :success
   end
-  test "should update project" do
+  test "update project" do
     put :update, id: @project, project: @project.attributes
     assert_redirected_to admin_project_path(assigns(:project))
   end
 
 
   # Usuário deve ter permissão e pertercer a um projeto para destruir
-  test "should destroy project" do
+  test "destroy project" do
     assert_difference('Project.count', -1) do
       delete :destroy, id: @project
     end

@@ -20,7 +20,7 @@ class Admin::IpsControllerTest < ActionController::TestCase
     assert assigns['ip']
   end
 
-  test "should create ip" do
+  test "create ip" do
     assert_difference('Ip.count') do
       post :create, ip: @ip.attributes.slice('ip', 'description', 'cidr')
     end
@@ -28,7 +28,7 @@ class Admin::IpsControllerTest < ActionController::TestCase
     assert_redirected_to admin_ips_path
   end
 
-  test "should delete ip" do
+  test "delete ip" do
     assert_difference('Ip.count', -1) do
       delete :destroy, id: @ip.id
     end
