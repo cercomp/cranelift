@@ -36,3 +36,5 @@ config/database.yml
 config/phpmigration.yml
 
 *.swp
+Vagrantfile
+\.vagrant

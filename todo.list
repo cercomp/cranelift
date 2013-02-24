@@ -1,6 +1,6 @@
 Todo:
 - fix chosen JS
-- arrumar mensagem: Rack::File headers parameter replaces cache_control after Rack 1.5.
+- arrumar fluxo dos projetos
 
 Done:
 - fix testes
@@ -9,3 +9,4 @@ Done:
 
 Later
 - substituir fixtures por factory girl
+- arrumar mensagem: Rack::File headers parameter replaces cache_control after Rack 1.5.
