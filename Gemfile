@@ -1,12 +1,13 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.1'
+gem 'rails', '3.2.12'
 
 gem 'bootstrap-sass', '~> 2.1.0.0'
 gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'kaminari'
 gem 'simple_form'
 gem 'jquery-rails'
+gem "friendly_id", "~> 4.0.9"
 
 group :sqlite do
   gem 'sqlite3'

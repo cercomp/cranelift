@@ -2,6 +2,9 @@
 require 'cranelift'
 
 class Repository < ActiveRecord::Base
+  extend FriendlyId
+  friendly_id :name
+
   attr_reader :scm
   attr_accessor :version
 
@@ -50,10 +53,6 @@ class Repository < ActiveRecord::Base
 
   def update_revision
     scm.update_repo(self.version.to_i) unless self.version.nil?
-  end
-
-  def to_param
-    "#{name.parameterize}"
   end
 
 private

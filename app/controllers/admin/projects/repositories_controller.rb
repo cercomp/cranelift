@@ -1,3 +1,4 @@
+# encoding: utf-8
 # TODO colocar permissões
 class Admin::Projects::RepositoriesController < ApplicationController
   before_filter :authenticate!, :only_admin!
@@ -9,7 +10,7 @@ class Admin::Projects::RepositoriesController < ApplicationController
   end
 
   def show
-    @repository = current_project.repositories.find_by_name(params[:id])
+    @repository = current_project.repositories.find(params[:id])
   end
 
   def new
@@ -17,7 +18,7 @@ class Admin::Projects::RepositoriesController < ApplicationController
   end
 
   def edit
-    @repository = current_project.repositories.find_by_name(params[:id])
+    @repository = current_project.repositories.find(params[:id])
   end
 
   def create
@@ -25,15 +26,15 @@ class Admin::Projects::RepositoriesController < ApplicationController
     @repository.project = current_project
 
     if @repository.save
-      log current_user, "Criou o reposiotio #{@repository.name} no projeto #{current_project.name}"
-      redirect_to current_project, notice: 'Repository was successfully created.'
+      log current_user, "Criou o repositório #{@repository.name} no projeto #{current_project.name}"
+      redirect_to [:admin, current_project], notice: 'Repository was successfully created.'
     else
       render action: "new"
     end
   end
 
   def update
-    @repository = current_project.repositories.find_by_name(params[:id])
+    @repository = current_project.repositories.find(params[:id])
 
     # NOTE não é possível alterar o nome e a url de um repositório
     begin
@@ -46,23 +47,23 @@ class Admin::Projects::RepositoriesController < ApplicationController
     if @repository.update_attributes(params[:repository])
       log current_user, "Alterou o reposiotio #{@repository.name} no projeto #{current_project.name}"
       back_url = params[:back_url] || current_project
-      redirect_to back_url, notice: 'Repository was successfully updated.'
+      redirect_to edit_admin_project_repository_path(current_project, @repository), notice: 'Repository was successfully updated.'
     else
       render action: "edit"
     end
   end
 
   def destroy
-    @repository = current_project.repositories.find_by_name(params[:id])
+    @repository = current_project.repositories.find(params[:id])
     @repository.destroy
 
     log current_user, "Removeu o reposiotio #{@repository.name} no projeto #{current_project.name}"
 
-    redirect_to current_project
+    redirect_to [:admin, current_project, :repositories]
   end
 
   private
   def current_project
-    @current_project ||= ::Project.find_by_name(params[:project_id])
+    @current_project ||= ::Project.find(params[:project_id])
   end
 end

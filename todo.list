@@ -1,0 +1,11 @@
+Todo:
+- fix chosen JS
+- arrumar mensagem: Rack::File headers parameter replaces cache_control after Rack 1.5.
+
+Done:
+- fix testes
+- corrigir todos os friends url que estão quebrados
+- fix ssl nos bindings svn => fazer um checkout manualmente e aceitar permanentemente os certificados =(
+
+Later
+- substituir fixtures por factory girl

@@ -34,3 +34,5 @@ repositories/*
 Gemfile.lock
 config/database.yml
 config/phpmigration.yml
+
+*.swp

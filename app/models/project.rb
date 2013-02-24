@@ -1,4 +1,7 @@
 class Project < ActiveRecord::Base
+  extend FriendlyId
+  friendly_id :name
+
   has_many :repositories, :dependent => :destroy
   has_and_belongs_to_many :users
 
@@ -9,7 +12,4 @@ class Project < ActiveRecord::Base
             :uniqueness => true,
             :length => {:in => 3..32}
 
-  def to_param
-    "#{name.parameterize}"
-  end
 end

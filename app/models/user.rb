@@ -24,10 +24,6 @@ class User < ActiveRecord::Base
             :uniqueness => true,
             :format => { :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i }
 
-  def name
-    [self.first_name, self.last_name].join(' ')
-  end
-
   # TODO fazer login com LDAP http://rubygems.org/gems/net-ldap
   # http://redmine.rubyforge.org/svn/trunk/app/models/auth_source_ldap.rb
   def self.authenticate(login, password)

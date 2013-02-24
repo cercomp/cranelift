@@ -36,11 +36,11 @@ class UsersControllerTest < ActionController::TestCase
   test "should update user" do
     session[:user_id] = users(:one).id
     post :update, id: users(:one).id, user: {
-      name: 'newName'
+      first_name: 'newName'
     }
     assert assigns['user']
-    assert assigns['user'].name == 'newName'
-    assert_redirected_to user_path(assigns['user'])
+    assert assigns['user'].first_name == 'newName'
+    assert_redirected_to root_path
   end
 
 

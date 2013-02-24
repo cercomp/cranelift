@@ -30,7 +30,7 @@ class Admin::Projects::RepositoriesControllerTest < ActionController::TestCase
       }
     end
 
-    assert_redirected_to admin_project_repository_path(@project, assigns(:repository))
+    assert_redirected_to admin_project_path(@project)
   end
 
   test "should show repository" do
@@ -49,7 +49,7 @@ class Admin::Projects::RepositoriesControllerTest < ActionController::TestCase
       repository: @repository.attributes.merge({'enable_autoupdate' => false}),
       project_id: @project.id
     }
-    assert_redirected_to admin_project_repository_path(@project, assigns(:repository))
+    assert_redirected_to edit_admin_project_repository_path(@project, assigns(:repository))
   end
 
   test "should destroy repository" do
@@ -57,6 +57,6 @@ class Admin::Projects::RepositoriesControllerTest < ActionController::TestCase
       delete :destroy, { id: @repository, :project_id => @project.id }
     end
 
-    assert_redirected_to admin_project_repositories_path(@projects)
+    assert_redirected_to admin_project_repositories_path(@project)
   end
 end

@@ -7,7 +7,7 @@ one:
   admin: false
   ip_block: false
   last_action: 2012-02-01 15:33:46
-  name: MyString
+  first_name: MyString
   email: userone@crane.com
   active: false
   login_type: system
@@ -19,7 +19,7 @@ two:
   admin: false
   ip_block: false
   last_action: 2012-02-01 15:33:46
-  name: MyString
+  first_name: MyString
   email: usertwo@crane.com
   active: false
   login_type: system

@@ -8,7 +8,7 @@ class Admin::ProjectsController < ApplicationController
   end
 
   def show
-    @project = ::Project.find_by_name(params[:id])
+    @project = ::Project.find(params[:id])
   end
 
   def new
@@ -18,7 +18,7 @@ class Admin::ProjectsController < ApplicationController
 
   def edit
     redirect_if_cannot 'edit', 'projects'
-    @project = Project.find_by_name(params[:id])
+    @project = Project.find(params[:id])
   end
 
   def create
@@ -28,7 +28,7 @@ class Admin::ProjectsController < ApplicationController
 
     if @project.save
       log current_user, "Criou o projeto : #{@project.name}"
-      redirect_to @project, notice: t('application.obj_successfully_created', :obj => 'Projeto')
+      redirect_to [:admin, @project], notice: t('application.obj_successfully_created', :obj => 'Projeto')
     else
       render action: "new"
     end
@@ -37,11 +37,11 @@ class Admin::ProjectsController < ApplicationController
   def update
     redirect_if_cannot 'update', 'projects'
 
-    @project = Project.find_by_name(params[:id])
+    @project = Project.find(params[:id])
 
     if @project.update_attributes(params[:project])
       log current_user, "Modificou o projeto : #{@project.name}"
-      redirect_to @project, notice: t('application.obj_successfully_updated', :obj => 'Projeto')
+      redirect_to [:admin, @project], notice: t('application.obj_successfully_updated', :obj => 'Projeto')
     else
       render action: "edit"
     end
@@ -49,7 +49,7 @@ class Admin::ProjectsController < ApplicationController
 
   def destroy
     redirect_if_cannot 'destroy', 'projects'
-    @project = Project.find_by_name(params[:id])
+    @project = Project.find(params[:id])
     @project.destroy
 
     log current_user, "Removeu o projeto : #{@project.name}"

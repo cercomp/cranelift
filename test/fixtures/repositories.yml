@@ -7,27 +7,3 @@ valid:
   enable_autoupdate: false
   login: ''
   password: ''
-
-invalid_autoupdate:
-  project_id: 1
-  name: teste
-  url: https://svn.cercomp.ufg.br/pub/teste/
-  enable_autoupdate: true
-  login: ''
-  password: ''
-
-invalid_url:
-  project_id: 1
-  name: teste
-  url: url_invalida
-  enable_autoupdate: false
-  login: ''
-  password: ''
-
-valid_autoupdate:
-  project_id: 1
-  name: teste
-  url: https://svn.cercomp.ufg.br/pub/teste/
-  enable_autoupdate: true
-  login: 'login'
-  password: 'password'
