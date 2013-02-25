@@ -1,7 +1,5 @@
 Todo:
-- renomear um projeto => renomear a pasta do repositorio no sistema de arquivos
-- criar maneira de testar repositorios svn
-- passar testes para minitest - http://blowmage.com/minitest-rails/
+- criar maneira de testar repositorios svn para testar o autoupdate
 
 Done:
 - fix chosen JS
@@ -9,7 +7,9 @@ Done:
 - corrigir todos os friends url que estão quebrados
 - arrumar fluxo dos projetos
 - fix ssl nos bindings svn => fazer um checkout manualmente e aceitar permanentemente os certificados =(
+- renomear um projeto => renomear a pasta do repositorio no sistema de arquivos
 
 Later
 - substituir fixtures por factory girl
+- passar testes para minitest - http://blowmage.com/minitest-rails/
 - arrumar mensagem: Rack::File headers parameter replaces cache_control after Rack 1.5.

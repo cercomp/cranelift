@@ -36,10 +36,8 @@ class Admin::Projects::RepositoriesController < ApplicationController
   def update
     @repository = current_project.repositories.find(params[:id])
 
-    # NOTE não é possível alterar o nome e a url de um repositório
     begin
-      params[:repository].delete(:name) if params[:repository][:name]
-      params[:repository].delete(:url) if params[:repository][:url]
+      params[:repository].slice!(:login, :password, :enable_autoupdate)
       params[:repository].delete(:password) if params[:repository][:password].empty?
     rescue
     end
