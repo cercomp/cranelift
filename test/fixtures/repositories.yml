@@ -3,6 +3,7 @@
 valid:
   project_id: 1
   name: teste
+  slug: teste
   url: https://svn.cercomp.ufg.br/pub/teste/
   enable_autoupdate: false
   login: ''

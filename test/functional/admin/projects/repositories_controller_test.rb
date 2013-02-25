@@ -30,7 +30,7 @@ class Admin::Projects::RepositoriesControllerTest < ActionController::TestCase
       }
     end
 
-    assert_redirected_to admin_project_path(@project)
+    assert_redirected_to admin_project_repositories_path(@project)
   end
 
   test "show repository" do

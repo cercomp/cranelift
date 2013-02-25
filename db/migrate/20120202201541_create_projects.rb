@@ -2,6 +2,7 @@ class CreateProjects < ActiveRecord::Migration
   def change
     create_table :projects do |t|
       t.string :name
+      t.string :slug
       t.text :description
 
       t.timestamps
@@ -10,7 +11,9 @@ class CreateProjects < ActiveRecord::Migration
     create_table :projects_users, :id => false do |t|
       t.references :project, :user
     end
+
     add_index :projects_users, [:project_id, :user_id], :unique => true
+    add_index :projects, :slug, :unique => true
   end
 end
 

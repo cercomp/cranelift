@@ -3,7 +3,7 @@ require 'cranelift'
 
 class Repository < ActiveRecord::Base
   extend FriendlyId
-  friendly_id :name
+  friendly_id :name, use: :slugged
 
   attr_reader :scm
   attr_accessor :version
@@ -45,7 +45,7 @@ class Repository < ActiveRecord::Base
   end
 
   def project_path
-    @project_name ||= sanitize_string_to_folder_name(self.project.name)
+    @project_name ||= sanitize_string_to_folder_name(self.project.slug)
     @repository_name ||= sanitize_string_to_folder_name(self.name)
 
     REPOS_PATH.join(@project_name, @repository_name).to_s
@@ -55,9 +55,13 @@ class Repository < ActiveRecord::Base
     scm.update_repo(self.version.to_i) unless self.version.nil?
   end
 
+  def update_directory_name
+    true
+  end
+
 private
   def check_valid_repository
-    errors.add(:url, 'especificada não é um repositório svn válido') if scm.svn.info(url).nil?
+    errors.add(:url, 'URL especificada não é um repositório svn válido') if scm.svn.info(url).nil?
   end
 
   def sanitize_string_to_folder_name(s)

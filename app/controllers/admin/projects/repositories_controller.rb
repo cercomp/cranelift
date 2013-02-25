@@ -27,7 +27,7 @@ class Admin::Projects::RepositoriesController < ApplicationController
 
     if @repository.save
       log current_user, "Criou o repositório #{@repository.name} no projeto #{current_project.name}"
-      redirect_to [:admin, current_project], notice: 'Repository was successfully created.'
+      redirect_to [:admin, current_project, :repositories], notice: 'Repository was successfully created.'
     else
       render action: "new"
     end

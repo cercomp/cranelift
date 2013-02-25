@@ -14,7 +14,7 @@ flag = User.create(
   password: 'admin',
   password_confirmation: 'admin',
   admin: 'true',
-  name: 'Administrador',
+  first_name: 'Administrador',
   email: 'admin@admin.com',
   active: 'true',
   login_type: 'normal',
