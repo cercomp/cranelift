@@ -22,7 +22,7 @@ class Repository < ActiveRecord::Base
     scm.delete_files
   end
 
-  before_update :update_revision
+  before_update :update_revision, :update_directory_name
 
   # Relatioships
   belongs_to :project

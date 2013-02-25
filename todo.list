@@ -1,10 +1,13 @@
 Todo:
-- fix chosen JS
-- arrumar fluxo dos projetos
+- renomear um projeto => renomear a pasta do repositorio no sistema de arquivos
+- criar maneira de testar repositorios svn
+- passar testes para minitest - http://blowmage.com/minitest-rails/
 
 Done:
+- fix chosen JS
 - fix testes
 - corrigir todos os friends url que estão quebrados
+- arrumar fluxo dos projetos
 - fix ssl nos bindings svn => fazer um checkout manualmente e aceitar permanentemente os certificados =(
 
 Later
