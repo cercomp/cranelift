@@ -30,12 +30,17 @@ module Cranelift
 
     def delete_files
       if File.directory?(project_path)
-        FileUtils.rm_rf(project_path)
+        FileUtils.rm_rf(project_pathadd_ssl_server_trust_prompt_provider)
       end
     end
 
     def info
       svn.info(project_path)
+    end
+
+    def auth(login, password)
+      self.login = login
+      self.password = password
     end
 
     def svn
@@ -44,7 +49,7 @@ module Cranelift
         @svn.ctx.add_simple_prompt_provider(0) do |cred, realm, username, may_save|
           cred.username = login
           cred.password = password
-          cred.may_save = false
+          cred.may_save = true
         end
       end
       @svn

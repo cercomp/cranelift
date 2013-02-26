@@ -1,5 +1,8 @@
 Todo:
 - criar maneira de testar repositorios svn para testar o autoupdate
+  - mockar tudo ou criar uma biblioteca para manipulação de repositórios svn local
+  - reescrever testes que fazem autenticação
+- finalizar a box do vagrant para desenvolvimento e documentar como usá-la
 
 Done:
 - fix chosen JS

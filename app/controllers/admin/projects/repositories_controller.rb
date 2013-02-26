@@ -1,5 +1,4 @@
 # encoding: utf-8
-# TODO colocar permissões
 class Admin::Projects::RepositoriesController < ApplicationController
   before_filter :authenticate!, :only_admin!
 
@@ -11,6 +10,9 @@ class Admin::Projects::RepositoriesController < ApplicationController
 
   def show
     @repository = current_project.repositories.find(params[:id])
+  end
+
+  def login
   end
 
   def new

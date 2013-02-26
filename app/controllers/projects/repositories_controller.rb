@@ -13,6 +13,7 @@ class Projects::RepositoriesController < ApplicationController
 
   def show
     @repository = current_project.repositories.find(params[:id])
+    @repository.auth(params[:login], params[:pass]) or redirect_to action: :login
   end
 
   def update

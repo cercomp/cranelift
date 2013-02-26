@@ -21,4 +21,12 @@ class Projects::RepositoriesControllerTest < ActionController::TestCase
     assert_response :success
   end
 
+  test "repository that need authentication" do
+    auth_repo = repositories(:auth)
+    get :show, { id: auth_repo, :project_id => @project.id }
+
+    assert_response :redirect
+    assert_redirected_to admin_project_repositorie_login_path(@project, auth_repo)
+  end
+
 end

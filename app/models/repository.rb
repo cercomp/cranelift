@@ -29,7 +29,19 @@ class Repository < ActiveRecord::Base
   validate :check_valid_repository, :on => :create
 
   def scm
-    @scm ||= Cranelift::Scm.new(path, self.login, self.password)
+    @scm ||= Cranelift::Scm.new(path)
+  end
+  
+  def auth(login, pass)
+    debugger
+    scm.auth(login, password)
+    valid_auth?
+  end
+
+  # a única maneira que descobri para testar se o repositorio online
+  # está acessível é testando a revisão do repositório
+  def valid_auth?
+    !scm.svn.info(url).nil?
   end
 
   def revision
@@ -45,11 +57,12 @@ class Repository < ActiveRecord::Base
   end
 
   def check_valid_repository
-    errors.add(:url, 'URL especificada não é um repositório svn válido') if scm.svn.info(url).nil?
+    errors.add(:url, 'URL especificada não é um repositório svn válido') unless valid_auth? 
   end
   private :check_valid_repository
 
   def checkout
+    scm.auth(login, password)
     scm.checkout(url)
   end
   private :checkout
