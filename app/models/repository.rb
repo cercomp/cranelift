@@ -33,8 +33,7 @@ class Repository < ActiveRecord::Base
   end
   
   def auth(login, pass)
-    debugger
-    scm.auth(login, password)
+    scm.auth(login, pass)
     valid_auth?
   end
 

@@ -13,7 +13,9 @@ class Projects::RepositoriesController < ApplicationController
 
   def show
     @repository = current_project.repositories.find(params[:id])
-    @repository.auth(params[:login], params[:pass]) or redirect_to action: :login
+    if !@repository.auth(params[:login], params[:pass])
+      redirect_to new_project_repository_auth_url(current_project, @repository)
+    end
   end
 
   def update
