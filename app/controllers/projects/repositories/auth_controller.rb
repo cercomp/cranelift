@@ -10,6 +10,8 @@ class Projects::Repositories::AuthController < ApplicationController
     repository = Repository.find(params[:repository_id])
 
     if repository.auth(params[:login], params[:pass])
+      session[:repo_login] = params[:login]
+      session[:repo_pass] = params[:pass]
       redirect_to project_repository_url(project, repository)
     else
       render :new, :alert => 'dados errados'
