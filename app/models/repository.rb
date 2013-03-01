@@ -56,6 +56,7 @@ class Repository < ActiveRecord::Base
   end
 
   def check_valid_repository
+    scm.auth(login, password)
     errors.add(:url, 'URL especificada não é um repositório svn válido') unless valid_auth? 
   end
   private :check_valid_repository

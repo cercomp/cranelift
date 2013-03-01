@@ -1,5 +1,7 @@
 # encoding: utf-8
 class Projects::Repositories::AuthController < ApplicationController
+  before_filter :load_vars
+
   def new
   end
 
@@ -12,5 +14,11 @@ class Projects::Repositories::AuthController < ApplicationController
     else
       render :new, :alert => 'dados errados'
     end
+  end
+
+  private
+  def load_vars
+    @project = Project.find(params[:project_id])
+    @repository = Repository.find(params[:repository_id])
   end
 end
