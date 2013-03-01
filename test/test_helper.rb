@@ -1,7 +1,8 @@
 ENV["RAILS_ENV"] = "test"
 require File.expand_path('../../config/environment', __FILE__)
+require "capybara/rails"
 require 'rails/test_help'
-require 'debugger'
+require 'mocha/setup'
 
 class ActiveSupport::TestCase
   # Setup all fixtures in test/fixtures/*.(yml|csv) for all tests in alphabetical order.
@@ -23,5 +24,11 @@ class ActiveSupport::TestCase
       assert_equal root_url, path
       sess.https!(false)
     end
+  end
+end
+
+module ActionController
+  class IntegrationTest
+    include Capybara::DSL
   end
 end

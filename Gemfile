@@ -26,12 +26,15 @@ end
 
 group :development do
   gem 'pry-rails'
-  gem 'debugger'
 end
 
 group :test do
   gem 'faker'
   gem 'capybara'
   gem 'database_cleaner'
-  gem 'mocha', :require => 'mocha/setup'
+  gem 'mocha', :require => false
+end
+
+group :test, :development do
+  gem 'debugger'
 end
