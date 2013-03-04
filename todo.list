@@ -1,10 +1,11 @@
 Todo:
-- criar maneira de testar repositorios svn para testar o autoupdate
-  - mockar tudo ou criar uma biblioteca para manipulação de repositórios svn local
-  - reescrever testes que fazem autenticação
+- tela de autenticação no projeto e usar dados do usuário para autenticar também
+  - guardar os dados na sessão
+- reescrever testes que fazem autenticação de repositorio para usar mocks
 - finalizar a box do vagrant para desenvolvimento e documentar como usá-la
 
 Done:
+- criar maneira de testar repositorios svn para testar o autoupdate => mockar tudo
 - fix chosen JS
 - fix testes
 - corrigir todos os friends url que estão quebrados
@@ -12,7 +13,7 @@ Done:
 - fix ssl nos bindings svn => fazer um checkout manualmente e aceitar permanentemente os certificados =(
 - renomear um projeto => renomear a pasta do repositorio no sistema de arquivos
 
-Later
+Late
 - substituir fixtures por factory girl
-- passar testes para minitest - http://blowmage.com/minitest-rails/
+- passar testes para minitest (Rails 4) - http://blowmage.com/minitest-rails/
 - arrumar mensagem: Rack::File headers parameter replaces cache_control after Rack 1.5.

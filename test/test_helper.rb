@@ -1,7 +1,8 @@
 ENV["RAILS_ENV"] = "test"
 require File.expand_path('../../config/environment', __FILE__)
+require "capybara/rails"
 require 'rails/test_help'
-require 'debugger'
+require 'mocha/setup'
 
 class ActiveSupport::TestCase
   # Setup all fixtures in test/fixtures/*.(yml|csv) for all tests in alphabetical order.
@@ -23,5 +24,18 @@ class ActiveSupport::TestCase
       assert_equal root_url, path
       sess.https!(false)
     end
+  end
+end
+
+class ActionController::IntegrationTest
+  include Capybara::DSL
+
+  # Stop ActiveRecord from wrapping tests in transactions
+  self.use_transactional_fixtures = false
+
+  teardown do
+    DatabaseCleaner.clean       # Truncate the database
+    Capybara.reset_sessions!    # Forget the (simulated) browser state
+    Capybara.use_default_driver # Revert Capybara.current_driver to Capybara.default_driver
   end
 end
