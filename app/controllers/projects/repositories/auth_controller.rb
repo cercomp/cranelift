@@ -12,7 +12,8 @@ class Projects::Repositories::AuthController < ApplicationController
     if repository.auth(params[:login], params[:pass])
       redirect_to project_repository_url(project, repository)
     else
-      render :new, :alert => 'dados errados'
+      flash.now['alert'] = t('projects.repositories.auth.create.auth_failed')
+      render :new
     end
   end
 
