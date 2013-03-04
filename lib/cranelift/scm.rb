@@ -38,13 +38,21 @@ module Cranelift
       svn.info(project_path)
     end
 
+    def auth(login, password)
+      self.login = login
+      self.password = password
+      @svn = nil # reset svn object
+    end
+
     def svn
       if @svn.nil?
         @svn = ::Cranelift::Scm::Adapters::Subversion.new
-        @svn.ctx.add_simple_prompt_provider(0) do |cred, realm, username, may_save|
-          cred.username = login
-          cred.password = password
-          cred.may_save = false
+        if !login.nil? && !password.nil?
+          @svn.ctx.add_simple_prompt_provider(0) do |cred, realm, username, may_save|
+            cred.username = login
+            cred.password = password
+            cred.may_save = true
+          end
         end
       end
       @svn

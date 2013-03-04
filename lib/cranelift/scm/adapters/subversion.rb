@@ -5,10 +5,8 @@ module Cranelift::Scm::Adapters
 
     def initialize
       @ctx = ::Svn::Client::Context.new
-      @ctx.add_simple_provider
+      #@ctx.add_simple_provider # uses stored authentication???
       @ctx.add_ssl_server_trust_file_provider
-      @ctx.add_ssl_client_cert_pw_file_provider
-      @ctx.add_ssl_client_cert_file_provider
     end
 
     def checkout(url, destination)

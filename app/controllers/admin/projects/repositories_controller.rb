@@ -1,5 +1,4 @@
 # encoding: utf-8
-# TODO colocar permissões
 class Admin::Projects::RepositoriesController < ApplicationController
   before_filter :authenticate!, :only_admin!
 

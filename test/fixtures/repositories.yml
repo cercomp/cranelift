@@ -8,3 +8,12 @@ valid:
   enable_autoupdate: false
   login: ''
   password: ''
+
+auth:
+  project_id: 1
+  name: teste_auth
+  slug: teste_auth
+  url: https://svn.cercomp.ufg.br/auth/teste/
+  enable_autoupdate: false
+  login: 'teste'
+  password: 'cercomp'

@@ -25,7 +25,11 @@ Cranelift::Application.routes.draw do
 
   # Projects routes
   resources :projects, :only => [:index, :show] do
-    resources :repositories, :controller => 'projects/repositories', :only => [:index, :show, :update]
+    resources :repositories,
+              :controller => 'projects/repositories',
+              :only => [:index, :show, :update] do
+      resource :auth, :controller => 'projects/repositories/auth', only: [:new, :create]
+    end
   end
 
 
