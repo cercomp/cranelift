@@ -8,7 +8,7 @@
     <%= render 'layouts/header' %>
 
     <div class="row">
-      <div class="span8 offset2 content top-line">
+      <div class="span8 offset2 content">
         <div class="messages">
           <% flash.each do |name, msg| %>
             <div class="alert alert-<%= name == :notice ? "success" : "error" %>">
@@ -19,9 +19,9 @@
         </div>
         
         <%= yield %>
-      </div><!--/span-->
+      </div>
 
-    </div><!--/row-->
+    </div>
   </div>
 
   <%= javascript_include_tag "application" %>

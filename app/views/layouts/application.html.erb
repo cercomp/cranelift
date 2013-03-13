@@ -7,17 +7,8 @@
   <div class="container">
     <%= render 'layouts/header' %>
 
-    <div class="row top-line">
-      <div class="span3" style="margin: 0 20px 0 0">
-        <div class="well sidebar-nav" style="padding: 8px 0;">
-
-          <ul class="nav nav-list">
-            <%= render 'layouts/menu' %>
-          </ul>
-        </div><!--/.well -->
-      </div><!--/span-->
-
-      <div class="span9 content">
+    <div class="row">
+      <div class="span12 content">
         <div class="messages">
           <% flash.each do |name, msg| %>
             <div class="alert alert-<%= name == :notice ? "success" : "error" %>">
@@ -28,9 +19,9 @@
         </div>
         
         <%= yield %>
-      </div><!--/span-->
+      </div>
 
-    </div><!--/row-->
+    </div>
   </div>
 
   <%= javascript_include_tag "application" %>

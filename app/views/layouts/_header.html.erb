@@ -1,8 +1,13 @@
-<div class="row logo">
+<div class="row logo bottom-line">
   <div class="span12">
     <%= link_to root_path do %>
       <%= image_tag 'logo.png' %>
       Cranelift
     <% end %>
+
+    <div id="menu">
+      <ul class="clearfix"><%= render '/layouts/menu_user' %></ul>
+      <ul><%= render '/layouts/menu_admin' %></ul>
+    </div>
   </div>
 </div>
