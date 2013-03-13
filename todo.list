@@ -1,4 +1,5 @@
 Todo:
+- layout -> posicionar logo e definir cores
 - tela de autenticação no projeto e usar dados do usuário para autenticar também
   - guardar os dados na sessão
 - reescrever testes que fazem autenticação de repositorio para usar mocks

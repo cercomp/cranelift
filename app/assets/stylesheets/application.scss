@@ -30,3 +30,22 @@ table.nowrap td >div {
 form#new-session a.pull-right {
   margin-left: 1em;
 }
+
+.top-line {
+  border-top: 8px solid #005ca1;
+  padding-top: 1em;
+}
+
+div.logo {
+  margin: 0.3em 0 0.5em;
+  font-size: 40px;
+  text-align: center;
+  font-family: 'Skranji', cursive;
+
+  img {
+    height: 75px;
+  }
+  a:hover {
+    text-decoration: none;
+  }
+}
