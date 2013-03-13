@@ -1,11 +1,12 @@
 Todo:
-- layout -> posicionar logo e definir cores
+- layout -> definir tipografia
 - tela de autenticação no projeto e usar dados do usuário para autenticar também
   - guardar os dados na sessão
 - reescrever testes que fazem autenticação de repositorio para usar mocks
 - finalizar a box do vagrant para desenvolvimento e documentar como usá-la
 
 Done:
+- layout -> posicionar logo e definir cores
 - criar maneira de testar repositorios svn para testar o autoupdate => mockar tudo
 - fix chosen JS
 - fix testes
@@ -17,4 +18,3 @@ Done:
 Late
 - substituir fixtures por factory girl
 - passar testes para minitest (Rails 4) - http://blowmage.com/minitest-rails/
-- arrumar mensagem: Rack::File headers parameter replaces cache_control after Rack 1.5.

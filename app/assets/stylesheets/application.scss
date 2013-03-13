@@ -48,8 +48,11 @@ div.logo {
     height: 75px;
   }
 
-  a:hover {
-    text-decoration: none;
+  a {
+    color: #005ca1;
+    &:hover {
+      text-decoration: none;
+    }
   }
 
   div#menu {
@@ -70,7 +73,7 @@ div.logo {
       float: right;
 
       a,i {
-        padding: .2em;
+        padding: .25em;
         font-size: 25px;
         color: #005ca1;
 
@@ -78,6 +81,9 @@ div.logo {
           background: #005ca1;
           color: white;
         }
+      }
+      a {
+        padding: 0;
       }
     }
   }
