@@ -1,5 +1,5 @@
 module Migrate
-  class IpsMigrate < Migrate::Base
+  class Ips < Migrate::Base
     def migrate
       puts "Migrando ips..."
 

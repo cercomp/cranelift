@@ -15,7 +15,7 @@ module Migrate
     def mysql
       if @@mysql.nil?
         c = self::config
-        @@mysql = Mysql2::Client.new(
+        @@mysql = ::Mysql2::Client.new(
           :host     => c.host,
           :username => c.user,
           :password => c.pass,

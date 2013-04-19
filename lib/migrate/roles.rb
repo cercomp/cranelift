@@ -1,7 +1,7 @@
 # NOTE Papeis não serão migrados do projeto antigo
 
 module Migrate
-  class RolesMigrate < Migrate::Base
+  class Roles < Migrate::Base
     def migrate
       puts "Migrando papeis..."
 
