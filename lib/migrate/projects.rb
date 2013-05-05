@@ -4,10 +4,10 @@ module Migrate
   end
 
   class Projects < Migrate::Base
-    def migrate
+    def migrate(project_id = false)
       puts "Migrando projetos..."
 
-      phpsvn_projects.each do |reg|
+      phpsvn_projects(project_id).each do |reg|
         copy_repository_from_php(reg['alias'])
 
         pj = ::Project.create(name: reg['alias'])
@@ -24,8 +24,12 @@ module Migrate
       end
     end
 
-    def phpsvn_projects
-      mysql.query('select * from projetos')
+    def phpsvn_projects(id)
+      if (id)
+        mysql.query("select * from projetos where id = #{id}")
+      else
+        mysql.query('select * from projetos')
+      end
     end
 
     def add_users_to_project(cr_project, old_project_id)
