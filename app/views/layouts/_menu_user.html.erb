@@ -1,0 +1,11 @@
+<% if current_user %>
+  <%= header_menu('off', t('.logout'), logout_path, :method => :delete) %>
+  <%= header_menu('edit', t('.editaccount'), editaccount_path) %>
+<% else %>
+  <% if Setting.find_or_default('allow_register').value == 'true' %>
+    <%= header_menu('pencil', t('.register'), new_user_path) %>
+  <% end %>
+  <%= header_menu('refresh', t('.login'), login_path) %>
+<% end %>
+
+<%= header_menu('folder-open', t('.projects'), projects_path) %>

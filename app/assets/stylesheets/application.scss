@@ -11,6 +11,7 @@
  *= require chosen
  *= require_self
  *= require layout
+ *= require _font-awesome
  *= require_tree ./admin/
  */
 
@@ -29,4 +30,61 @@ table.nowrap td >div {
 
 form#new-session a.pull-right {
   margin-left: 1em;
+}
+
+.bottom-line {
+  border-bottom: 8px solid #005ca1;
+  padding-bottom: .3em;
+  margin-bottom: 1em;
+}
+
+div.logo {
+  margin: 0.3em 0 0.5em;
+  font-size: 40px;
+  font-family: 'Skranji', cursive;
+  position: relative;
+
+  img {
+    height: 75px;
+  }
+
+  a {
+    color: #005ca1;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  div#menu {
+    position: absolute;
+    right: 0;
+    top: 0;
+
+    ul {
+      display: block;
+    }
+    ul~ul {
+      margin-top: .1em;
+    }
+
+    li {
+      list-style: none;
+      display: block;
+      float: right;
+
+      a,i {
+        padding: .25em;
+        font-size: 25px;
+        color: #005ca1;
+
+        &:hover {
+          background: #005ca1;
+          color: white;
+        }
+      }
+      a {
+        padding: 0;
+      }
+    }
+  }
 }

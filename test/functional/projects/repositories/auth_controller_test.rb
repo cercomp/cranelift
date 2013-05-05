@@ -18,14 +18,14 @@ class Projects::Repositories::AuthControllerTest < ActionController::TestCase
 
   test "successfully auth at repository" do
     post :create, { repository_id: @auth_repo, project_id: @project,
-                  login: 'teste', pass: 'cercomp' }
+                  auth: { login: 'teste', pass: 'cercomp' } }
 
     assert_redirected_to project_repository_path(@project, @auth_repo)
   end
 
   test "dont auth at repository" do
     post :create, { repository_id: @auth_repo, project_id: @project,
-                  login: 'teste', pass: '123' }
+                  auth: { login: 'teste', pass: '123' } }
 
     assert_response :success
     assert_template 'new'

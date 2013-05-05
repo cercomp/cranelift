@@ -1,10 +1,12 @@
 Todo:
+- layout -> definir tipografia
 - tela de autenticação no projeto e usar dados do usuário para autenticar também
   - guardar os dados na sessão
 - reescrever testes que fazem autenticação de repositorio para usar mocks
 - finalizar a box do vagrant para desenvolvimento e documentar como usá-la
 
 Done:
+- layout -> posicionar logo e definir cores
 - criar maneira de testar repositorios svn para testar o autoupdate => mockar tudo
 - fix chosen JS
 - fix testes

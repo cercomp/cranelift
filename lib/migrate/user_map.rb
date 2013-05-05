@@ -1,5 +1,4 @@
 module Migrate
-  
   # hash para recuperar os ids antigos/novos da migracao
   class UserMap
     # map dos ids novos para os antigos

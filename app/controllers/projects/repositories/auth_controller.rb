@@ -9,12 +9,13 @@ class Projects::Repositories::AuthController < ApplicationController
     project = Project.find(params[:project_id])
     repository = Repository.find(params[:repository_id])
 
-    if repository.auth(params[:login], params[:pass])
-      session[:repo_login] = params[:login]
-      session[:repo_pass] = params[:pass]
+    if repository.auth(params[:auth][:login], params[:auth][:pass])
+      session[:repo_login] = params[:auth][:login]
+      session[:repo_pass] = params[:auth][:pass]
       redirect_to project_repository_url(project, repository)
     else
-      render :new, :alert => 'dados errados'
+      flash.now['alert'] = t('projects.repositories.auth.create.auth_failed')
+      render :new
     end
   end
 

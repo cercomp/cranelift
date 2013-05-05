@@ -1,12 +1,14 @@
 module ApplicationHelper
-  def admin_menu(label, link, icon = '')
-    raw content_tag(:li, link_to(icon + t(".#{label}"), link), class: current_page?(link) ? 'active' : '') if can?('view', 'admin')
+  def admin_menu(icon_name, title, link, args = {})
+    header_menu(icon_name, title, link, args) if can?('view', 'admin')
   end
 
-  def icon(name, color = '')
-    color.size != 0 and color = 'icon-white'
-    name = %`icon-#{name}`
+  def header_menu(icon_name, title, link, args = {})
+    args.reverse_merge!(:'data-toggle' => 'tooltip', :title => title)
+    content_tag(:li, link_to(icon(icon_name), link, args))
+  end
 
-    content_tag :i, '', :class => %`#{name} #{color}`
+  def icon(name, color = 'icon-white')
+    content_tag(:i, '', :class => "icon-#{name} #{color}")
   end
 end

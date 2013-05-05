@@ -38,3 +38,4 @@ config/phpmigration.yml
 *.swp
 Vagrantfile
 \.vagrant
+*tags

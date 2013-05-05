@@ -1,0 +1,11 @@
+pt-BR:
+  projects:
+    repositories:
+      auth:
+        create:
+          auth_failed: A autenticação falhou
+        new:
+          auth_required: Este repositório exige autenticação
+          login: Login
+          pass: Senha
+          submit: Autenticar

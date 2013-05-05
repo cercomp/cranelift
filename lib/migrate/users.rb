@@ -1,5 +1,5 @@
 module Migrate
-  class UsersMigrate < Migrate::Base
+  class Users < Migrate::Base
     def migrate
       puts "Migrando usuarios..."
 
@@ -10,7 +10,8 @@ module Migrate
           u.password   = u.password_confirmation = (0...8).map{65.+(rand(25)).chr}.join
           u.admin      = user['admin']
           # NOTE todos os novos usuários serão cadastrados como mantenedores
-          u.role_id    = ::Role.find_by_name('Mantenedor').id
+          # TODO find or create um papel de mantenedor
+          u.role_id    = ::Role.find_by_name('Mantenedor').try(:id)
           u.ip_block   = user['noipblock'] == 1
           u.name       = user['name']
           u.email      = user['email']
@@ -19,7 +20,7 @@ module Migrate
         end
         debug_obj(obj)
 
-        ::Migrate::UserMap.store(obj.id, user['id'])
+        ::Migrate::UserMap.store(obj.id, user['id']) if obj.persisted?
       end
     end
 
