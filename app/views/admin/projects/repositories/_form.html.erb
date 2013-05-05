@@ -25,6 +25,6 @@ Get: curl <%= root_url %>autoupdate?id=<%= @repository.to_param %>&project_id=<%
 
   <div class="form-actions">
     <%= f.button :submit, :class => 'btn-primary' %>
-    <%= link_to t('back'), [:admin, current_project, @repository], :class => 'btn pull-right' %>
+    <%= link_to t('back'), current_project, :class => 'btn pull-right' %>
   </div>
 <% end %>

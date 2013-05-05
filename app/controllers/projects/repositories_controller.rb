@@ -7,10 +7,6 @@ class Projects::RepositoriesController < ApplicationController
 
   helper_method :current_project
 
-  def index
-    @repositories = current_project.repositories
-  end
-
   def show
     @repository = current_project.repositories.find(params[:id])
     if !@repository.auth(session[:repo_login], session[:repo_pass])

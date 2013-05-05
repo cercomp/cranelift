@@ -6,19 +6,14 @@
 </p>
 
 <p>
-  <b>Enable autoupdate:</b>
-  <%= @repository.enable_autoupdate %>
+  <b>Autoupdate</b>
+  <%= @repository.enable_autoupdate ? 'ON' : 'OFF' %>
 </p>
 
 <p>
-  <b>Autoupdate login:</b>
+  <b>Login:</b>
   <%= @repository.login %>
 </p>
 
-<p>
-  <b>Autoupdate password:</b>
-  <%= @repository.password %>
-</p>
 
-
-<%= link_to 'Back', project_repositories_path(current_project) %>
+<%= link_to t('back'), current_project %>

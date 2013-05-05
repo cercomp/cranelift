@@ -10,12 +10,6 @@ class Admin::Projects::RepositoriesControllerTest < ActionController::TestCase
     @repository = repositories(:valid)
   end
 
-  test "get index" do
-    get :index, :project_id => @project.id
-    assert_response :success
-    assert_not_nil assigns(:repositories)
-  end
-
   test "get new" do
     get :new, :project_id => @project.id
     assert_response :success
@@ -30,12 +24,7 @@ class Admin::Projects::RepositoriesControllerTest < ActionController::TestCase
       }
     end
 
-    assert_redirected_to admin_project_repositories_path(@project)
-  end
-
-  test "show repository" do
-    get :show, { id: @repository, :project_id => @project.id }
-    assert_response :success
+    assert_redirected_to @project
   end
 
   test "get edit" do
@@ -49,7 +38,7 @@ class Admin::Projects::RepositoriesControllerTest < ActionController::TestCase
       repository: @repository.attributes.merge({'enable_autoupdate' => false}),
       project_id: @project.id
     }
-    assert_redirected_to edit_admin_project_repository_path(@project, assigns(:repository))
+    assert_redirected_to @project
   end
 
   test "destroy repository" do
@@ -57,6 +46,6 @@ class Admin::Projects::RepositoriesControllerTest < ActionController::TestCase
       delete :destroy, { id: @repository, :project_id => @project.id }
     end
 
-    assert_redirected_to admin_project_repositories_path(@project)
+    assert_redirected_to @project
   end
 end

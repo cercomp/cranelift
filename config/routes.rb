@@ -1,4 +1,5 @@
 Cranelift::Application.routes.draw do
+  get '/home' => 'pages#home', :as => :home
 
   # Session routes
   get     '/login'  => 'session#new',     :as => :login
@@ -11,40 +12,22 @@ Cranelift::Application.routes.draw do
 
   resources :password_resets
 
-
-  # Pages routes
-  get '/home' => 'pages#home', :as => :home
-
-
-  # Users routes
   get 'editaccount' => 'users#edit'
   resources :users, :except => [:show, :destroy, :edit],
-            :path_names => { :new => :signup } do
-  end
+            :path_names => { :new => :signup }
 
-
-  # Projects routes
   resources :projects, :only => [:index, :show] do
     resources :repositories,
               :controller => 'projects/repositories',
-              :only => [:index, :show, :update] do
+              :only => [:show, :update] do
       resource :auth, :controller => 'projects/repositories/auth', only: [:new, :create]
     end
   end
 
-
-  # Admin namespace for administration
   namespace :admin do
-    # Ips routes
     resources :ips, :except => :show
-
-    # Logs routes
     resources :logs, :only => :index
-
-    # Users routes
     resources :users
-
-    # Roles routes
     resources :roles do
       member do
         get :add_permission
@@ -52,9 +35,8 @@ Cranelift::Application.routes.draw do
       end
     end
 
-    # Projects routes
-    resources :projects do
-      resources :repositories, :controller => 'projects/repositories'
+    resources :projects, :except => [:index, :show] do
+      resources :repositories, :controller => 'projects/repositories', :except => [:index, :show]
     end
 
     get 'settings' => 'settings#index'
@@ -63,10 +45,7 @@ Cranelift::Application.routes.draw do
 
   get 'admin' => 'admin/projects#index', :as => :admin
 
-
-  # Logs routes
   resources :logs
-
 
   root :to => 'pages#home'
 end

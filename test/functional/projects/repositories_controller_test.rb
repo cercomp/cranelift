@@ -11,12 +11,6 @@ class Projects::RepositoriesControllerTest < ActionController::TestCase
     @auth_repo = repositories(:auth)
   end
 
-  test "get index" do
-    get :index, :project_id => @project.id
-    assert_response :success
-    assert_not_nil assigns(:repositories)
-  end
-
   test "show repository" do
     get :show, { id: @repository, :project_id => @project.id }
     assert_response :success

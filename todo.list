@@ -1,4 +1,5 @@
 Todo:
+- mostrar os logs no show do repositorio
 - layout -> definir tipografia
 - tela de autenticação no projeto e usar dados do usuário para autenticar também
   - guardar os dados na sessão

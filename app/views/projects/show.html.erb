@@ -20,13 +20,13 @@
 
   <tr>
     <th>Integrantes</th>
-    <td><%= @project.users.map{ |p| p.name.capitalize }.join(', ') %></td>
+    <td><%= raw @project.users.map{ |u| link_to(u.name.capitalize, [:admin, u]) }.join(', ') %></td>
   </tr>
 </table>
 
 <% if @project.repositories.any? %>
   <table class="table">
-    <tr class="inverted" style="background: #333; color: white;">
+    <tr class="inverted" style="background: #005ca1; color: white;">
       <th colspan="6" style="text-align: center;">Repositorios</th>
     </tr>
 

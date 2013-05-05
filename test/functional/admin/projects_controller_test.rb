@@ -12,16 +12,6 @@ class Admin::ProjectsControllerTest < ActionController::TestCase
   end
 
 
-  # Todos os usuários poderão acessar a index de projetos, que listara os projetos
-  # pertencentes a ele, exceto o administrador do poderá visualizar todos projetos
-  # cadastrados no sistema
-  test "get index" do
-    get :index
-    assert_response :success
-    assert_not_nil assigns(:projects)
-  end
-
-
   # Usuário devem possuir permissão para criar projetos
   test "get new" do
     get :new
@@ -37,13 +27,6 @@ class Admin::ProjectsControllerTest < ActionController::TestCase
     assert_redirected_to admin_project_path(assigns(:project))
   end
 
-
-  test "show project" do
-    get :show, id: @project
-    assert_response :success
-  end
-
-
   # Usuário deve ter permissão para editar o projeto
   test "get edit" do
     get :edit, id: @project
@@ -53,7 +36,6 @@ class Admin::ProjectsControllerTest < ActionController::TestCase
     put :update, id: @project, project: @project.attributes
     assert_redirected_to admin_project_path(assigns(:project))
   end
-
 
   # Usuário deve ter permissão e pertercer a um projeto para destruir
   test "destroy project" do

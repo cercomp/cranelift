@@ -1,5 +1,4 @@
 module Cranelift::Auth
-  
   extend ActiveSupport::Concern
 
   included do
