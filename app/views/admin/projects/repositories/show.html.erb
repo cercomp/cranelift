@@ -1,5 +1,10 @@
 <p>
-  <b>Name:</b>
+  <b>Projeto:</b>
+  <%= link_to current_project.name, [:admin, current_project] %>
+</p>
+
+<p>
+  <b>Nome:</b>
   <%= @repository.name %>
 </p>
 
@@ -9,7 +14,7 @@
 </p>
 
 <p>
-  <b>Version:</b>
+  <b>Revisão:</b>
   <%= @repository.revision %>
 </p>
 
@@ -19,10 +24,10 @@
 </p>
 
 <p>
-  <b>Enable autoupdate:</b>
-  <%= @repository.enable_autoupdate %>
+  <b>Autoupdate:</b>
+  <%= @repository.enable_autoupdate ? 'ON' : 'OFF' %>
 </p>
 
 
-<%= link_to 'Edit', edit_admin_project_repository_path(current_project, @repository) %> |
-<%= link_to 'Back', admin_project_repositories_path %>
+<%= link_to t('application.edit'), edit_admin_project_repository_path(current_project, @repository) %> |
+<%= link_to t('back'), admin_project_repositories_path %>
