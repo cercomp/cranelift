@@ -3,7 +3,6 @@ class CreateRepositories < ActiveRecord::Migration
     create_table :repositories do |t|
       t.references  :project
       t.string      :name
-      t.string      :slug
       t.string      :url
       t.string      :login
       t.string      :password
@@ -11,7 +10,5 @@ class CreateRepositories < ActiveRecord::Migration
 
       t.timestamps
     end
-
-    add_index :repositories, :slug, unique: true
   end
 end

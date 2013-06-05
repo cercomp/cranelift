@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121107193644) do
+ActiveRecord::Schema.define(:version => 20130601234567) do
 
   create_table "ips", :force => true do |t|
     t.string   "ip"
@@ -47,10 +47,10 @@ ActiveRecord::Schema.define(:version => 20121107193644) do
 
   create_table "projects", :force => true do |t|
     t.string   "name"
-    t.string   "slug"
     t.text     "description"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.string   "slug"
   end
 
   add_index "projects", ["slug"], :name => "index_projects_on_slug", :unique => true
@@ -65,13 +65,13 @@ ActiveRecord::Schema.define(:version => 20121107193644) do
   create_table "repositories", :force => true do |t|
     t.integer  "project_id"
     t.string   "name"
-    t.string   "slug"
     t.string   "url"
     t.string   "login"
     t.string   "password"
     t.boolean  "enable_autoupdate", :default => true
     t.datetime "created_at",                          :null => false
     t.datetime "updated_at",                          :null => false
+    t.string   "slug"
   end
 
   add_index "repositories", ["slug"], :name => "index_repositories_on_slug", :unique => true
