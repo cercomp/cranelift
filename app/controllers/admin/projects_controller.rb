@@ -28,7 +28,7 @@ class Admin::ProjectsController < ApplicationController
 
     if @project.save
       log current_user, "Criou o projeto : #{@project.name}"
-      redirect_to [:admin, @project], notice: t('application.obj_successfully_created', :obj => 'Projeto')
+      redirect_to @project, notice: t('application.obj_successfully_created', :obj => 'Projeto')
     else
       render action: "new"
     end

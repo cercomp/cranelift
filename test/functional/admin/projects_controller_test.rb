@@ -24,7 +24,7 @@ class Admin::ProjectsControllerTest < ActionController::TestCase
       post :create, project: {:name => 'Teste'}
     end
 
-    assert_redirected_to admin_project_path(assigns(:project))
+    assert_redirected_to project_path(assigns(:project))
   end
 
   # Usuário deve ter permissão para editar o projeto
