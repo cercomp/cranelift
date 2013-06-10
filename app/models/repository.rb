@@ -31,6 +31,11 @@ class Repository < ActiveRecord::Base
   def scm
     @scm ||= Cranelift::Scm.new(path)
   end
+
+  def scm_auth
+    scm.auth(login, password) unless login.nil?
+    scm
+  end
   
   def auth(login, pass)
     scm.auth(login, pass)
@@ -44,7 +49,7 @@ class Repository < ActiveRecord::Base
   end
 
   def revision
-    scm.info.rev rescue '--'
+    scm_auth.info.rev rescue '--'
   end
 
   def path
@@ -52,7 +57,7 @@ class Repository < ActiveRecord::Base
   end
 
   def update_revision
-    scm.update_repo(self.version.to_i) unless self.version.nil?
+    scm_auth.update_repo(self.version.to_i) unless self.version.nil?
   end
 
   def check_valid_repository
