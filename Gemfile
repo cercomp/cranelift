@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.12'
 
 gem 'bootstrap-sass', '~> 2.1.0.0'
-gem 'bcrypt-ruby', '~> 3.0.0'
+gem "bcrypt-ruby", :require => "bcrypt"
 gem 'kaminari'
 gem 'simple_form'
 gem 'jquery-rails'

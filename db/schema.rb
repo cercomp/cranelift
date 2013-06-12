@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(:version => 20130601234567) do
     t.datetime "updated_at", :null => false
   end
 
-  create_table "permissions_roles", :id => false, :force => true do |t|
+  create_table "permissions_roles", :force => true do |t|
     t.integer "permission_id"
     t.integer "role_id"
   end
@@ -66,11 +66,11 @@ ActiveRecord::Schema.define(:version => 20130601234567) do
     t.integer  "project_id"
     t.string   "name"
     t.string   "url"
-    t.string   "login"
-    t.string   "password"
-    t.boolean  "enable_autoupdate", :default => true
-    t.datetime "created_at",                          :null => false
-    t.datetime "updated_at",                          :null => false
+    t.boolean  "enable_autoupdate",   :default => true
+    t.string   "autoupdate_login"
+    t.string   "autoupdate_password"
+    t.datetime "created_at",                            :null => false
+    t.datetime "updated_at",                            :null => false
     t.string   "slug"
   end
 
