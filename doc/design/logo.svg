@@ -64,9 +64,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.99674932"
+     inkscape:zoom="1.050338"
      inkscape:cx="171.3913"
-     inkscape:cy="99.298366"
+     inkscape:cy="457.9102"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -85,7 +85,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -93,131 +93,6 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1">
-    <rect
-       style="fill:#f5f5f5;fill-opacity:1;stroke:none"
-       id="rect3941"
-       width="0.75757575"
-       height="4.5454545"
-       x="378.78787"
-       y="1146.3016" />
-    <rect
-       y="847.81677"
-       x="521.2121"
-       height="4.5454545"
-       width="0.75757575"
-       id="rect4568"
-       style="fill:#f5f5f5;fill-opacity:1;stroke:none" />
-    <flowRoot
-       transform="matrix(2.0924636,0,0,2.0924636,-492.96682,-208.12123)"
-       style="font-size:4px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#454545;fill-opacity:1;stroke:none;font-family:Josefin Sans;-inkscape-font-specification:Josefin Sans"
-       id="flowRoot4628"
-       xml:space="preserve"
-       inkscape:export-filename="/home/nicolas/logo.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90"><flowRegion
-         id="flowRegion4630"><rect
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#454545;fill-opacity:1;font-family:Josefin Sans;-inkscape-font-specification:Josefin Sans"
-           y="150.63397"
-           x="351.17349"
-           height="236.30365"
-           width="610.45117"
-           id="rect4632" /></flowRegion><flowPara
-         id="flowPara4634"
-         style="font-size:72px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;fill:#454545;fill-opacity:1;font-family:Josefin Sans;-inkscape-font-specification:Josefin Sans Bold">cranelift</flowPara></flowRoot>    <path
-       transform="matrix(1.5462056,0,0,1.5462056,-265.48708,110.46294)"
-       d="m 318.67108,89.654019 -63.49596,36.659401 -63.49595,-36.659402 0,-73.318809 63.49596,-36.659405 63.49595,36.659405 z"
-       inkscape:randomized="0"
-       inkscape:rounded="0"
-       inkscape:flatsided="true"
-       sodipodi:arg2="1.0471976"
-       sodipodi:arg1="0.52359878"
-       sodipodi:r2="63.495953"
-       sodipodi:r1="73.31881"
-       sodipodi:cy="52.994614"
-       sodipodi:cx="255.17513"
-       sodipodi:sides="6"
-       id="path4638"
-       style="fill:#f9f9f9;fill-opacity:1;stroke:#454545;stroke-width:1.46637619000000008;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
-       sodipodi:type="star"
-       inkscape:export-filename="/home/nicolas/logo.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <path
-       transform="matrix(0.49467445,0,0,0.49467445,-45.26637,194.02016)"
-       d="m 318.67108,89.654019 -63.49596,36.659401 -63.49595,-36.659402 0,-73.318809 63.49596,-36.659405 63.49595,36.659405 z"
-       inkscape:randomized="0"
-       inkscape:rounded="0"
-       inkscape:flatsided="true"
-       sodipodi:arg2="1.0471976"
-       sodipodi:arg1="0.52359878"
-       sodipodi:r2="63.495953"
-       sodipodi:r1="73.31881"
-       sodipodi:cy="52.994614"
-       sodipodi:cx="255.17513"
-       sodipodi:sides="6"
-       id="path4640"
-       style="fill:#428bca;fill-opacity:1;stroke:none"
-       sodipodi:type="star"
-       inkscape:export-filename="/home/nicolas/logo.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <path
-       transform="matrix(0.49467445,0,0,0.49467445,1.1197981,116.70984)"
-       d="m 318.67108,89.654019 -63.49596,36.659401 -63.49595,-36.659402 0,-73.318809 63.49596,-36.659405 63.49595,36.659405 z"
-       inkscape:randomized="0"
-       inkscape:rounded="0"
-       inkscape:flatsided="true"
-       sodipodi:arg2="1.0471976"
-       sodipodi:arg1="0.52359878"
-       sodipodi:r2="63.495953"
-       sodipodi:r1="73.31881"
-       sodipodi:cy="52.994614"
-       sodipodi:cx="255.17513"
-       sodipodi:sides="6"
-       id="path4642"
-       style="fill:#428bca;fill-opacity:1;stroke:none"
-       sodipodi:type="star"
-       inkscape:export-filename="/home/nicolas/logo.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <path
-       sodipodi:type="star"
-       style="fill:#285e8e;fill-opacity:1;stroke:none"
-       id="path4644"
-       sodipodi:sides="6"
-       sodipodi:cx="255.17513"
-       sodipodi:cy="52.994614"
-       sodipodi:r1="73.31881"
-       sodipodi:r2="63.495953"
-       sodipodi:arg1="0.52359878"
-       sodipodi:arg2="1.0471976"
-       inkscape:flatsided="true"
-       inkscape:rounded="0"
-       inkscape:randomized="0"
-       d="m 318.67108,89.654019 -63.49596,36.659401 -63.49595,-36.659402 0,-73.318809 63.49596,-36.659405 63.49595,36.659405 z"
-       transform="matrix(0.49467445,0,0,0.49467445,-45.26637,138.35673)"
-       inkscape:export-filename="/home/nicolas/logo.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <path
-       transform="matrix(0.49467445,0,0,0.49467445,1.1197981,221.85173)"
-       d="m 318.67108,89.654019 -63.49596,36.659401 -63.49595,-36.659402 0,-73.318809 63.49596,-36.659405 63.49595,36.659405 z"
-       inkscape:randomized="0"
-       inkscape:rounded="0"
-       inkscape:flatsided="true"
-       sodipodi:arg2="1.0471976"
-       sodipodi:arg1="0.52359878"
-       sodipodi:r2="63.495953"
-       sodipodi:r1="73.31881"
-       sodipodi:cy="52.994614"
-       sodipodi:cx="255.17513"
-       sodipodi:sides="6"
-       id="path4646"
-       style="fill:#285e8e;fill-opacity:1;stroke:none"
-       sodipodi:type="star"
-       inkscape:export-filename="/home/nicolas/logo.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
     <flowRoot
        xml:space="preserve"
        id="flowRoot4672"
@@ -228,11 +103,12 @@
            height="275.34311"
            x="-27.855722"
            y="54.913071" /></flowRegion><flowPara
-         id="flowPara4678"></flowPara></flowRoot>    <g
+         id="flowPara4678" /></flowRoot>    <g
        id="g4762"
        inkscape:export-filename="/home/nicolas/Dropbox/projects/cercomp.cranelift/app/assets/images/logo.png"
        inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90">
+       inkscape:export-ydpi="90"
+       transform="translate(169.18489,-505.51629)">
       <flowRoot
          transform="matrix(0.91374269,0,0,0.91374269,-223.26344,827.45996)"
          style="font-size:4px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#454545;fill-opacity:1;stroke:none;font-family:Josefin Sans;-inkscape-font-specification:Josefin Sans"
@@ -348,6 +224,121 @@
            d="m 318.67108,89.654019 -63.49596,36.659401 -63.49595,-36.659402 0,-73.318809 63.49596,-36.659405 63.49595,36.659405 z"
            transform="matrix(0.49467445,0,0,0.49467445,2.191172,461.83949)" />
       </g>
+    </g>
+    <flowRoot
+       transform="matrix(0.91374269,0,0,0.91374269,-145.4777,561.86644)"
+       style="font-size:4px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#454545;fill-opacity:1;stroke:none;font-family:Josefin Sans;-inkscape-font-specification:Josefin Sans"
+       id="flowRoot3017"
+       xml:space="preserve"
+       inkscape:export-filename="/home/nicolas/logo.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><flowRegion
+         id="flowRegion3019"><rect
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#454545;fill-opacity:1;font-family:Josefin Sans;-inkscape-font-specification:Josefin Sans"
+           y="150.63397"
+           x="351.17349"
+           height="236.30365"
+           width="610.45117"
+           id="rect3021" /></flowRegion><flowPara
+         id="flowPara3023"
+         style="font-size:72px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;fill:#454545;fill-opacity:1;font-family:Josefin Sans;-inkscape-font-specification:Josefin Sans Bold">cranelift</flowPara></flowRoot>    <g
+       transform="matrix(0.4366827,0,0,0.4366827,160.48406,434.65402)"
+       id="g3025">
+      <path
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="/home/nicolas/logo.png"
+         sodipodi:type="star"
+         style="fill:#f9f9f9;fill-opacity:1;stroke:#454545;stroke-width:1.46637619;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+         id="path3027"
+         sodipodi:sides="6"
+         sodipodi:cx="255.17513"
+         sodipodi:cy="52.994614"
+         sodipodi:r1="73.31881"
+         sodipodi:r2="63.495953"
+         sodipodi:arg1="0.52359878"
+         sodipodi:arg2="1.0471976"
+         inkscape:flatsided="true"
+         inkscape:rounded="0"
+         inkscape:randomized="0"
+         d="m 318.67108,89.654019 -63.49596,36.659401 -63.49595,-36.659402 0,-73.318809 63.49596,-36.659405 63.49595,36.659405 z"
+         transform="matrix(1.5462056,0,0,1.5462056,-264.41571,350.4507)" />
+      <path
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="/home/nicolas/logo.png"
+         sodipodi:type="star"
+         style="fill:#428bca;fill-opacity:1;stroke:none"
+         id="path3029"
+         sodipodi:sides="6"
+         sodipodi:cx="255.17513"
+         sodipodi:cy="52.994614"
+         sodipodi:r1="73.31881"
+         sodipodi:r2="63.495953"
+         sodipodi:arg1="0.52359878"
+         sodipodi:arg2="1.0471976"
+         inkscape:flatsided="true"
+         inkscape:rounded="0"
+         inkscape:randomized="0"
+         d="m 318.67108,89.654019 -63.49596,36.659401 -63.49595,-36.659402 0,-73.318809 63.49596,-36.659405 63.49595,36.659405 z"
+         transform="matrix(0.49467445,0,0,0.49467445,-44.194996,434.00792)" />
+      <path
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="/home/nicolas/logo.png"
+         sodipodi:type="star"
+         style="fill:#428bca;fill-opacity:1;stroke:none"
+         id="path3031"
+         sodipodi:sides="6"
+         sodipodi:cx="255.17513"
+         sodipodi:cy="52.994614"
+         sodipodi:r1="73.31881"
+         sodipodi:r2="63.495953"
+         sodipodi:arg1="0.52359878"
+         sodipodi:arg2="1.0471976"
+         inkscape:flatsided="true"
+         inkscape:rounded="0"
+         inkscape:randomized="0"
+         d="m 318.67108,89.654019 -63.49596,36.659401 -63.49595,-36.659402 0,-73.318809 63.49596,-36.659405 63.49595,36.659405 z"
+         transform="matrix(0.49467445,0,0,0.49467445,2.191172,356.6976)" />
+      <path
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="/home/nicolas/logo.png"
+         transform="matrix(0.49467445,0,0,0.49467445,-44.194996,378.34449)"
+         d="m 318.67108,89.654019 -63.49596,36.659401 -63.49595,-36.659402 0,-73.318809 63.49596,-36.659405 63.49595,36.659405 z"
+         inkscape:randomized="0"
+         inkscape:rounded="0"
+         inkscape:flatsided="true"
+         sodipodi:arg2="1.0471976"
+         sodipodi:arg1="0.52359878"
+         sodipodi:r2="63.495953"
+         sodipodi:r1="73.31881"
+         sodipodi:cy="52.994614"
+         sodipodi:cx="255.17513"
+         sodipodi:sides="6"
+         id="path3033"
+         style="fill:#285e8e;fill-opacity:1;stroke:none"
+         sodipodi:type="star" />
+      <path
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="/home/nicolas/logo.png"
+         sodipodi:type="star"
+         style="fill:#285e8e;fill-opacity:1;stroke:none"
+         id="path3035"
+         sodipodi:sides="6"
+         sodipodi:cx="255.17513"
+         sodipodi:cy="52.994614"
+         sodipodi:r1="73.31881"
+         sodipodi:r2="63.495953"
+         sodipodi:arg1="0.52359878"
+         sodipodi:arg2="1.0471976"
+         inkscape:flatsided="true"
+         inkscape:rounded="0"
+         inkscape:randomized="0"
+         d="m 318.67108,89.654019 -63.49596,36.659401 -63.49595,-36.659402 0,-73.318809 63.49596,-36.659405 63.49595,36.659405 z"
+         transform="matrix(0.49467445,0,0,0.49467445,2.191172,461.83949)" />
     </g>
   </g>
 </svg>

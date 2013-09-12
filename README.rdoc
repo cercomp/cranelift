@@ -1,6 +1,4 @@
-== Crane Lift
-
-Um Projeto do Cercomp...
+== cranelift
 
 === Referências
 
