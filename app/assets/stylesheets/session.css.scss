@@ -1,0 +1,58 @@
+/*
+ *= require google/lato
+ *= require_self
+ */
+
+$font-family-sans-serif: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif !default;
+
+@import "bootstrap";
+
+body { background: #FCFCFC url(session-bg.jpg) repeat left top; }
+
+#header,
+#footer { text-align: center; }
+
+#header
+{
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 0 20px;
+
+  img { max-width: 100%; }
+}
+
+#footer
+{
+  margin-top: 10px;
+  font-size: 12px;
+  color: #999;
+}
+
+#content
+{
+  padding: 0 10px;
+
+  .box
+  {
+    max-width: 500px;
+    padding: 25px 25px;
+    margin: 0 auto;
+    box-shadow: 0 0 5px 0 rgb(238, 238, 238);
+    background: white;
+    border: 1px solid #DFDFDF;
+    border-radius: 5px;
+  }
+
+  .reset-password
+  {
+    margin-top: 5px;
+    text-align: right;
+    font-size: 13px;
+    color: #999;
+  }
+
+  .navigation { margin-bottom: 20px; }
+  .navigation,
+  .btn { text-transform: uppercase; }
+  .form-actions { text-align: center; }
+}

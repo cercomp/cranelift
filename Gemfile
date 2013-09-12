@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.12'
+gem 'rails', '3.2.14'
 
-gem 'bootstrap-sass', '~> 2.1.0.0'
+gem 'bootstrap-sass', :git => 'git://github.com/thomas-mcdonald/bootstrap-sass.git', :branch => '3'
 gem "bcrypt-ruby", :require => "bcrypt"
 gem 'kaminari'
 gem 'simple_form'
@@ -18,11 +18,10 @@ group :mysql do
 end
 
 group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
-  gem 'coffee-rails', '~> 3.2.1'
+  gem 'sass-rails'
+  gem 'coffee-rails'
   gem 'therubyracer'
-  gem 'uglifier', '>= 1.0.3'
-  gem 'font-awesome-sass-rails'
+  gem 'uglifier'
 end
 
 group :development do

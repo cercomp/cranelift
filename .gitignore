@@ -31,7 +31,6 @@ pickle-email-*.html
 # Crane ignored files
 repositories/*
 
-Gemfile.lock
 config/database.yml
 config/phpmigration.yml
 

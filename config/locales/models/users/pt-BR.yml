@@ -6,7 +6,7 @@ pt-BR:
       user:
         login: Login
         password: Senha
-        password_confirmation: Confirmar Senha
+        password_confirmation: Confirmação de senha
         role: Papel
         admin: É administrador?
         ip_block: Bloquear IP?

@@ -1,90 +1,55 @@
 /*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the top of the
- * compiled file, but it's generally better to create a new file per style scope.
- *
  *= require chosen
- *= require_self
- *= require layout
- *= require _font-awesome
  *= require_tree ./admin/
+ *= require google/lato
+ *= require_self
  */
 
-.content > h1 {
+// TODO remover chosen?
+
+$font-family-sans-serif: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif !default;
+
+@import "bootstrap";
+
+body { background: #F5F5F5; }
+
+#header
+{
+  margin-top: 10px;
   margin-bottom: 20px;
-}
 
-table.nowrap td >div {
-  overflow: hidden;
-  white-space: nowrap;
-}
+  .logo { max-width: 100%; }
+  .person
+  {
+    padding-top: 31px;
 
-.transparent {
-  opacity: 0;
-}
-
-form#new-session a.pull-right {
-  margin-left: 1em;
-}
-
-.bottom-line {
-  border-bottom: 8px solid #005ca1;
-  padding-bottom: .3em;
-  margin-bottom: 1em;
-}
-
-div.logo {
-  margin: 0.3em 0 0.5em;
-  font-size: 40px;
-  font-family: 'Skranji', cursive;
-  position: relative;
-
-  img {
-    height: 75px;
-  }
-
-  a {
-    color: #005ca1;
-    &:hover {
-      text-decoration: none;
+    .avatar { margin-right: 10px; }
+    .info { line-height: 20px; }
+    .info.name
+    {
+      font-size: 12px;
+      font-weight: bold;
+      color: #3B3B41;
+      line-height: 15px;
+      padding-bottom: 2px;
     }
   }
+}
 
-  div#menu {
-    position: absolute;
-    right: 0;
-    top: 0;
-
-    ul {
+#content
+{
+  #menu li
+  {
+    a
+    {
+      color: #3B3B41;
       display: block;
+      text-align: center;
+      font-size: 11px;
+      line-height: 20px;
     }
-    ul~ul {
-      margin-top: .1em;
-    }
-
-    li {
-      list-style: none;
-      display: block;
-      float: right;
-
-      a,i {
-        padding: .25em;
-        font-size: 25px;
-        color: #005ca1;
-
-        &:hover {
-          background: #005ca1;
-          color: white;
-        }
-      }
-      a {
-        padding: 0;
-      }
-    }
+    &.active a { color: #FFF; }
+    .glyphicon { font-size: 19px; }
   }
+  .well { background: #FFF; }
 }

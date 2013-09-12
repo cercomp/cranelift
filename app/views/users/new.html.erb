@@ -1,13 +1,19 @@
-<h1>Novo Usuário</h1>
+<div class="navigation">
+  <ul class="nav nav-pills nav-justified">
+    <li>
+      <%= link_to 'ENTRAR', login_path %>
+    </li>
+    <li class="active"><a href="#">CADASTRAR</a></li>
+  </ul>
+</div>
 
-<%= simple_form_for(@user, :html => {:class => 'form-horizontal'}) do |f| %>
-
-  <%= f.input :login %>
-  <%= f.input :first_name %>
-  <%= f.input :last_name %>
-  <%= f.input :email %>
-  <%= f.input :password %>
-  <%= f.input :password_confirmation %>
+<%= simple_form_for @user, defaults: { input_html: { class: 'form-control' } }  do |f| %>
+  <%= f.input :login, label: false, placeholder: t('activerecord.attributes.user.login') %>
+  <%= f.input :first_name, label: false, placeholder: t('activerecord.attributes.user.first_name') %>
+  <%= f.input :last_name, label: false, placeholder: t('activerecord.attributes.user.last_name') %>
+  <%= f.input :email, label: false, placeholder: t('activerecord.attributes.user.email') %>
+  <%= f.input :password, label: false, placeholder: t('activerecord.attributes.user.password') %>
+  <%= f.input :password_confirmation, label: false, placeholder: t('activerecord.attributes.user.password_confirmation') %>
 
   <div class="form-actions">
     <%= f.button :submit, :class => 'btn-primary' %>

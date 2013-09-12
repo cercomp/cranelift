@@ -13,10 +13,50 @@
    height="1052.3622047"
    id="svg2"
    version="1.1"
-   inkscape:version="0.48.3.1 r9886"
+   inkscape:version="0.48.4 r9939"
    sodipodi:docname="logo.svg">
   <defs
-     id="defs4" />
+     id="defs4">
+    <inkscape:perspective
+       sodipodi:type="inkscape:persp3d"
+       inkscape:vp_x="105.84435 : 846.99613 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_z="731.787 : 760.84375 : 1"
+       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
+       id="perspective3065" />
+    <filter
+       id="filter4519"
+       style="color-interpolation-filters:sRGB;"
+       inkscape:label="Drop Shadow">
+      <feFlood
+         id="feFlood4521"
+         flood-opacity="0.15"
+         flood-color="rgb(0,0,0)"
+         result="flood" />
+      <feComposite
+         id="feComposite4523"
+         in2="SourceGraphic"
+         in="flood"
+         operator="in"
+         result="composite1" />
+      <feGaussianBlur
+         id="feGaussianBlur4525"
+         in="composite"
+         stdDeviation="3"
+         result="blur" />
+      <feOffset
+         id="feOffset4527"
+         dx="4"
+         dy="0"
+         result="offset" />
+      <feComposite
+         id="feComposite4529"
+         in2="offset"
+         in="SourceGraphic"
+         operator="over"
+         result="composite2" />
+    </filter>
+  </defs>
   <sodipodi:namedview
      id="base"
      pagecolor="#ffffff"
@@ -24,16 +64,16 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="2.2441849"
-     inkscape:cx="437.85559"
-     inkscape:cy="940.46679"
+     inkscape:zoom="0.99674932"
+     inkscape:cx="171.3913"
+     inkscape:cy="99.298366"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
      inkscape:window-width="1366"
-     inkscape:window-height="715"
+     inkscape:window-height="709"
      inkscape:window-x="0"
-     inkscape:window-y="26"
+     inkscape:window-y="27"
      inkscape:window-maximized="1"
      inkscape:snap-center="false"
      inkscape:snap-bbox="false" />
@@ -53,42 +93,261 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1">
-    <g
-       id="g3774"
-       transform="matrix(0.99740015,0.07206205,-0.07206205,0.99740015,123.38477,13.463839)"
-       style="fill:#005ca1;fill-opacity:1">
-      <path
-         d="m 328.85818,31.76781 7.24689,99.33541 -82.40355,55.94369 -89.65043,-43.39172 -7.24689,-99.335406 82.40355,-55.943693 z"
-         inkscape:randomized="0"
-         inkscape:rounded="0"
-         inkscape:flatsided="true"
-         sodipodi:arg2="-0.072824682"
-         sodipodi:arg1="-0.59642346"
-         sodipodi:r2="49.799702"
-         sodipodi:r1="99.599403"
-         sodipodi:cy="87.711502"
-         sodipodi:cx="246.45464"
-         sodipodi:sides="6"
-         id="path3753"
-         style="fill:#005ca1;fill-opacity:1;fill-rule:evenodd;stroke:none"
-         sodipodi:type="star" />
-    </g>
-    <g
-       id="g3788">
-      <rect
-         y="114.71031"
-         x="339.70697"
-         height="55.253914"
-         width="43.668415"
-         id="rect3777"
-         style="fill:#ffffff;fill-opacity:1;stroke:none"
-         ry="0" />
-      <path
-         sodipodi:nodetypes="cccc"
-         inkscape:connector-curvature="0"
-         id="rect3779"
-         d="m 362.87799,67.450438 47.70548,47.705472 c -31.80459,0.70741 -63.60543,0.29818 -95.41096,10e-6 z"
-         style="fill:#ffffff;fill-opacity:1;stroke:none" />
+    <rect
+       style="fill:#f5f5f5;fill-opacity:1;stroke:none"
+       id="rect3941"
+       width="0.75757575"
+       height="4.5454545"
+       x="378.78787"
+       y="1146.3016" />
+    <rect
+       y="847.81677"
+       x="521.2121"
+       height="4.5454545"
+       width="0.75757575"
+       id="rect4568"
+       style="fill:#f5f5f5;fill-opacity:1;stroke:none" />
+    <flowRoot
+       transform="matrix(2.0924636,0,0,2.0924636,-492.96682,-208.12123)"
+       style="font-size:4px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#454545;fill-opacity:1;stroke:none;font-family:Josefin Sans;-inkscape-font-specification:Josefin Sans"
+       id="flowRoot4628"
+       xml:space="preserve"
+       inkscape:export-filename="/home/nicolas/logo.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><flowRegion
+         id="flowRegion4630"><rect
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#454545;fill-opacity:1;font-family:Josefin Sans;-inkscape-font-specification:Josefin Sans"
+           y="150.63397"
+           x="351.17349"
+           height="236.30365"
+           width="610.45117"
+           id="rect4632" /></flowRegion><flowPara
+         id="flowPara4634"
+         style="font-size:72px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;fill:#454545;fill-opacity:1;font-family:Josefin Sans;-inkscape-font-specification:Josefin Sans Bold">cranelift</flowPara></flowRoot>    <path
+       transform="matrix(1.5462056,0,0,1.5462056,-265.48708,110.46294)"
+       d="m 318.67108,89.654019 -63.49596,36.659401 -63.49595,-36.659402 0,-73.318809 63.49596,-36.659405 63.49595,36.659405 z"
+       inkscape:randomized="0"
+       inkscape:rounded="0"
+       inkscape:flatsided="true"
+       sodipodi:arg2="1.0471976"
+       sodipodi:arg1="0.52359878"
+       sodipodi:r2="63.495953"
+       sodipodi:r1="73.31881"
+       sodipodi:cy="52.994614"
+       sodipodi:cx="255.17513"
+       sodipodi:sides="6"
+       id="path4638"
+       style="fill:#f9f9f9;fill-opacity:1;stroke:#454545;stroke-width:1.46637619000000008;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       sodipodi:type="star"
+       inkscape:export-filename="/home/nicolas/logo.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       transform="matrix(0.49467445,0,0,0.49467445,-45.26637,194.02016)"
+       d="m 318.67108,89.654019 -63.49596,36.659401 -63.49595,-36.659402 0,-73.318809 63.49596,-36.659405 63.49595,36.659405 z"
+       inkscape:randomized="0"
+       inkscape:rounded="0"
+       inkscape:flatsided="true"
+       sodipodi:arg2="1.0471976"
+       sodipodi:arg1="0.52359878"
+       sodipodi:r2="63.495953"
+       sodipodi:r1="73.31881"
+       sodipodi:cy="52.994614"
+       sodipodi:cx="255.17513"
+       sodipodi:sides="6"
+       id="path4640"
+       style="fill:#428bca;fill-opacity:1;stroke:none"
+       sodipodi:type="star"
+       inkscape:export-filename="/home/nicolas/logo.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       transform="matrix(0.49467445,0,0,0.49467445,1.1197981,116.70984)"
+       d="m 318.67108,89.654019 -63.49596,36.659401 -63.49595,-36.659402 0,-73.318809 63.49596,-36.659405 63.49595,36.659405 z"
+       inkscape:randomized="0"
+       inkscape:rounded="0"
+       inkscape:flatsided="true"
+       sodipodi:arg2="1.0471976"
+       sodipodi:arg1="0.52359878"
+       sodipodi:r2="63.495953"
+       sodipodi:r1="73.31881"
+       sodipodi:cy="52.994614"
+       sodipodi:cx="255.17513"
+       sodipodi:sides="6"
+       id="path4642"
+       style="fill:#428bca;fill-opacity:1;stroke:none"
+       sodipodi:type="star"
+       inkscape:export-filename="/home/nicolas/logo.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       sodipodi:type="star"
+       style="fill:#285e8e;fill-opacity:1;stroke:none"
+       id="path4644"
+       sodipodi:sides="6"
+       sodipodi:cx="255.17513"
+       sodipodi:cy="52.994614"
+       sodipodi:r1="73.31881"
+       sodipodi:r2="63.495953"
+       sodipodi:arg1="0.52359878"
+       sodipodi:arg2="1.0471976"
+       inkscape:flatsided="true"
+       inkscape:rounded="0"
+       inkscape:randomized="0"
+       d="m 318.67108,89.654019 -63.49596,36.659401 -63.49595,-36.659402 0,-73.318809 63.49596,-36.659405 63.49595,36.659405 z"
+       transform="matrix(0.49467445,0,0,0.49467445,-45.26637,138.35673)"
+       inkscape:export-filename="/home/nicolas/logo.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       transform="matrix(0.49467445,0,0,0.49467445,1.1197981,221.85173)"
+       d="m 318.67108,89.654019 -63.49596,36.659401 -63.49595,-36.659402 0,-73.318809 63.49596,-36.659405 63.49595,36.659405 z"
+       inkscape:randomized="0"
+       inkscape:rounded="0"
+       inkscape:flatsided="true"
+       sodipodi:arg2="1.0471976"
+       sodipodi:arg1="0.52359878"
+       sodipodi:r2="63.495953"
+       sodipodi:r1="73.31881"
+       sodipodi:cy="52.994614"
+       sodipodi:cx="255.17513"
+       sodipodi:sides="6"
+       id="path4646"
+       style="fill:#285e8e;fill-opacity:1;stroke:none"
+       sodipodi:type="star"
+       inkscape:export-filename="/home/nicolas/logo.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot4672"
+       style="fill:black;stroke:none;stroke-opacity:1;stroke-width:1px;stroke-linejoin:miter;stroke-linecap:butt;fill-opacity:1;font-family:Sans;font-style:normal;font-weight:normal;font-size:4px;line-height:125%;letter-spacing:0px;word-spacing:0px"><flowRegion
+         id="flowRegion4674"><rect
+           id="rect4676"
+           width="786.38843"
+           height="275.34311"
+           x="-27.855722"
+           y="54.913071" /></flowRegion><flowPara
+         id="flowPara4678"></flowPara></flowRoot>    <g
+       id="g4762"
+       inkscape:export-filename="/home/nicolas/Dropbox/projects/cercomp.cranelift/app/assets/images/logo.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <flowRoot
+         transform="matrix(0.91374269,0,0,0.91374269,-223.26344,827.45996)"
+         style="font-size:4px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#454545;fill-opacity:1;stroke:none;font-family:Josefin Sans;-inkscape-font-specification:Josefin Sans"
+         id="flowRoot4688"
+         xml:space="preserve"
+         inkscape:export-filename="/home/nicolas/logo.png"
+         inkscape:export-xdpi="90"
+         inkscape:export-ydpi="90"><flowRegion
+           id="flowRegion4690"><rect
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#454545;fill-opacity:1;font-family:Josefin Sans;-inkscape-font-specification:Josefin Sans"
+             y="150.63397"
+             x="351.17349"
+             height="236.30365"
+             width="610.45117"
+             id="rect4692" /></flowRegion><flowPara
+           id="flowPara4694"
+           style="font-size:72px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;fill:#454545;fill-opacity:1;font-family:Josefin Sans;-inkscape-font-specification:Josefin Sans Bold">cranelift</flowPara></flowRoot>      <g
+         transform="matrix(0.4366827,0,0,0.4366827,-13.461199,813.5444)"
+         id="g4733">
+        <path
+           inkscape:export-ydpi="90"
+           inkscape:export-xdpi="90"
+           inkscape:export-filename="/home/nicolas/logo.png"
+           sodipodi:type="star"
+           style="fill:#f9f9f9;fill-opacity:1;stroke:#454545;stroke-width:1.46637619;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+           id="path4696"
+           sodipodi:sides="6"
+           sodipodi:cx="255.17513"
+           sodipodi:cy="52.994614"
+           sodipodi:r1="73.31881"
+           sodipodi:r2="63.495953"
+           sodipodi:arg1="0.52359878"
+           sodipodi:arg2="1.0471976"
+           inkscape:flatsided="true"
+           inkscape:rounded="0"
+           inkscape:randomized="0"
+           d="m 318.67108,89.654019 -63.49596,36.659401 -63.49595,-36.659402 0,-73.318809 63.49596,-36.659405 63.49595,36.659405 z"
+           transform="matrix(1.5462056,0,0,1.5462056,-264.41571,350.4507)" />
+        <path
+           inkscape:export-ydpi="90"
+           inkscape:export-xdpi="90"
+           inkscape:export-filename="/home/nicolas/logo.png"
+           sodipodi:type="star"
+           style="fill:#428bca;fill-opacity:1;stroke:none"
+           id="path4698"
+           sodipodi:sides="6"
+           sodipodi:cx="255.17513"
+           sodipodi:cy="52.994614"
+           sodipodi:r1="73.31881"
+           sodipodi:r2="63.495953"
+           sodipodi:arg1="0.52359878"
+           sodipodi:arg2="1.0471976"
+           inkscape:flatsided="true"
+           inkscape:rounded="0"
+           inkscape:randomized="0"
+           d="m 318.67108,89.654019 -63.49596,36.659401 -63.49595,-36.659402 0,-73.318809 63.49596,-36.659405 63.49595,36.659405 z"
+           transform="matrix(0.49467445,0,0,0.49467445,-44.194996,434.00792)" />
+        <path
+           inkscape:export-ydpi="90"
+           inkscape:export-xdpi="90"
+           inkscape:export-filename="/home/nicolas/logo.png"
+           sodipodi:type="star"
+           style="fill:#428bca;fill-opacity:1;stroke:none"
+           id="path4700"
+           sodipodi:sides="6"
+           sodipodi:cx="255.17513"
+           sodipodi:cy="52.994614"
+           sodipodi:r1="73.31881"
+           sodipodi:r2="63.495953"
+           sodipodi:arg1="0.52359878"
+           sodipodi:arg2="1.0471976"
+           inkscape:flatsided="true"
+           inkscape:rounded="0"
+           inkscape:randomized="0"
+           d="m 318.67108,89.654019 -63.49596,36.659401 -63.49595,-36.659402 0,-73.318809 63.49596,-36.659405 63.49595,36.659405 z"
+           transform="matrix(0.49467445,0,0,0.49467445,2.191172,356.6976)" />
+        <path
+           inkscape:export-ydpi="90"
+           inkscape:export-xdpi="90"
+           inkscape:export-filename="/home/nicolas/logo.png"
+           transform="matrix(0.49467445,0,0,0.49467445,-44.194996,378.34449)"
+           d="m 318.67108,89.654019 -63.49596,36.659401 -63.49595,-36.659402 0,-73.318809 63.49596,-36.659405 63.49595,36.659405 z"
+           inkscape:randomized="0"
+           inkscape:rounded="0"
+           inkscape:flatsided="true"
+           sodipodi:arg2="1.0471976"
+           sodipodi:arg1="0.52359878"
+           sodipodi:r2="63.495953"
+           sodipodi:r1="73.31881"
+           sodipodi:cy="52.994614"
+           sodipodi:cx="255.17513"
+           sodipodi:sides="6"
+           id="path4702"
+           style="fill:#285e8e;fill-opacity:1;stroke:none"
+           sodipodi:type="star" />
+        <path
+           inkscape:export-ydpi="90"
+           inkscape:export-xdpi="90"
+           inkscape:export-filename="/home/nicolas/logo.png"
+           sodipodi:type="star"
+           style="fill:#285e8e;fill-opacity:1;stroke:none"
+           id="path4704"
+           sodipodi:sides="6"
+           sodipodi:cx="255.17513"
+           sodipodi:cy="52.994614"
+           sodipodi:r1="73.31881"
+           sodipodi:r2="63.495953"
+           sodipodi:arg1="0.52359878"
+           sodipodi:arg2="1.0471976"
+           inkscape:flatsided="true"
+           inkscape:rounded="0"
+           inkscape:randomized="0"
+           d="m 318.67108,89.654019 -63.49596,36.659401 -63.49595,-36.659402 0,-73.318809 63.49596,-36.659405 63.49595,36.659405 z"
+           transform="matrix(0.49467445,0,0,0.49467445,2.191172,461.83949)" />
+      </g>
     </g>
   </g>
 </svg>

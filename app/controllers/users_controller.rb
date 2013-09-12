@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  layout 'session', only: :new
   before_filter :authenticate!, :except => [:new, :create]
   before_filter :noauthenticate!, :only => [:new, :create]
 

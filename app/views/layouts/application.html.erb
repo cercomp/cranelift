@@ -1,30 +1,70 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
-<head>
-  <%= render 'layouts/head' %>
-</head>
-<body>
-  <div class="container">
-    <%= render 'layouts/header' %>
-
-    <div class="row">
-      <div class="span12 content">
-        <div class="messages">
-          <% flash.each do |name, msg| %>
-            <div class="alert alert-<%= name == :notice ? "success" : "error" %>">
-              <a class="close" data-dismiss="alert">×</a>
-              <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
-            </div>
-          <% end %>
+  <head>
+    <title>cranelift</title>
+    <%# TODO pre compile %>
+    <%= stylesheet_link_tag "application", :media => "all" %>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row" id="header">
+        <div class="col-sm-5">
+          <%= image_tag 'logo.png', class: 'logo' %>
         </div>
-        
-        <%= yield %>
+        <div class="col-sm-4 col-sm-offset-3 person">
+          <div class="pull-right">
+            <div class="info name">
+              <%= current_user.name %>
+            </div>
+            <div class="info actions">
+              <%= link_to editaccount_path do %>
+                <%= content_tag(:span, icon('cog', 'white'), class: "label label-default") %>
+              <% end %>
+              <%= link_to icon('off', 'white'), logout_path, class: 'label label-danger', title: t('.logout'), method: :delete %>
+            </div>
+          </div>
+          <div class="avatar pull-right">
+            <img src="http://www.gravatar.com/avatar/<%= Digest::MD5.hexdigest(current_user.email) %>?s=37&d=mm">
+          </div>
+          <div class="clearfix"></div>
+
+            <!-- PROFILE INFO -->
+        <!-- MENU
+          <%#= header_menu('off', t('.logout'), logout_path, :method => :delete) %>
+          <%#= header_menu('edit', t('.editaccount'), editaccount_path) %>
+          -->
+        </div>
       </div>
-
+      <div class="row" id="content">
+        <div class="col-sm-2">
+          <ul class="nav nav-pills nav-stacked" id="menu">
+            <%= header_menu('th-large', t('.projects'), projects_path) %>
+            <%= admin_menu('cog', t('.settings'), admin_settings_path) %>
+            <%= admin_menu('list', t('.roles'), admin_roles_path) %>
+            <%= admin_menu('stats', t('.logs'), admin_logs_path) %>
+            <%= admin_menu('list-alt', t('.ips'), admin_ips_path) %>
+            <%= admin_menu('user', t('.users'), admin_users_path) %>
+          </ul>
+        </div>
+        <div class="col-sm-10 well">
+          <div class="messages">
+            <% flash.each do |name, msg| %>
+              <div class="alert alert-<%= name == :notice ? "success" : "danger" %> alert-dismissable">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
+              </div>
+            <% end %>
+          </div>
+          <div class="content">
+            <%= yield %>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-
-  <%= javascript_include_tag "application" %>
-  <%= yield :javascripts %>
-</body>
+    <%= javascript_include_tag "application" %>
+    <%= yield :javascripts %>
+  </body>
 </html>

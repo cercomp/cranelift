@@ -1,7 +1,5 @@
 # encoding: utf-8
 class SessionController < ApplicationController
-  layout 'menuless'
-
   def new
   end
 

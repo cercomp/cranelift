@@ -17,19 +17,15 @@ pt-BR:
     destroy: Remover
     new_obj: "Novo %{obj}"
   layouts:
-    menu_admin:
+    application:
       settings: Configurações
-      roles: Papeis/Permissões
+      roles: Permissões
       logs: Logs
       ips: IPs
       users: Usuários
-    menu_user:
       login: Login
       logout: Sair
-      home: Home Page
-      register: Registrar
       projects: Projetos
-      admin: Administração
       editaccount: Editar seus Dados
   views:
     pagination:
