@@ -20,7 +20,7 @@ class Admin::UsersController < ApplicationController
 
     if @user.save
       log current_user, "Criou o usuário #{@user.name}"
-      redirect_to admin_users_url, :notice => t('users.create.successfully_create')
+      redirect_to admin_users_url, :notice => 'Usuário cadastrado com sucesso.'
     else
       render :new
     end
@@ -34,7 +34,7 @@ class Admin::UsersController < ApplicationController
 
     if @user.update_attributes(params[:user])
       log current_user, "Atualizou o usuário #{@user.name}"
-      redirect_to admin_users_url, :notice => t('users.update.successfully_updated')
+      redirect_to admin_users_url, :notice => t('profiles.update.successfully_updated')
     else
       render :edit
     end

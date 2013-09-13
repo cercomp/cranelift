@@ -1,8 +1,10 @@
 pt-BR:
   session:
-    new:
+    login:
       login: Login
       password: Senha
-      sign_in: Acessar
+      sign_in: Entrar
       sign_up: Cadastrar
       reset_password: Recuperar senha
+    alert:
+      not_allow_register: O sistema não está aceitando registro de novos usuários

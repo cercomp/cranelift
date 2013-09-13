@@ -8,6 +8,7 @@
 // TODO remover chosen?
 
 $font-family-sans-serif: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif !default;
+$text-color: #3B3B41;
 
 @import "bootstrap";
 
@@ -17,12 +18,10 @@ body { background: #F5F5F5; }
 {
   margin-top: 10px;
   margin-bottom: 20px;
-
   .logo { max-width: 100%; }
   .person
   {
     padding-top: 31px;
-
     .avatar { margin-right: 10px; }
     .info { line-height: 20px; }
     .info.name
@@ -35,7 +34,6 @@ body { background: #F5F5F5; }
     }
   }
 }
-
 #content
 {
   #menu li
@@ -52,8 +50,15 @@ body { background: #F5F5F5; }
     .glyphicon { font-size: 19px; }
   }
   .well { background: #FFF; }
+  .title
+  {
+    font-size: 22px;
+    margin-top: 0;
+    line-height: 22px;
+    margin-bottom: 20px;
+    font-weight: bold;
+  }
 }
-
 #footer
 {
   text-transform: uppercase;

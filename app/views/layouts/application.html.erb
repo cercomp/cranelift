@@ -20,7 +20,7 @@
               <%= current_user.name %>
             </div>
             <div class="info actions">
-              <%= link_to editaccount_path do %>
+              <%= link_to edit_profile_path do %>
                 <%= content_tag(:span, icon('cog', 'white'), class: "label label-default") %>
               <% end %>
               <%= link_to icon('off', 'white'), logout_path, class: 'label label-danger', title: t('.logout'), method: :delete %>

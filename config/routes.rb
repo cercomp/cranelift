@@ -1,20 +1,20 @@
 Cranelift::Application.routes.draw do
-  get '/home' => 'pages#home', :as => :home
+  # session routes
+  get    'login'               => 'session#login'
+  post   'login'               => 'session#create_session'
+  delete 'logout'              => 'session#logout'
+  get    'signup'              => 'session#signup'
+  post   'signup'              => 'session#create_user'
+  get    'forgot_password'     => 'session#forgot_password'
+  post   'forgot_password'     => 'session#restore_password'
+  get    'reset_password/:id'  => 'session#reset_password', :as => :reset_password
+  put    'reset_password/:id'  => 'session#update_password', :as => :reset_password
 
-  # Session routes
-  get     '/login'  => 'session#new',     :as => :login
-  post    '/login'  => 'session#create',  :as => :login
-  delete  '/logout' => 'session#destroy', :as => :logout
+  resource :profile, :only => [:edit, :update]
 
   # autoupdate
   # exemple: curl -d id=teste -d project_id=teste -d repository[version]=47 localhost:3000/autoupdate
   match '/autoupdate' => 'projects/repositories#update', :as => :autoupdate
-
-  resources :password_resets
-
-  get 'editaccount' => 'users#edit'
-  resources :users, :except => [:show, :destroy, :edit],
-            :path_names => { :new => :signup }
 
   resources :projects, :only => [:index, :show] do
     resources :repositories,
