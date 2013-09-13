@@ -1,9 +1,9 @@
 module ApplicationHelper
-  def admin_menu(icon_name, title, link, args={})
-    header_menu(icon_name, title, link, args) if can?('view', 'admin')
+  def admin_menu_item(icon_name, title, link, args={})
+    menu_item(icon_name, title, link, args) if can?('view', 'admin')
   end
 
-  def header_menu(icon_name, title, link, args={})
+  def menu_item(icon_name, title, link, args={})
     args.reverse_merge!(:'data-toggle' => 'tooltip', :title => title)
     content_tag :li do
       link_to link, args do

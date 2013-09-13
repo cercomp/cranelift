@@ -8,5 +8,4 @@ module Admin::ProjectsHelper
   def options_for_version(repository, revision)
     options_for_select(repository.scm.log.map{|i| i[1]}, revision) rescue ''
   end
-  
 end
