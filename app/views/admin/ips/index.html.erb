@@ -1,22 +1,23 @@
-<h1>
+<h1 class="title">
   <%= t('.title') %>
-  <%= link_to content_tag(:i, '', :class => 'icon icon-plus icon-white') + ' ' + Ip.model_name.human,
-              new_admin_ip_path, :class => 'btn btn-success pull-right' %>
+  <%= link_to icon('plus', 'white'), new_admin_ip_path, :class => 'btn btn-success btn-xs pull-right' %>
 </h1>
 
 <table class="table table-striped">
   <tr>
     <th><%= t('ip', :scope => 'activerecord.attributes.ip') %></th>
     <th><%= t('description', :scope => 'activerecord.attributes.ip') %></th>
-    <th colspan="2"><%= t('actions', :scope => 'application') %></th>
+    <th></th>
   </tr>
 
 <% @ips.each do |ip| %>
   <tr>
     <td><%= link_to "#{ip.ip}/#{ip.cidr}", edit_admin_ip_path(ip) %></td>
     <td><%= ip.description %></td>
-    <td><%= link_to t('destroy', :scope => 'application'),
-                    [:admin, ip], confirm: 'Are you sure?', method: :delete %></td>
+    <td class="text-right">
+      <%= link_to icon('remove', 'white'), [:admin, ip],
+        confirm: 'Are you sure?', method: :delete, class: 'btn btn-danger btn-xs' %>
+    </td>
   </tr>
 <% end %>
 </table>

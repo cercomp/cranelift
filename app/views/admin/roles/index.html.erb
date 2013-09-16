@@ -1,36 +1,27 @@
-<h1><%= t('.title') %></h1>
+<h1 class="title"><%= t('.title') %></h1>
 
-<table class="table" id="roles">
-  <% @roles.each do |role| %>
-    <tr class="role-name">
-      <th colspan="4">
-        <b><%= role.name %></b>
-        <%= role.description %>
-        <div class="pull-right">
-          <%= link_to(content_tag(:i, '', :class => 'icon-plus') +
-                      ' Cadastrar nova permissão',
-                      add_permission_admin_role_path(role),
-                      :class => 'btn btn-mini') %>
-        </div>
-      </th>
-    </tr>
-
-    <% role.permissions.each do |permission| %>
-      <tr>
-        <td><%= permission.name %></td>
-        <td><%= permission.controller %></td>
-        <td><%= permission.actions %></td>
-        <td>
-          <%= form_tag remove_permission_admin_role_path(role, :permission_id => permission),
-                       :style => 'display:inline; margin: 0;', :class => 'pull-right' do %>
-            <%= button_tag content_tag(:i, '', :class => 'icon-minus'),
-                           :class => 'btn btn-mini btn-danger transparent',
-                           :alt => t('.remove_permission'),
-                           :confirm => t('.remove_permission_confirm') %>
-          <% end %>
-        </td>
-      </tr>
-    <% end %>
-  <% end %>
-
-</table>
+<% @roles.each do |role| %>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <strong><%= role.name %></strong>
+      <small>&nbsp;&nbsp;&nbsp;<%= role.description %></small>
+      <%= link_to icon('plus', 'white'), add_permission_admin_role_path(role),
+        class: 'btn btn-success btn-xs pull-right' %>
+    </div>
+    <table class="table table-hover">
+      <% role.permissions.each do |permission| %>
+        <tr>
+          <td><%= permission.name %></td>
+          <td><%= permission.controller %></td>
+          <td><%= permission.actions %></td>
+          <td class="text-right">
+            <%= form_tag remove_permission_admin_role_path(role, :permission_id => permission) do %>
+              <%= button_tag icon('remove', 'white'), :class => 'btn btn-danger btn-xs',
+                :alt => t('.remove_permission'), :confirm => t('.remove_permission_confirm') %>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+<% end %>

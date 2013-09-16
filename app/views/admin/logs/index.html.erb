@@ -1,37 +1,44 @@
-<%= stylesheet_link_tag 'admin/logs' %>
-<%= javascript_include_tag 'admin/logs' %>
-
-<h1><%= t('.title') %></h1>
-
-<div id="log-index">
-
-  <form method="get">
-    <form method="get" action="">
-      <div class="input-prepend input-append date" id="datepicker" data-date="<%= params[:date] || l(Time.now, :format => :datepicker) %>" data-date-format="dd-mm-yyyy">
-        <span class="add-on"><i class="icon-th"></i></span><input class="span2" size="16" type="text" name="date" value="<%= params[:date] || l(Time.now, :format => :datepicker) %>" readonly><button class="btn" type="submit"><i class="icon-search"></i> Filtrar pela data</button><a class="btn" href="?">Ou ver todos</a>
+<div class="row">
+  <div class="col-md-6">
+    <h1 class="title"><%= t('.title') %></h1>
+  </div>
+  <div class="col-md-6">
+    <form method="get" action="" class="form-inline">
+      <div class="input-group">
+        <span class="input-group-btn">
+          <a class="btn btn-info" href="?"><span class="glyphicon glyphicon-th-list"></span>&nbsp;&nbsp;Todos</a>
+        </span>
+        <input type="text" name="date" value="<%= params[:date] || l(Time.now, :format => :datepicker) %>" class="form-control datepicker">
+        <span class="input-group-btn">
+          <button class="btn btn-primary" type="submit">
+            <span class="glyphicon glyphicon-search"></span>&nbsp;&nbsp;Filtrar
+          </button>
+        </span>
       </div>
     </form>
-  </form>
-
-  <table class="table table-condensed table-bordered">
-    <thead>
-      <tr>
-        <% scope = 'activerecord.attributes.log' %>
-        <th width="35%"><%= t('.datetime') %></th>
-        <th width="30%"><%= t('user',       :scope => scope) %></th>
-        <th><%= t('message',    :scope => scope) %></th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <% @logs.each do |log| %>
-        <tr>
-          <td><%= l log.created_at, :format => :log %></td>
-          <td><%= log.user.name %></td>
-          <td><%= log.message %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-  <%= paginate @logs %>
+  </div>
 </div>
+
+<div class="table-responsive">
+<table class="table table-condensed table-striped">
+  <thead>
+    <tr>
+      <% scope = 'activerecord.attributes.log' %>
+      <th width="35%"><%= t('.datetime') %></th>
+      <th width="30%"><%= t('user',       :scope => scope) %></th>
+      <th><%= t('message',    :scope => scope) %></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @logs.each do |log| %>
+      <tr>
+        <td><%= l log.created_at, :format => :log %></td>
+        <td><%= log.user.name %></td>
+        <td><%= log.message %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+<%= paginate @logs %>

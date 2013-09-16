@@ -2,5 +2,5 @@ pt-BR:
   admin:
     logs:
       index:
-        title: Log de Atividade no Sistema
+        title: Logs
         datetime: Data/Hora

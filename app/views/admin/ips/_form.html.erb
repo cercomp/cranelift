@@ -1,13 +1,20 @@
-<%= simple_form_for([:admin, @ip], :html => { :class => 'form-horizontal' }) do |f| %>
+<%= simple_form_for [:admin, @ip], html: { class: 'form-horizontal' },
+  defaults: { input_html: { class: 'form-control' },
+              controls_html: { class: 'col-md-6' },
+              label_html: { class: 'col-md-3 control-label' } } do |f| %>
   <%= render 'shared/form_errors', :f => f %>
 
-
-  <div class="control-group">
-    <span class="control-label">Endereço</span>
-    <div class="controls form-inline">
-      <input name="ip[ip]" type="text" class="input-medium" placeholder="200.123.XXX.XXX">
-      /
-      <input name="ip[cidr]" type="text" class="input-small" placeholder="XX" id="xx" maxlength="2">
+  <div class="form-group">
+    <label class="col-md-3 control-label">Endereços</label>
+    <div class="col-md-6">
+      <div class="row">
+        <div class="col-xs-8">
+          <input name="ip[ip]" type="text" class="form-control" placeholder="200.123.XXX.XXX">
+        </div>
+        <div class="col-xs-4">
+          <input name="ip[cidr]" type="text" class="form-control" placeholder="XX" id="xx" maxlength="2">
+        </div>
+      </div>
       <span class="help-block">ex: 192.168.100.100 / 28</span>
     </div>
   </div>
@@ -16,6 +23,5 @@
 
   <div class="form-actions">
     <%= f.button :submit, :class => 'btn-primary' %>
-    <%= link_to t('back'), admin_ips_path, :class => 'btn pull-right' %>
   </div>
 <% end %>

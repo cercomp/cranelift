@@ -1,7 +1,7 @@
 pt-BR:
   profiles:
     edit:
-      title: Editar perfil
+      title: Perfil
     update:
       profile_successfully_updated: 'Sua conta foi editada com sucesso!'
       successfully_updated: 'Usuário editado com sucesso!'
