@@ -2,7 +2,9 @@
 class SessionController < ApplicationController
   before_filter :noauthenticate!, except: :logout
   before_filter :authenticate!, only: :logout
-  before_filter :allow_signup?, only: [:signup, :create_user]
+  before_filter :require_allow_signup?, only: [:signup, :create_user]
+
+  helper_method :deny_signup?
 
   def login
   end
@@ -68,8 +70,11 @@ class SessionController < ApplicationController
 
   private
 
-  def allow_signup?
-    redirect_to login_url, alert: t('session.alert.not_allow_register') if
-      Setting.find_or_default('allow_register').value == 'false'
+  def deny_signup?
+    return Setting.find_or_default('allow_register').value == 'false'
+  end
+
+  def require_allow_signup?
+    redirect_to login_url, alert: t('session.alert.not_allow_register') if deny_signup?
   end
 end

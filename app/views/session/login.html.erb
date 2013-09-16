@@ -1,9 +1,11 @@
 <div class="navigation">
   <ul class="nav nav-pills">
     <li class="active"><a href="#">ENTRAR</a></li>
-    <li>
-      <%= link_to t('.sign_up'), signup_path %>
-    </li>
+    <% unless deny_signup? %>
+      <li>
+        <%= link_to t('.sign_up'), signup_path %>
+      </li>
+    <% end %>
   </ul>
 </div>
 

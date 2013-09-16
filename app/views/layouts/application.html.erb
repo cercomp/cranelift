@@ -20,9 +20,7 @@
               <%= current_user.name %>
             </div>
             <div class="info actions">
-              <%= link_to edit_profile_path do %>
-                <%= content_tag(:span, icon('cog', 'white'), class: "label label-default") %>
-              <% end %>
+              <%= link_to icon('cog', 'white'), edit_profile_path, class: "label label-default" %>
               <%= link_to icon('off', 'white'), logout_path, class: 'label label-danger', title: t('.logout'), method: :delete %>
             </div>
           </div>
@@ -36,12 +34,12 @@
       <div class="row" id="content">
         <div class="col-sm-2">
           <ul class="nav nav-pills nav-stacked" id="menu">
-            <%= menu_item('th-large', t('.projects'), projects_path) %>
-            <%= admin_menu_item('cog', t('.settings'), admin_settings_path) %>
-            <%= admin_menu_item('list', t('.roles'), admin_roles_path) %>
-            <%= admin_menu_item('stats', t('.logs'), admin_logs_path) %>
-            <%= admin_menu_item('list-alt', t('.ips'), admin_ips_path) %>
-            <%= admin_menu_item('user', t('.users'), admin_users_path) %>
+            <%= menu_item('th-large', 'projects', t('.projects'), projects_path) %>
+            <%= admin_menu_item('cog', 'settings', t('.settings'), admin_settings_path) %>
+            <%= admin_menu_item('list', 'roles', t('.roles'), admin_roles_path) %>
+            <%= admin_menu_item('stats', 'logs', t('.logs'), admin_logs_path) %>
+            <%= admin_menu_item('list-alt', 'ips', t('.ips'), admin_ips_path) %>
+            <%= admin_menu_item('user', 'users', t('.users'), admin_users_path) %>
           </ul>
         </div>
         <div class="col-sm-10 well">

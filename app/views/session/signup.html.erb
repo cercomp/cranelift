@@ -3,7 +3,9 @@
     <li>
       <%= link_to 'ENTRAR', login_path %>
     </li>
-    <li class="active"><a href="#">CADASTRAR</a></li>
+    <% unless deny_signup? %>
+      <li class="active"><a href="#">CADASTRAR</a></li>
+    <% end %>
   </ul>
 </div>
 
