@@ -1,0 +1,35 @@
+<h1 class="title">
+  Usuários
+  <%= link_to icon('plus', 'white'), new_admin_user_path, class: 'btn btn-success btn-xs pull-right' %>
+</h1>
+<div class="table-responsive">
+  <table class="table table-striped">
+    <tr>
+      <% scope = 'activerecord.attributes.user' %>
+      <th><%= t('name',     scope: scope) %></th>
+      <th><%= t('login',    scope: scope) %></th>
+      <th><%= t('role_id',  scope: scope) %></th>
+      <th><%= t('email',    scope: scope) %></th>
+      <th></th>
+    </tr>
+
+    <% @users.each do |user| %>
+      <tr class="<%= 'danger' unless user.active? %>">
+        <td><%= user.name.titleize %></td>
+        <td><%= user_login_with_status(user) %></td>
+        <td><%= user.role.name rescue user.admin? ? t('.admin') : '' %></td>
+        <td><%= user.email %></td>
+        <td class="text-right">
+          <%= link_to icon('pencil', 'white'), edit_admin_user_path(user), class: 'btn btn-info btn-xs' %>
+          <% if user.active? %>
+            <%= link_to icon('minus', 'white'), [:admin, user], confirm: 'Você tem certeza?',
+              method: :delete, class: 'btn btn-danger btn-xs' %>
+          <% else %>
+            <%= link_to icon('ok', 'white'), [:admin, user], confirm: 'Você tem certeza?',
+              method: :delete, class: 'btn btn-success btn-xs' %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+</div>
