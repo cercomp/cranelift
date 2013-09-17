@@ -1,27 +1,19 @@
-<%= simple_form_for([:admin, @user], :html => { :class => 'form-horizontal' }) do |f| %>
+<%= simple_form_for [:admin, @user], html: { class: 'form-horizontal' },
+  defaults: { input_html: { class: 'form-control' },
+              controls_html: { class: 'col-md-6' },
+              label_html: { class: 'col-md-3 control-label' } } do |f| %>
   <% render 'shared/form_errors', :f => f %>
-
-  <%= f.input :login %>
-
-  <%= f.input :password, :as => :password %>
-  <%= f.input :password_confirmation, :as => :password %>
-
-  <%= f.input :admin %>
-
-  <%= f.association :role, :include_blank => false %>
-
-  <%= f.input :ip_block %>
 
   <%= f.input :first_name %>
   <%= f.input :last_name %>
+  <%= f.input :login %>
   <%= f.input :email %>
-
-  <%= f.input :active %>
-
+  <%= f.input :password, :as => :password %>
+  <%= f.input :password_confirmation, :as => :password %>
+  <%= f.input :admin, input_html: { class: "checkbox" } %>
+  <%= f.association :role, :include_blank => false %>
+  <%= f.input :ip_block, input_html: { class: "checkbox" }  %>
+  <%= f.input :active, input_html: { class: "checkbox" }  %>
   <%= f.input :login_type %>
-
-  <div class="form-actions">
-    <%= f.button :submit, :class => 'btn-primary' %>
-    <%= link_to t('back'), admin_users_path, :class => 'btn btn-secundary pull-right' %>
-  </div>
+  <%= f.button :submit, :class => 'btn-primary' %>
 <% end %>

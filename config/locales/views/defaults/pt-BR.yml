@@ -31,8 +31,8 @@ pt-BR:
     pagination:
       first: "&laquo;"
       last: "&raquo;"
-      previous: "&lsaquo;"
-      next: "&rsaquo;"
+      previous: "&laquo;"
+      next: "&raquo;"
       truncate: "..."
 
 # ############################### Geral

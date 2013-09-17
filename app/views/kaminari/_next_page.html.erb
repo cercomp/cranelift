@@ -8,10 +8,12 @@
 -%>
 <% unless current_page.last? %>
   <li class="next_page">
-    <%= link_to raw(t 'views.pagination.next'), url, :rel => 'next', :remote => remote %>
+    <%#= link_to raw(t 'views.pagination.next'), url, rel: 'next', remote: remote %>
+    <%= link_to icon('chevron-right', 'inherited'), url, rel: 'next', remote: remote %>
   </li>
 <% else %>
   <li class="disabled">
-    <%= link_to raw(t 'views.pagination.next'), '#', :rel => 'next', :remote => remote %>
+    <%#= link_to raw(t 'views.pagination.next'), '#', rel: 'next', remote: remote %>
+    <%= link_to icon('chevron-right', 'inherited'), '#', rel: 'next', remote: remote %>
   </li>
 <% end %>

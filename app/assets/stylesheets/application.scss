@@ -1,12 +1,10 @@
 /*
- *= require chosen
- *= require_tree ./admin/
  *= require google/lato
- *= require datepicker
+ *= require bootstrap-datepicker/datepicker
  *= require_self
  */
 
-// TODO remover chosen?
+// require chosen
 
 $font-family-sans-serif: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif !default;
 $text-color: #3B3B41;
@@ -73,6 +71,7 @@ body { background: #F5F5F5; }
     font-size: 12px;
     color: #999;
   }
+  .pagination { margin-top: 0; }
 }
 #footer
 {
