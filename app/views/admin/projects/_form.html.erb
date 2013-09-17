@@ -1,13 +1,13 @@
-<%= simple_form_for([:admin, @project], :html => { :class => 'form-horizontal' }) do |f| %>
-  <%= render '/shared/form_errors', :f => f %>
+<%= simple_form_for([:admin, @project], html: { class: 'form-horizontal' }) do |f| %>
+  <%= render '/shared/form_errors', f: f %>
 
   <%= f.input :name %>
 
-  <%= f.input :description, :input_html => { :rows => 3 } %>
+  <%= f.input :description, input_html: { rows: 3 } %>
 
-  <%= f.association :users, :collection => user_collection, :input_html => {
+  <%= f.association :users, collection: user_collection, input_html: {
       :'data-placeholder' => t('.select_users'),
-      :style => 'width:100%' } %>
+      style: 'width:100%' } %>
 
   <% content_for :javascripts do %>
     <script type="text/javascript">
@@ -18,7 +18,7 @@
   <% end %>
 
   <div class="form-actions">
-    <%= f.button :submit, :class => 'btn-primary' %>
-    <%= link_to t('back'), :back, :class => 'btn pull-right' %>
+    <%= f.button :submit, class: 'btn-primary' %>
+    <%= link_to t('back'), :back, class: 'btn pull-right' %>
   </div>
 <% end %>

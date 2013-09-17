@@ -1,4 +1,4 @@
-<%= simple_form_for([:admin, current_project, @repository], :html => { :class => 'form-horizontal'}) do |f| %>
+<%= simple_form_for([:admin, current_project, @repository], html: { class: 'form-horizontal'}) do |f| %>
   <% if notification = f.error_notification %>
     <div class="alert alert-error fade in">
       <a class="close" data-dismiss="alert" href="#">&times;</a>
@@ -24,7 +24,7 @@ Get: curl <%= root_url %>autoupdate?id=<%= @repository.to_param %>&project_id=<%
   <% end %>
 
   <div class="form-actions">
-    <%= f.button :submit, :class => 'btn-primary' %>
-    <%= link_to t('back'), current_project, :class => 'btn pull-right' %>
+    <%= f.button :submit, class: 'btn-primary' %>
+    <%= link_to t('back'), current_project, class: 'btn pull-right' %>
   </div>
 <% end %>

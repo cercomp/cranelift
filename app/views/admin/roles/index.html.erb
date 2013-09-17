@@ -1,27 +1,40 @@
 <h1 class="title"><%= t('.title') %></h1>
 
-<% @roles.each do |role| %>
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <strong><%= role.name %></strong>
-      <small>&nbsp;&nbsp;&nbsp;<%= role.description %></small>
-      <%= link_to icon('plus', 'white'), add_permission_admin_role_path(role),
-        class: 'btn btn-success btn-xs pull-right' %>
-    </div>
-    <table class="table table-hover">
-      <% role.permissions.each do |permission| %>
-        <tr>
-          <td><%= permission.name %></td>
-          <td><%= permission.controller %></td>
-          <td><%= permission.actions %></td>
-          <td class="text-right">
-            <%= form_tag remove_permission_admin_role_path(role, :permission_id => permission) do %>
-              <%= button_tag icon('remove', 'white'), :class => 'btn btn-danger btn-xs',
-                :alt => t('.remove_permission'), :confirm => t('.remove_permission_confirm') %>
-            <% end %>
-          </td>
-        </tr>
-      <% end %>
-    </table>
+<% if @roles.blank? %>
+  <div class="alert alert-warning">
+    Não existem papeis definidos.
   </div>
+<% else %>
+  <% @roles.each do |role| %>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <strong><%= role.name %></strong>
+        <small>&nbsp;&nbsp;&nbsp;<%= role.description %></small>
+        <%= link_to icon('plus', 'white'), add_permission_admin_role_path(role),
+          class: 'btn btn-success btn-xs pull-right' %>
+      </div>
+
+      <% if role.permissions.blank? %>
+        <div class="alert alert-warning">
+          Não possui nenhuma permissão.
+        </div>
+      <% else %>
+        <table class="table table-hover">
+          <% role.permissions.each do |permission| %>
+            <tr>
+              <td><%= permission.name %></td>
+              <td><%= permission.controller %></td>
+              <td><%= permission.actions %></td>
+              <td class="text-right">
+                <%= form_tag remove_permission_admin_role_path(role, permission_id: permission) do %>
+                  <%= button_tag icon('remove', 'white'), class: 'btn btn-danger btn-xs',
+                    alt: t('.remove_permission'), confirm: t('.remove_permission_confirm') %>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </table>
+      <% end %>
+    </div>
+  <% end %>
 <% end %>
