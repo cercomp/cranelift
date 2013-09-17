@@ -2,28 +2,31 @@
 <html lang="pt-BR">
   <head>
     <title>cranelift</title>
-    <%# TODO pre compile %>
-    <%= stylesheet_link_tag "application", :media => "all" %>
+    <%= stylesheet_link_tag "application", media: "all" %>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <%= csrf_meta_tags %>
   </head>
+
   <body>
     <div class="container">
       <div class="row" id="header">
         <div class="col-sm-5">
           <%= image_tag 'logo.png', class: 'logo' %>
         </div>
+
         <div class="col-sm-4 col-sm-offset-3 person">
           <div class="pull-right">
             <div class="info name">
               <%= current_user.name %>
             </div>
+
             <div class="info actions">
               <%= link_to icon('cog', 'white'), edit_profile_path, class: "label label-default" %>
               <%= link_to icon('off', 'white'), logout_path, class: 'label label-danger', title: t('.logout'), method: :delete %>
             </div>
           </div>
+
           <div class="avatar pull-right">
             <img src="http://www.gravatar.com/avatar/<%= Digest::MD5.hexdigest(current_user.email) %>?s=37&d=mm">
           </div>
@@ -42,15 +45,17 @@
             <%= admin_menu_item('cog', 'settings', t('.settings'), admin_settings_path) %>
           </ul>
         </div>
+
         <div class="col-sm-10 well">
           <div class="messages">
             <% flash.each do |name, msg| %>
               <div class="alert alert-<%= name == :notice ? "success" : "danger" %> alert-dismissable">
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
+                <%= content_tag :div, msg, id: "flash_#{name}" if msg.is_a?(String) %>
               </div>
             <% end %>
           </div>
+
           <div class="content">
             <%= yield %>
           </div>
@@ -62,6 +67,7 @@
         © 2013 UFG
       </div>
     </div>
+
     <%= javascript_include_tag "application" %>
     <%= yield :javascripts %>
   </body>
