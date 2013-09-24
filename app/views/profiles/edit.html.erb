@@ -4,7 +4,23 @@
   defaults: { input_html: { class: 'form-control' },
               controls_html: { class: 'col-md-6' },
               label_html: { class: 'col-md-3 control-label' } } do |f| %>
-  
+
+  <div class="form-group">
+    <label class="col-md-3 control-label"></label>
+    <div class="col-md-6">
+      <div class="row">
+        <div class="col-md-4">
+          <a href="http://pt.gravatar.com/emails/" target="_blank">
+            <img src="http://www.gravatar.com/avatar/<%= Digest::MD5.hexdigest(@user.email) %>?s=120&d=mm" class="img-circle">
+          </a>
+        </div>
+        <div class="col-md-8 help-block">
+          Deseja mudar a imagem? Utilizamos o sistema Gravatar para gerênciar a foto do perfil, para modificar-la clique na imagem acima e siga o procedimento do Gravatar para definir uma imagem.
+        </div>
+      </div>
+    </div>
+  </div>
+
   <%= f.input :first_name %>
   <%= f.input :last_name %>
   <%= f.input :password %>
