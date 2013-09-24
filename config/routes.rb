@@ -27,7 +27,12 @@ Cranelift::Application.routes.draw do
   namespace :admin do
     resources :ips, :except => :show
     resources :logs, :only => :index
-    resources :users
+    resources :users, except: :delete do
+      member do
+        get :activate
+        get :inactivate
+      end
+    end
     resources :roles do
       member do
         get :add_permission

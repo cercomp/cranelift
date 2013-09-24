@@ -13,6 +13,7 @@ class User < ActiveRecord::Base
 
   validates :login,
             :presence => true,
+            :uniqueness => true,
             :length => { :in => 2..32 }
 
   validates :first_name,

@@ -22,11 +22,9 @@
         <td class="text-right">
           <%= link_to icon('pencil', 'white'), edit_admin_user_path(user), class: 'btn btn-info btn-xs' %>
           <% if user.active? %>
-            <%= link_to icon('minus', 'white'), [:admin, user], confirm: 'Você tem certeza?',
-              method: :delete, class: 'btn btn-danger btn-xs' %>
+            <%= link_to icon('minus', 'white'), inactivate_admin_user_path(user), class: 'btn btn-danger btn-xs' %>
           <% else %>
-            <%= link_to icon('ok', 'white'), [:admin, user], confirm: 'Você tem certeza?',
-              method: :delete, class: 'btn btn-success btn-xs' %>
+            <%= link_to icon('ok', 'white'), activate_admin_user_path(user), class: 'btn btn-success btn-xs' %>
           <% end %>
         </td>
       </tr>

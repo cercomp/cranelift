@@ -15,7 +15,18 @@ class Admin::UsersController < ApplicationController
   end
 
   def create
-    params[:user].slice!(:login, :password, :password_confirmation, :admin, :ip_block, :name, :email, :role_id)
+    params[:user].slice! :login,
+                         :first_name,
+                         :last_name,
+                         :email,
+                         :password,
+                         :password_confirmation,
+                         :admin,
+                         :role_id,
+                         :ip_block,
+                         :active,
+                         :login_type
+
     @user = User.new(params[:user])
 
     if @user.save
@@ -29,10 +40,22 @@ class Admin::UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
 
-    params[:user].slice!(:login, :password, :password_confirmation, :admin, :ip_block, :first_name, :last_name, :email, :role_id)
-    params[:user].except!(:password, :password_confirmation) if params[:user][:password].blank?
+    params[:user].slice! :login,
+                         :first_name,
+                         :last_name,
+                         :email,
+                         :password,
+                         :password_confirmation,
+                         :admin,
+                         :role_id,
+                         :ip_block,
+                         :active,
+                         :login_type
 
-    if @user.update_attributes(params[:user])
+    params[:user].except! :password,
+                          :password_confirmation if params[:user][:password].blank?
+
+    if @user.update_attributes params[:user]
       log current_user, "Atualizou o usuário #{@user.name}"
       redirect_to admin_users_url, :notice => t('profiles.update.successfully_updated')
     else
@@ -40,10 +63,18 @@ class Admin::UsersController < ApplicationController
     end
   end
 
-  def destroy
-    @user = User.find(params[:id])
-    @user.update_attribute :active, false
+  def activate
+    redirect_to admin_users_url, :notice => 'Habilitado com sucesso' if toogle_active
+  end
 
-    redirect_to admin_users_url, :notice => 'Desabilitado com sucesso'
+  def inactivate
+    redirect_to admin_users_url, :notice => 'Desabilitado com sucesso' if toogle_active
+  end
+
+  private
+
+  def toogle_active
+    @user = User.find(params[:id])
+    @user.update_attribute :active, !@user.active
   end
 end
