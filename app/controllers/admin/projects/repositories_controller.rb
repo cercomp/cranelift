@@ -1,7 +1,5 @@
 # encoding: utf-8
-class Admin::Projects::RepositoriesController < ApplicationController
-  before_filter :authenticate!, :only_admin!
-
+class Admin::Projects::RepositoriesController < Admin::BaseController
   helper_method :current_project
 
   def new

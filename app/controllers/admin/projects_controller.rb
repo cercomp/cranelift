@@ -1,7 +1,6 @@
 # encoding: utf-8
-class Admin::ProjectsController < ApplicationController
-  before_filter :authenticate!, :only_admin!
-  before_filter :find_users_by_param, :only => [:create, :update]
+class Admin::ProjectsController < Admin::BaseController
+  before_filter :find_users_by_param, only: [:create, :update]
 
   def index
     @projects = ::Project.order('lower(name)').page(params[:page]).per(25)
@@ -28,7 +27,7 @@ class Admin::ProjectsController < ApplicationController
 
     if @project.save
       log current_user, "Criou o projeto : #{@project.name}"
-      redirect_to @project, notice: t('application.obj_successfully_created', :obj => 'Projeto')
+      redirect_to @project, notice: t('application.obj_successfully_created', obj: 'Projeto')
     else
       render action: "new"
     end
@@ -41,7 +40,7 @@ class Admin::ProjectsController < ApplicationController
 
     if @project.update_attributes(params[:project])
       log current_user, "Modificou o projeto : #{@project.name}"
-      redirect_to [:admin, @project], notice: t('application.obj_successfully_updated', :obj => 'Projeto')
+      redirect_to [:admin, @project], notice: t('application.obj_successfully_updated', obj: 'Projeto')
     else
       render action: "edit"
     end

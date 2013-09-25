@@ -1,9 +1,10 @@
+# encoding: utf-8
 # TODO colocar permissões
 class Projects::RepositoriesController < ApplicationController
-  skip_before_filter :verify_authenticity_token, :only => :update
+  skip_before_filter :verify_authenticity_token, only: :update
 
-  before_filter :authenticate!, :except => :update
-  before_filter :verify_local_access, :only => :update
+  before_filter :authenticate!, except: :update
+  before_filter :verify_local_access, only: :update
 
   helper_method :current_project
 
@@ -18,7 +19,7 @@ class Projects::RepositoriesController < ApplicationController
     @repository = current_project.repositories.find(params[:id])
     @repository.version = params[:repository][:version]
     @repository.save
-    redirect_to @repository.project, :notice => 'Repositorio atualizado com sucsso'
+    redirect_to @repository.project, notice: 'Repositorio atualizado com sucsso'
   end
 
   private

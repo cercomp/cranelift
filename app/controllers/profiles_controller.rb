@@ -20,7 +20,7 @@ class ProfilesController < ApplicationController
 
     if @user.update_attributes params[:user]
       log @user, 'Atualizou seus dados'
-      redirect_to root_url, :notice => t('profiles.update.successfully_updated')
+      redirect_to root_url, notice: t('profiles.update.successfully_updated')
     else
       render :edit
     end

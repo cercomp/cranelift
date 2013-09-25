@@ -9,6 +9,7 @@ gem 'simple_form'
 gem 'jquery-rails'
 gem 'friendly_id'
 gem 'thin'
+gem 'strong_parameters'
 
 group :sqlite do
   gem 'sqlite3'

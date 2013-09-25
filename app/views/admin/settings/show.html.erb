@@ -1,6 +1,6 @@
 <h1 class="title">Configurações</h1>
 
-<%= form_tag admin_settings_path, class: 'form-horizontal' do %>
+<%= form_tag admin_settings_path, class: 'form-horizontal', method: :put do %>
   <div class="form-group">
     <% s = Setting.find_or_default('login_method') %>
 

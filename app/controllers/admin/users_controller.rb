@@ -1,8 +1,10 @@
 # encoding: utf-8
-class Admin::UsersController < ApplicationController
-  before_filter :authenticate!, :only_admin!
+class Admin::UsersController < Admin::BaseController
+  before_filter :set_user, only: [:edit, :update]
 
   def index
+    # TODO scope
+    # TODO per_page
     @users = User.order('LOWER(first_name)').page(params[:page]).per(10)
   end
 
@@ -11,70 +13,62 @@ class Admin::UsersController < ApplicationController
   end
   
   def edit
-    @user = User.find(params[:id])
   end
 
   def create
-    params[:user].slice! :login,
-                         :first_name,
-                         :last_name,
-                         :email,
-                         :password,
-                         :password_confirmation,
-                         :admin,
-                         :role_id,
-                         :ip_block,
-                         :active,
-                         :login_type
-
-    @user = User.new(params[:user])
+    @user = User.new(user_params)
 
     if @user.save
       log current_user, "Criou o usuário #{@user.name}"
-      redirect_to admin_users_url, :notice => 'Usuário cadastrado com sucesso.'
+
+      redirect_to admin_users_url, notice: 'Usuário cadastrado com sucesso.'
     else
       render :new
     end
   end
 
   def update
-    @user = User.find(params[:id])
-
-    params[:user].slice! :login,
-                         :first_name,
-                         :last_name,
-                         :email,
-                         :password,
-                         :password_confirmation,
-                         :admin,
-                         :role_id,
-                         :ip_block,
-                         :active,
-                         :login_type
-
-    params[:user].except! :password,
-                          :password_confirmation if params[:user][:password].blank?
-
-    if @user.update_attributes params[:user]
+    if @user.update_attributes user_params
       log current_user, "Atualizou o usuário #{@user.name}"
-      redirect_to admin_users_url, :notice => t('profiles.update.successfully_updated')
+
+      redirect_to admin_users_url, notice: t('profiles.update.successfully_updated')
     else
       render :edit
     end
   end
 
   def activate
-    redirect_to admin_users_url, :notice => 'Habilitado com sucesso' if toogle_active
+    if toogle_active
+      log current_user, "Habilitou o usuário #{@user.name}"
+
+      redirect_to admin_users_url, notice: 'Habilitado com sucesso'
+    else
+      redirect_to :back
+    end
   end
 
   def inactivate
-    redirect_to admin_users_url, :notice => 'Desabilitado com sucesso' if toogle_active
+    if toogle_active
+      log current_user, "Desabilitou o usuário #{@user.name}"
+
+      redirect_to admin_users_url, notice: 'Desabilitado com sucesso'
+    else
+      redirect_to :back
+    end
   end
 
   private
 
-  def toogle_active
+  def set_user
     @user = User.find(params[:id])
+  end
+
+  def user_params
+    params.require(:user).permit(:login, :first_name, :last_name, :email, :password, :password_confirmation,
+                                 :admin, :role_id, :ip_block, :active, :login_type)
+  end
+
+  def toogle_active
     @user.update_attribute :active, !@user.active
   end
 end

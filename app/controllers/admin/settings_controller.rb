@@ -1,12 +1,11 @@
-class Admin::SettingsController < ApplicationController
-  before_filter :authenticate!, :only_admin!
-
-  def index
+# encoding: utf-8
+class Admin::SettingsController < Admin::BaseController
+  def show
     @settings = Setting.all
   end
 
-  def update_all
-    # TODO quando update_attributes falhar - tratar erro
+  # TODO quando update_attributes falhar - tratar erro
+  def update
     params[:setting].each do |k, v|
       setting = Setting.find(k)
       setting.update_attributes v
@@ -17,5 +16,4 @@ class Admin::SettingsController < ApplicationController
       format.json { head :no_content }
     end
   end
-
 end
