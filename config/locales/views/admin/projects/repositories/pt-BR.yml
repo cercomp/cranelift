@@ -1,13 +1,12 @@
 pt-BR:
-  projects:
-    repositories:
-      new:
-        title: Novo Repositório
-      auth:
-        create:
-          auth_failed: A autenticação falhou
+  admin:
+    projects:
+      repositories:
         new:
+          title: Novo Repositório
           auth_required: Este repositório exige autenticação
           login: Login
           password: Senha
           submit: Autenticar
+        create:
+          auth_failed: A autenticação falhou

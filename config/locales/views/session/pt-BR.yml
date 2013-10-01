@@ -5,6 +5,11 @@ pt-BR:
       password: Senha
       sign_in: Entrar
       sign_up: Cadastrar
-      reset_password: Recuperar senha
+      reset_password: Recuperar acesso
+      forgot_password: Esqueceu a senha?
+    forgot_password:
+      sign_in: Entrar
+      sign_up: Cadastrar
+      info_recover_access: Preencha o formulário para que sejam enviadas instruções de como recuperar seu acesso.
     alert:
       not_allow_register: O sistema não está aceitando registro de novos usuários

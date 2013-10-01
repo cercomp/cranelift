@@ -1,7 +1,7 @@
 'pt-BR':
   admin:
     settings:
-      index:
+      show:
         allow_register: Habilitar Cadastro
         default_role: Papel padrão
         login_method: Método de login
