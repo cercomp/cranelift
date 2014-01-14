@@ -10,6 +10,7 @@ gem 'jquery-rails'
 gem 'friendly_id'
 gem 'thin'
 gem 'strong_parameters'
+gem 'pg', '0.14.1'
 
 group :sqlite do
   gem 'sqlite3'

@@ -30,7 +30,7 @@ module Cranelift
 
     def delete_files
       if File.directory?(project_path)
-        FileUtils.rm_rf(project_pathadd_ssl_server_trust_prompt_provider)
+        FileUtils.rm_rf(project_path)
       end
     end
 

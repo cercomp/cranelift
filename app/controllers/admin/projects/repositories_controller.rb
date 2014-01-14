@@ -32,7 +32,7 @@ class Admin::Projects::RepositoriesController < Admin::BaseController
     end
 
     if @repository.update_attributes(params[:repository])
-      log current_user, "Alterou o reposiotio #{@repository.name} no projeto #{current_project.name}"
+      log current_user, "Alterou o repositório #{@repository.name} no projeto #{current_project.name}"
       redirect_to current_project, notice: 'Repository was successfully updated.'
     else
       render action: "edit"
